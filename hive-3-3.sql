@@ -1,24 +1,32 @@
-select distinct(t.name) TeamName, m.firstName, m.lastname,a.award,a.won  from
-(
-select      c.tmid                              as tmid
-           ,max(struct(a.cnt,a.coachid,c.w)).col2   as coachid
-           ,max(struct(a.cnt,a.coachid,c.w)).col1   as award
-           ,max(struct(a.cnt,a.coachid,c.w)).col3   as won
-from                    coaches c
-
-            join       (select      coachid
-                                   ,count(*)    as cnt
-
-                        from        awardscoaches
-
+select a.TeamName as TeamName, a.firstName as FirstName, a.lastname as LastName, a.award as Award, a.won as Won from (
+    select t.name as TeamName, m.firstName FirstName, m.lastname LastName, a.award award, a.won won
+    from (
+    select c.tmid as tmid, c.coachid as coachid, c.award as award, MAX(c.won) as won
+        FROM
+            (
+        select a.tmid as tmid, a.award as award, b.coachid, b.won as won 
+        from  (
+            select a.tmid, MAX(a.award) as award
+                from (
+                    select c.tmid as tmid, c.coachid as coachid, a.award as award, c.w as won
+                    from coaches c join (
+                            select coachid, count(*)    as award
+                        from awardscoaches
                         group by    coachid
-                        ) a
-
-            on          a.coachid =
-                        c.coachid
-
-group by    c.tmid
-) a
-, ice_hockey_teams t, master m
-where a.tmid = t.tmid and m.coachid = a.coachid
-order by TeamName;
+                            ) a on a.coachid = c.coachid
+                ) a  group by a.tmid
+        ) a
+            JOIN (
+                select c.tmid as tmid, c.coachid as coachid, a.award as award, c.w as won
+                from coaches c join (
+                        select coachid, count(*)    as award
+                    from awardscoaches
+                    group by    coachid
+                        ) a on a.coachid = c.coachid
+            )  b 
+            ON a.tmid = b.tmid and a.award = b.award
+            ) c group by tmid, coachid, award
+    ) a
+    , ice_hockey_teams t, master m
+    where a.tmid = t.tmid and m.coachid = a.coachid
+) a group by a.TeamName, a.FirstName, a.LastName, a.Award, a.Won order by TeamName;

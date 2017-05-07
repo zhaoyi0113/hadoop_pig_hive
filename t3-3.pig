@@ -27,7 +27,7 @@ coach_master = foreach (join f by coachID, master by coachID) generate f::coachI
 
 coach_team_master = distinct (foreach (join coach_master by tmID, teams by tmID) 
     generate teams::name as Name, coach_master::firstName as firstName, coach_master::lastName as lastName, 
-    coach_master::award as award, coach_master::Win as Win);
+    coach_master::award as award, coach_master::Win as Win, coach_master::coachID);
 
 result = order coach_team_master by Name;
 dump result
