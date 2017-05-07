@@ -1,0 +1,177 @@
+-------------------------------------------------------temp_ice_hockey_Teams
+create table temp_ice_hockey_Teams (col_value STRING);
+
+LOAD DATA INPATH '/tmp/Assignment2/Teams.csv' OVERWRITE INTO TABLE temp_ice_hockey_Teams;
+
+----------------------------------------------------------------------------------------------ice_hockey_Teams
+create table ice_hockey_teams (year INT, lgID STRING, tmID STRING, franchID STRING, confID STRING, divID STRING, rank INT, playoff STRING, G INT, W INT, L INT, T INT, OTL INT, Pts INT, SoW INT, SoL INT, GF INT, GA INT, name STRING, PIM STRING, BenchMinor STRING, PPG STRING, PPC STRING, SHA STRING, PKG STRING, PKC STRING, SHF STRING)  TBLPROPERTIES ("skip.header.line.count"="1");
+
+insert overwrite table ice_hockey_teams
+SELECT
+ regexp_extract(col_value, '^(?:([^,]*)\,?){1}', 1) year,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){2}', 1) lgID,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){3}', 1) tmID,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){4}', 1) franchID,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){5}', 1) confID,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){6}', 1) divID,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){7}', 1) rank,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){8}', 1) playoff,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){9}', 1) G,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){10}', 1) W,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){11}', 1) L,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){12}', 1) T,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){13}', 1) OTL,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){14}', 1) Pts,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){15}', 1) SoW,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){16}', 1) SoL,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){17}', 1) GF,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){18}', 1) GA,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){19}', 1) name,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){20}', 1) PIM,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){21}', 1) BenchMinor,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){22}', 1) PPG,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){23}', 1) PPC,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){24}', 1) SHA,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){25}', 1) PKG,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){26}', 1) PKC,
+ regexp_extract(col_value, '^(?:([^,]*)\,?){27}', 1) SHF
+from temp_ice_hockey_teams;
+
+------------------------------------------------------------T3-a
+SELECT name, 
+COUNT(ice_hockey_teams.g) as wins,
+COUNT(ice_hockey_teams.l) as losses,
+COUNT(ice_hockey_teams.t) as ties
+FROM ice_hockey_Teams
+GROUP BY name;
+
+------------------------------------------------------------T3-b
+
+select distinct(s.playerId) PlayerID, h.name TeamName, 
+    m.firstname FirstName, m.lastname LastName, s.year Year, 
+	s.pts Point, s.G Goals, s.A Assists
+from scoring s 
+join
+(select max(struct(s.pts, s.year,s.g, s.a)).col1 pts
+	,max(struct(s.pts, s.year,s.g, s.a)).col2 year
+	,max(struct(s.pts, s.year,s.g, s.a)).col3 goals
+	,max(struct(s.pts, s.year,s.g, s.a)).col4 assists
+	,s.tmid from  scoring s group by s.tmid) t
+on s.tmid = t.tmid and s.pts = t.pts
+join master m on (m.playerId = s.playerId)
+join ice_hockey_teams h on h.tmid = t.tmid
+
+———————————T3-c
+
+
+1. get coach number of awards
+
+select coachid, count(award) from awardscoaches group by coachid limit 10
+
+2. join with coach
+
+select c.tmid, max(a.count) from coaches c inner join 
+	(select coachid, count(award) count 
+	from awardscoaches group by coachid) a 
+	on a.coachid = c.coachid group by c.tmid
+
+3. join
+
+
+select distinct(t.name),a.coachid, a.award, m.firstName, m.lastname,a.won  from
+(
+select      c.tmid                              as tmid
+           ,max(struct(a.cnt,a.coachid,c.w)).col2   as coachid
+           ,max(struct(a.cnt,a.coachid,c.w)).col1   as award
+           ,max(struct(a.cnt,a.coachid,c.w)).col3   as won
+
+from                    coaches c
+
+            join       (select      coachid
+                                   ,count(*)    as cnt
+
+                        from        awardscoaches
+
+                        group by    coachid
+                        ) a
+
+            on          a.coachid =
+                        c.coachid
+
+group by    c.tmid
+) a
+, ice_hockey_teams t, master m
+where a.tmid = t.tmid and m.coachid = a.coachid
+
+
+
+————————————————————
+
+CREATE TABLE `Scoring`(
+`playerid` string,
+`year` int,
+`stint` int,
+`tmid` string,
+`lgid` string,
+`pos` string,
+`gp` int,
+`g` int,
+`a` int,
+`pts` int,
+`pim` int,
+`plusminus` int,
+`ppg` int,
+`ppa` int,
+`shg` int,
+`sha` int,
+`gwg` int,
+`gtg` int,
+`sog` int,
+`postgp` int,
+`postg` int,
+`posta` int,
+`postpts` int,
+`postpim` int,
+`postplusminus` int,
+`postppg` int,
+`postppa` int,
+`postshg` int,
+`postsha` int,
+`postgwg` int,
+`postsog` int) TBLPROPERTIES ("skip.header.line.count"="1")
+
+
+insert overwrite table Scoring
+SELECT
+regexp_extract(value, '^(?:([^,]*)\,?){1}', 1) playerID,
+regexp_extract(value, '^(?:([^,]*)\,?){2}', 1) year,
+regexp_extract(value, '^(?:([^,]*)\,?){3}', 1) stint,
+regexp_extract(value, '^(?:([^,]*)\,?){4}', 1) tmID,
+regexp_extract(value, '^(?:([^,]*)\,?){5}', 1) lgID,
+regexp_extract(value, '^(?:([^,]*)\,?){6}', 1) pos,
+regexp_extract(value, '^(?:([^,]*)\,?){7}', 1) GP,
+regexp_extract(value, '^(?:([^,]*)\,?){8}', 1) G,
+regexp_extract(value, '^(?:([^,]*)\,?){9}', 1) A,
+regexp_extract(value, '^(?:([^,]*)\,?){10}', 1) Pts,
+regexp_extract(value, '^(?:([^,]*)\,?){11}', 1) PIM,
+regexp_extract(value, '^(?:([^,]*)\,?){12}', 1) PlusMinus,
+regexp_extract(value, '^(?:([^,]*)\,?){13}', 1) PPG,
+regexp_extract(value, '^(?:([^,]*)\,?){14}', 1) PPA,
+regexp_extract(value, '^(?:([^,]*)\,?){15}', 1) SHG,
+regexp_extract(value, '^(?:([^,]*)\,?){16}', 1) SHA,
+regexp_extract(value, '^(?:([^,]*)\,?){17}', 1) GWG,
+regexp_extract(value, '^(?:([^,]*)\,?){18}', 1) GTG,
+regexp_extract(value, '^(?:([^,]*)\,?){19}', 1) SOG,
+regexp_extract(value, '^(?:([^,]*)\,?){20}', 1) PostGP,
+regexp_extract(value, '^(?:([^,]*)\,?){21}', 1) PostG,
+regexp_extract(value, '^(?:([^,]*)\,?){22}', 1) PostA,
+regexp_extract(value, '^(?:([^,]*)\,?){23}', 1) PostPts,
+regexp_extract(value, '^(?:([^,]*)\,?){24}', 1) PostPIM,
+regexp_extract(value, '^(?:([^,]*)\,?){25}', 1) PostPlusMinus,
+regexp_extract(value, '^(?:([^,]*)\,?){26}', 1) PostPPG,
+regexp_extract(value, '^(?:([^,]*)\,?){27}', 1) PostPPA,
+regexp_extract(value, '^(?:([^,]*)\,?){28}', 1) PostSHG,
+regexp_extract(value, '^(?:([^,]*)\,?){29}', 1) PostSHA,
+regexp_extract(value, '^(?:([^,]*)\,?){30}', 1) PostGWG,
+regexp_extract(value, '^(?:([^,]*)\,?){31}', 1) PostSOG
+from temp_scoring;

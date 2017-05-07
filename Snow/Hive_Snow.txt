@@ -1,0 +1,81 @@
+------------------------------------Master
+CREATE TABLE temp_master(col_value STRING);
+
+LOAD DATA INPATH '/tmp/FIT5148/Master.csv' OVERWRITE INTO TABLE temp_master;
+
+CREATE TABLE master (playerID STRING, coachID STRING, hofID STRING, firstName STRING, lastName STRING, nameNote STRING, nameGiven STRING, nameNick STRING, height INT, weight INT, shootCatch STRING, legendsID STRING, ihdbID INT, hrefID STRING, firstNHL INT, lastNHL INT, firstWHA INT, lastWHA INT, pos STRING, birthYear INT, birthMon INT, birthDay INT, birthCountry STRING, birthState STRING, birthCity STRING, deathYear INT, deathMon INT, deathDay INT, deathCountry STRING, deathState STRING, deathCity STRING);
+
+INSERT OVERWRITE TABLE master
+SELECT
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){1}', 1) playerID,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){2}', 1) coachID,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){3}', 1) hofID,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){4}', 1) firstName,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){5}', 1) lastName,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){6}', 1) nameNote,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){7}', 1) nameGiven,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){8}', 1) nameNick,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){9}', 1) height,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){10}', 1) weight,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){11}', 1) shootCatch,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){12}', 1) legendsID,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){13}', 1) ihdbID,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){14}', 1) hrefID,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){15}', 1) firstNHL,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){16}', 1) lastNHL,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){17}', 1) firstWHA,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){18}', 1) lastWHA,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){19}', 1) pos,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){20}', 1) birthYear,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){21}', 1) birthMon,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){22}', 1) birthDay,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){23}', 1) birthCountry,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){24}', 1) birthState,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){25}', 1) birthCity,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){26}', 1) deathYear,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){27}', 1) deathMon,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){28}', 1) deathDay,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){29}', 1) deathCountry,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){30}', 1) deathState,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){31}', 1) deathCity
+from temp_master;
+
+------------------------------------Coaches
+CREATE TABLE temp_coaches(col_value STRING);
+
+LOAD DATA INPATH '/tmp/FIT5148/Coaches.csv' OVERWRITE INTO TABLE temp_coaches;
+
+CREATE TABLE coaches (coachID STRING, year INT, tmID STRING, lgID STRING, stint INT, notes STRING, G INT, W INT, L INT, T INT, PostG INT, PostW INT, PostL INT, PostT INT);
+
+INSERT OVERWRITE TABLE coaches
+SELECT 
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){1}', 1) coachID,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){2}', 1) year,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){3}', 1) tmID,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){4}', 1) lgID,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){5}', 1) stint,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){6}', 1) notes,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){7}', 1) G,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){8}', 1) W,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){9}', 1) L,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){10}', 1) T,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){11}', 1) PostG,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){12}', 1) PostW,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){13}', 1) PostL,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){14}', 1) PostT
+from temp_coaches;
+------------------------------------AwardsCoaches
+CREATE TABLE temp_awardscoaches(col_value STRING);
+
+LOAD DATA INPATH '/tmp/FIT5148/AwardsCoaches.csv' OVERWRITE INTO TABLE temp_awardscoaches;
+
+CREATE TABLE awardscoaches (coachID STRING, award STRING, year INT, lgID STRING, note STRING);
+
+INSERT OVERWRITE TABLE awardscoaches
+SELECT 
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){1}', 1) coachID,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){2}', 1) award,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){3}', 1) year,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){4}', 1) lgID,
+REGEXP_EXTRACT (col_value, '^(?:([^,]*)\,?){5}', 1) note
+from temp_awardscoaches;
