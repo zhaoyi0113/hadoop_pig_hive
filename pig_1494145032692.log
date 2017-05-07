@@ -1,0 +1,2429 @@
+Pig Stack Trace
+---------------
+ERROR 1200: <line 7, column 37>  Syntax error, unexpected symbol at or near '='
+
+Failed to parse: <line 7, column 37>  Syntax error, unexpected symbol at or near '='
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 7, column 29> Invalid field projection. Projected field [playerId] does not exist in schema: playerID:chararray,max_pts:double,tmID:chararray,year:int,goals:int,assists:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 7, column 29> Invalid field projection. Projected field [playerId] does not exist in schema: playerID:chararray,max_pts:double,tmID:chararray,year:int,goals:int,assists:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:80)
+	at org.apache.pig.newplan.logical.relational.LOFilter.accept(LOFilter.java:79)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 14, column 13> Invalid field projection. Projected field [playerID] does not exist in schema: max_scoring::tmid:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 14, column 13> Invalid field projection. Projected field [playerID] does not exist in schema: max_scoring::tmid:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 14, column 13> Invalid field projection. Projected field [playerID] does not exist in schema: max_scoring::tmid:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 14, column 13> Invalid field projection. Projected field [playerID] does not exist in schema: max_scoring::tmid:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1000: Error during parsing. Encountered " <IDENTIFIER> "generate "" at line 1, column 5.
+Was expecting one of:
+    <EOF> 
+    "cat" ...
+    "clear" ...
+    "fs" ...
+    "sh" ...
+    "cd" ...
+    "cp" ...
+    "copyFromLocal" ...
+    "copyToLocal" ...
+    "dump" ...
+    "\\d" ...
+    "describe" ...
+    "\\de" ...
+    "aliases" ...
+    "explain" ...
+    "\\e" ...
+    "help" ...
+    "history" ...
+    "kill" ...
+    "ls" ...
+    "mv" ...
+    "mkdir" ...
+    "pwd" ...
+    "quit" ...
+    "\\q" ...
+    "register" ...
+    "rm" ...
+    "rmf" ...
+    "set" ...
+    "illustrate" ...
+    "\\i" ...
+    "run" ...
+    "exec" ...
+    "%default" ...
+    "%declare" ...
+    "scriptDone" ...
+    "" ...
+    "" ...
+    <EOL> ...
+    ";" ...
+    
+
+org.apache.pig.tools.pigscript.parser.ParseException: Encountered " <IDENTIFIER> "generate "" at line 1, column 5.
+Was expecting one of:
+    <EOF> 
+    "cat" ...
+    "clear" ...
+    "fs" ...
+    "sh" ...
+    "cd" ...
+    "cp" ...
+    "copyFromLocal" ...
+    "copyToLocal" ...
+    "dump" ...
+    "\\d" ...
+    "describe" ...
+    "\\de" ...
+    "aliases" ...
+    "explain" ...
+    "\\e" ...
+    "help" ...
+    "history" ...
+    "kill" ...
+    "ls" ...
+    "mv" ...
+    "mkdir" ...
+    "pwd" ...
+    "quit" ...
+    "\\q" ...
+    "register" ...
+    "rm" ...
+    "rmf" ...
+    "set" ...
+    "illustrate" ...
+    "\\i" ...
+    "run" ...
+    "exec" ...
+    "%default" ...
+    "%declare" ...
+    "scriptDone" ...
+    "" ...
+    "" ...
+    <EOL> ...
+    ";" ...
+    
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.generateParseException(PigScriptParser.java:1498)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.handle_invalid_command(PigScriptParser.java:1306)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:726)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: <line 16, column 0>  Syntax error, unexpected symbol at or near 'max_player_pts'
+
+Failed to parse: <line 16, column 0>  Syntax error, unexpected symbol at or near 'max_player_pts'
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: <line 16, column 37>  Syntax error, unexpected symbol at or near '='
+
+Failed to parse: <line 16, column 37>  Syntax error, unexpected symbol at or near '='
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: <line 17, column 54>  mismatched input 'generate' expecting RIGHT_PAREN
+
+Failed to parse: <line 17, column 54>  mismatched input 'generate' expecting RIGHT_PAREN
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 17, column 104> Invalid field projection. Projected field [max_pts] does not exist in schema: group:tuple(playerID:chararray,tmID:chararray),max_player_pts:bag{:tuple(playerID:chararray,max_pts:double,tmID:chararray,year:int,goals:int,assists:int)}.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 17, column 104> Invalid field projection. Projected field [max_pts] does not exist in schema: group:tuple(playerID:chararray,tmID:chararray),max_player_pts:bag{:tuple(playerID:chararray,max_pts:double,tmID:chararray,year:int,goals:int,assists:int)}.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: <line 20, column 13>  mismatched input 'scoring::playerID' expecting LEFT_PAREN
+
+Failed to parse: <line 20, column 13>  mismatched input 'scoring::playerID' expecting LEFT_PAREN
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: <line 20, column 0>  Syntax error, unexpected symbol at or near 'max_player_info'
+
+Failed to parse: <line 20, column 0>  Syntax error, unexpected symbol at or near 'max_player_info'
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: Pig script failed to parse: 
+<line 19, column 32> Undefined alias: max_player
+
+Failed to parse: Pig script failed to parse: 
+<line 19, column 32> Undefined alias: max_player
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:199)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+Caused by: 
+<line 19, column 32> Undefined alias: max_player
+	at org.apache.pig.parser.AstValidator.validateAliasRef(AstValidator.java:278)
+	at org.apache.pig.parser.AstValidator.rel(AstValidator.java:6557)
+	at org.apache.pig.parser.AstValidator.join_item(AstValidator.java:13418)
+	at org.apache.pig.parser.AstValidator.join_sub_clause(AstValidator.java:13318)
+	at org.apache.pig.parser.AstValidator.join_clause(AstValidator.java:12993)
+	at org.apache.pig.parser.AstValidator.op_clause(AstValidator.java:1823)
+	at org.apache.pig.parser.AstValidator.rel(AstValidator.java:6593)
+	at org.apache.pig.parser.AstValidator.foreach_clause(AstValidator.java:13946)
+	at org.apache.pig.parser.AstValidator.op_clause(AstValidator.java:1923)
+	at org.apache.pig.parser.AstValidator.general_statement(AstValidator.java:1035)
+	at org.apache.pig.parser.AstValidator.statement(AstValidator.java:499)
+	at org.apache.pig.parser.AstValidator.query(AstValidator.java:373)
+	at org.apache.pig.parser.QueryParserDriver.validateAst(QueryParserDriver.java:258)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:186)
+	... 16 more
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: <line 20, column 0>  Syntax error, unexpected symbol at or near 'max_player_info'
+
+Failed to parse: <line 20, column 0>  Syntax error, unexpected symbol at or near 'max_player_info'
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: Pig script failed to parse: 
+<line 19, column 32> Undefined alias: max_player
+
+Failed to parse: Pig script failed to parse: 
+<line 19, column 32> Undefined alias: max_player
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:199)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+Caused by: 
+<line 19, column 32> Undefined alias: max_player
+	at org.apache.pig.parser.AstValidator.validateAliasRef(AstValidator.java:278)
+	at org.apache.pig.parser.AstValidator.rel(AstValidator.java:6557)
+	at org.apache.pig.parser.AstValidator.join_item(AstValidator.java:13418)
+	at org.apache.pig.parser.AstValidator.join_sub_clause(AstValidator.java:13318)
+	at org.apache.pig.parser.AstValidator.join_clause(AstValidator.java:12993)
+	at org.apache.pig.parser.AstValidator.op_clause(AstValidator.java:1823)
+	at org.apache.pig.parser.AstValidator.rel(AstValidator.java:6593)
+	at org.apache.pig.parser.AstValidator.foreach_clause(AstValidator.java:13946)
+	at org.apache.pig.parser.AstValidator.op_clause(AstValidator.java:1923)
+	at org.apache.pig.parser.AstValidator.general_statement(AstValidator.java:1035)
+	at org.apache.pig.parser.AstValidator.statement(AstValidator.java:499)
+	at org.apache.pig.parser.AstValidator.query(AstValidator.java:373)
+	at org.apache.pig.parser.QueryParserDriver.validateAst(QueryParserDriver.java:258)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:186)
+	... 16 more
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1000: Error during parsing. Encountered " <IDENTIFIER> "generate "" at line 2, column 6.
+Was expecting one of:
+    <EOF> 
+    "cat" ...
+    "clear" ...
+    "fs" ...
+    "sh" ...
+    "cd" ...
+    "cp" ...
+    "copyFromLocal" ...
+    "copyToLocal" ...
+    "dump" ...
+    "\\d" ...
+    "describe" ...
+    "\\de" ...
+    "aliases" ...
+    "explain" ...
+    "\\e" ...
+    "help" ...
+    "history" ...
+    "kill" ...
+    "ls" ...
+    "mv" ...
+    "mkdir" ...
+    "pwd" ...
+    "quit" ...
+    "\\q" ...
+    "register" ...
+    "rm" ...
+    "rmf" ...
+    "set" ...
+    "illustrate" ...
+    "\\i" ...
+    "run" ...
+    "exec" ...
+    "%default" ...
+    "%declare" ...
+    "scriptDone" ...
+    "" ...
+    "" ...
+    <EOL> ...
+    ";" ...
+    
+
+org.apache.pig.tools.pigscript.parser.ParseException: Encountered " <IDENTIFIER> "generate "" at line 2, column 6.
+Was expecting one of:
+    <EOF> 
+    "cat" ...
+    "clear" ...
+    "fs" ...
+    "sh" ...
+    "cd" ...
+    "cp" ...
+    "copyFromLocal" ...
+    "copyToLocal" ...
+    "dump" ...
+    "\\d" ...
+    "describe" ...
+    "\\de" ...
+    "aliases" ...
+    "explain" ...
+    "\\e" ...
+    "help" ...
+    "history" ...
+    "kill" ...
+    "ls" ...
+    "mv" ...
+    "mkdir" ...
+    "pwd" ...
+    "quit" ...
+    "\\q" ...
+    "register" ...
+    "rm" ...
+    "rmf" ...
+    "set" ...
+    "illustrate" ...
+    "\\i" ...
+    "run" ...
+    "exec" ...
+    "%default" ...
+    "%declare" ...
+    "scriptDone" ...
+    "" ...
+    "" ...
+    <EOL> ...
+    ";" ...
+    
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.generateParseException(PigScriptParser.java:1498)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.handle_invalid_command(PigScriptParser.java:1306)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:726)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 20, column 83> Invalid field projection. Projected field [tmid] does not exist in schema: playerID:chararray,max_pts:double,tmID:chararray,year:int,goals:int,assists:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 20, column 83> Invalid field projection. Projected field [tmid] does not exist in schema: playerID:chararray,max_pts:double,tmID:chararray,year:int,goals:int,assists:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 21, column 52> Invalid field projection. Projected field [max_player::max_pts] does not exist in schema: max_player::playerID:chararray,max_player::tmID:chararray,max_player::max_pas:double,max_player_pts::playerID:chararray,max_player_pts::max_pts:double,max_player_pts::tmID:chararray,max_player_pts::year:int,max_player_pts::goals:int,max_player_pts::assists:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 21, column 52> Invalid field projection. Projected field [max_player::max_pts] does not exist in schema: max_player::playerID:chararray,max_player::tmID:chararray,max_player::max_pas:double,max_player_pts::playerID:chararray,max_player_pts::max_pts:double,max_player_pts::tmID:chararray,max_player_pts::year:int,max_player_pts::goals:int,max_player_pts::assists:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 22, column 85> Invalid field projection. Projected field [max_scoring::tmid] does not exist in schema: max_player::playerID:chararray,max_player::tmID:chararray,max_player::max_pts:double,max_player_pts::playerID:chararray,max_player_pts::max_pts:double,max_player_pts::tmID:chararray,max_player_pts::year:int,max_player_pts::goals:int,max_player_pts::assists:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 22, column 85> Invalid field projection. Projected field [max_scoring::tmid] does not exist in schema: max_player::playerID:chararray,max_player::tmID:chararray,max_player::max_pts:double,max_player_pts::playerID:chararray,max_player_pts::max_pts:double,max_player_pts::tmID:chararray,max_player_pts::year:int,max_player_pts::goals:int,max_player_pts::assists:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: <line 22, column 0>  Syntax error, unexpected symbol at or near 'max_player_info'
+
+Failed to parse: <line 22, column 0>  Syntax error, unexpected symbol at or near 'max_player_info'
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 22, column 85> Invalid field projection. Projected field [max_scoring::tmid] does not exist in schema: max_player::playerID:chararray,max_player::tmID:chararray,max_player::max_pts:double,max_player_pts::playerID:chararray,max_player_pts::max_pts:double,max_player_pts::tmID:chararray,max_player_pts::year:int,max_player_pts::goals:int,max_player_pts::assists:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 22, column 85> Invalid field projection. Projected field [max_scoring::tmid] does not exist in schema: max_player::playerID:chararray,max_player::tmID:chararray,max_player::max_pts:double,max_player_pts::playerID:chararray,max_player_pts::max_pts:double,max_player_pts::tmID:chararray,max_player_pts::year:int,max_player_pts::goals:int,max_player_pts::assists:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 21, column 185> Invalid field projection. Projected field [max_scoring::tmID] does not exist in schema: max_player::playerID:chararray,max_player::tmID:chararray,max_player::max_pts:double,max_player_pts::playerID:chararray,max_player_pts::max_pts:double,max_player_pts::tmID:chararray,max_player_pts::year:int,max_player_pts::goals:int,max_player_pts::assists:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 21, column 185> Invalid field projection. Projected field [max_scoring::tmID] does not exist in schema: max_player::playerID:chararray,max_player::tmID:chararray,max_player::max_pts:double,max_player_pts::playerID:chararray,max_player_pts::max_pts:double,max_player_pts::tmID:chararray,max_player_pts::year:int,max_player_pts::goals:int,max_player_pts::assists:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 21, column 273> Invalid field projection. Projected field [max_player_pts::assits] does not exist in schema: max_player::playerID:chararray,max_player::tmID:chararray,max_player::max_pts:double,max_player_pts::playerID:chararray,max_player_pts::max_pts:double,max_player_pts::tmID:chararray,max_player_pts::year:int,max_player_pts::goals:int,max_player_pts::assists:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 21, column 273> Invalid field projection. Projected field [max_player_pts::assits] does not exist in schema: max_player::playerID:chararray,max_player::tmID:chararray,max_player::max_pts:double,max_player_pts::playerID:chararray,max_player_pts::max_pts:double,max_player_pts::tmID:chararray,max_player_pts::year:int,max_player_pts::goals:int,max_player_pts::assists:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1031: Incompatible schema: left is "playerID:NULL,tmID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+
+Failed to parse: Pig script failed to parse: 
+<line 23, column 18> pig script failed to validate: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "playerID:NULL,tmID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:199)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+Caused by: 
+<line 23, column 18> pig script failed to validate: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "playerID:NULL,tmID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.parser.LogicalPlanBuilder.buildForeachOp(LogicalPlanBuilder.java:1057)
+	at org.apache.pig.parser.LogicalPlanGenerator.foreach_clause(LogicalPlanGenerator.java:15896)
+	at org.apache.pig.parser.LogicalPlanGenerator.op_clause(LogicalPlanGenerator.java:1933)
+	at org.apache.pig.parser.LogicalPlanGenerator.general_statement(LogicalPlanGenerator.java:1102)
+	at org.apache.pig.parser.LogicalPlanGenerator.statement(LogicalPlanGenerator.java:560)
+	at org.apache.pig.parser.LogicalPlanGenerator.query(LogicalPlanGenerator.java:421)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:191)
+	... 16 more
+Caused by: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "playerID:NULL,tmID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.newplan.logical.relational.LogicalSchema.merge(LogicalSchema.java:776)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.getSchema(LOGenerate.java:158)
+	at org.apache.pig.newplan.logical.optimizer.SchemaResetter.visit(SchemaResetter.java:123)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.accept(LOGenerate.java:245)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.SchemaResetter.visit(SchemaResetter.java:114)
+	at org.apache.pig.parser.LogicalPlanBuilder.buildForeachOp(LogicalPlanBuilder.java:1055)
+	... 22 more
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1031: Incompatible schema: left is "playerID:NULL,tmID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+
+Failed to parse: Pig script failed to parse: 
+<line 23, column 18> pig script failed to validate: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "playerID:NULL,tmID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:199)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+Caused by: 
+<line 23, column 18> pig script failed to validate: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "playerID:NULL,tmID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.parser.LogicalPlanBuilder.buildForeachOp(LogicalPlanBuilder.java:1057)
+	at org.apache.pig.parser.LogicalPlanGenerator.foreach_clause(LogicalPlanGenerator.java:15896)
+	at org.apache.pig.parser.LogicalPlanGenerator.op_clause(LogicalPlanGenerator.java:1933)
+	at org.apache.pig.parser.LogicalPlanGenerator.general_statement(LogicalPlanGenerator.java:1102)
+	at org.apache.pig.parser.LogicalPlanGenerator.statement(LogicalPlanGenerator.java:560)
+	at org.apache.pig.parser.LogicalPlanGenerator.query(LogicalPlanGenerator.java:421)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:191)
+	... 16 more
+Caused by: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "playerID:NULL,tmID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.newplan.logical.relational.LogicalSchema.merge(LogicalSchema.java:776)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.getSchema(LOGenerate.java:158)
+	at org.apache.pig.newplan.logical.optimizer.SchemaResetter.visit(SchemaResetter.java:123)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.accept(LOGenerate.java:245)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.SchemaResetter.visit(SchemaResetter.java:114)
+	at org.apache.pig.parser.LogicalPlanBuilder.buildForeachOp(LogicalPlanBuilder.java:1055)
+	... 22 more
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1031: Incompatible schema: left is "playerID:NULL,tmID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+
+Failed to parse: Pig script failed to parse: 
+<line 24, column 18> pig script failed to validate: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "playerID:NULL,tmID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:199)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+Caused by: 
+<line 24, column 18> pig script failed to validate: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "playerID:NULL,tmID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.parser.LogicalPlanBuilder.buildForeachOp(LogicalPlanBuilder.java:1057)
+	at org.apache.pig.parser.LogicalPlanGenerator.foreach_clause(LogicalPlanGenerator.java:15896)
+	at org.apache.pig.parser.LogicalPlanGenerator.op_clause(LogicalPlanGenerator.java:1933)
+	at org.apache.pig.parser.LogicalPlanGenerator.general_statement(LogicalPlanGenerator.java:1102)
+	at org.apache.pig.parser.LogicalPlanGenerator.statement(LogicalPlanGenerator.java:560)
+	at org.apache.pig.parser.LogicalPlanGenerator.query(LogicalPlanGenerator.java:421)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:191)
+	... 16 more
+Caused by: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "playerID:NULL,tmID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.newplan.logical.relational.LogicalSchema.merge(LogicalSchema.java:776)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.getSchema(LOGenerate.java:158)
+	at org.apache.pig.newplan.logical.optimizer.SchemaResetter.visit(SchemaResetter.java:123)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.accept(LOGenerate.java:245)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.SchemaResetter.visit(SchemaResetter.java:114)
+	at org.apache.pig.parser.LogicalPlanBuilder.buildForeachOp(LogicalPlanBuilder.java:1055)
+	... 22 more
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1031: Incompatible schema: left is "tmID:NULL,playerID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+
+Failed to parse: Pig script failed to parse: 
+<line 24, column 18> pig script failed to validate: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "tmID:NULL,playerID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:199)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+Caused by: 
+<line 24, column 18> pig script failed to validate: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "tmID:NULL,playerID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.parser.LogicalPlanBuilder.buildForeachOp(LogicalPlanBuilder.java:1057)
+	at org.apache.pig.parser.LogicalPlanGenerator.foreach_clause(LogicalPlanGenerator.java:15896)
+	at org.apache.pig.parser.LogicalPlanGenerator.op_clause(LogicalPlanGenerator.java:1933)
+	at org.apache.pig.parser.LogicalPlanGenerator.general_statement(LogicalPlanGenerator.java:1102)
+	at org.apache.pig.parser.LogicalPlanGenerator.statement(LogicalPlanGenerator.java:560)
+	at org.apache.pig.parser.LogicalPlanGenerator.query(LogicalPlanGenerator.java:421)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:191)
+	... 16 more
+Caused by: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "tmID:NULL,playerID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.newplan.logical.relational.LogicalSchema.merge(LogicalSchema.java:776)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.getSchema(LOGenerate.java:158)
+	at org.apache.pig.newplan.logical.optimizer.SchemaResetter.visit(SchemaResetter.java:123)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.accept(LOGenerate.java:245)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.SchemaResetter.visit(SchemaResetter.java:114)
+	at org.apache.pig.parser.LogicalPlanBuilder.buildForeachOp(LogicalPlanBuilder.java:1055)
+	... 22 more
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1031: Incompatible schema: left is "tmID:NULL,playerID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+
+Failed to parse: Pig script failed to parse: 
+<line 24, column 18> pig script failed to validate: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "tmID:NULL,playerID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:199)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+Caused by: 
+<line 24, column 18> pig script failed to validate: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "tmID:NULL,playerID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.parser.LogicalPlanBuilder.buildForeachOp(LogicalPlanBuilder.java:1057)
+	at org.apache.pig.parser.LogicalPlanGenerator.foreach_clause(LogicalPlanGenerator.java:15896)
+	at org.apache.pig.parser.LogicalPlanGenerator.op_clause(LogicalPlanGenerator.java:1933)
+	at org.apache.pig.parser.LogicalPlanGenerator.general_statement(LogicalPlanGenerator.java:1102)
+	at org.apache.pig.parser.LogicalPlanGenerator.statement(LogicalPlanGenerator.java:560)
+	at org.apache.pig.parser.LogicalPlanGenerator.query(LogicalPlanGenerator.java:421)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:191)
+	... 16 more
+Caused by: org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1031: Incompatible schema: left is "tmID:NULL,playerID:NULL,max_pts:NULL", right is "max_player::playerID:chararray"
+	at org.apache.pig.newplan.logical.relational.LogicalSchema.merge(LogicalSchema.java:776)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.getSchema(LOGenerate.java:158)
+	at org.apache.pig.newplan.logical.optimizer.SchemaResetter.visit(SchemaResetter.java:123)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.accept(LOGenerate.java:245)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.SchemaResetter.visit(SchemaResetter.java:114)
+	at org.apache.pig.parser.LogicalPlanBuilder.buildForeachOp(LogicalPlanBuilder.java:1055)
+	... 22 more
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: <line 24, column 133>  Syntax error, unexpected symbol at or near 'max_player'
+
+Failed to parse: <line 24, column 133>  Syntax error, unexpected symbol at or near 'max_player'
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 30, column 47> Invalid field projection. Projected field [player_info::max_player_pts::year] does not exist in schema: player_info::max_player_info::playerID:chararray,player_info::max_player_info::tmID:chararray,player_info::max_player_info::max_pts:double,player_info::max_player_info::year:int,player_info::max_player_info::goals:int,player_info::max_player_info::assists:int,player_info::master::playerID:chararray,player_info::master::coachID:chararray,player_info::master::hofID:chararray,player_info::master::firstName:chararray,player_info::master::lastName:chararray,player_info::master::nameNote:chararray,player_info::master::nameGiven:chararray,player_info::master::nameNick:chararray,player_info::master::height:int,player_info::master::weight:int,player_info::master::shootCatch:chararray,player_info::master::legendsID:chararray,player_info::master::ihdbID:int,player_info::master::hrefID:chararray,player_info::master::firstNHL:int,player_info::master::lastNHL:int,player_info::master::firstWHA:int,player_info::master::lastWHA:int,player_info::master::pos:chararray,player_info::master::birthYear:int,player_info::master::birthMon:int,player_info::master::birthDay:int,player_info::master::birthCountry:chararray,player_info::master::birthState:chararray,player_info::master::birthCity:chararray,player_info::master::deathYear:int,player_info::master::deathMon:int,player_info::master::deathDay:int,player_info::master::deathCountry:chararray,player_info::master::deathState:chararray,player_info::master::deathCity:chararray,teams::year:int,teams::lgID:chararray,teams::tmID:chararray,teams::franchID:chararray,teams::confID:chararray,teams::divID:chararray,teams::rank:chararray,teams::playoff:chararray,teams::g:int,teams::w:int,teams::l:int,teams::t:int,teams::otl:chararray,teams::pts:chararray,teams::sow:chararray,teams::sol:chararray,teams::gf:chararray,teams::ga:chararray,teams::name:chararray,teams::pim:chararray,teams::BenchMinor:chararray,teams::PPG:chararray,teams::PPC:chararray,teams::SHA:chararray,teams::PKG:chararray,teams::PKC:chararray,teams::SHF:chararray.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 30, column 47> Invalid field projection. Projected field [player_info::max_player_pts::year] does not exist in schema: player_info::max_player_info::playerID:chararray,player_info::max_player_info::tmID:chararray,player_info::max_player_info::max_pts:double,player_info::max_player_info::year:int,player_info::max_player_info::goals:int,player_info::max_player_info::assists:int,player_info::master::playerID:chararray,player_info::master::coachID:chararray,player_info::master::hofID:chararray,player_info::master::firstName:chararray,player_info::master::lastName:chararray,player_info::master::nameNote:chararray,player_info::master::nameGiven:chararray,player_info::master::nameNick:chararray,player_info::master::height:int,player_info::master::weight:int,player_info::master::shootCatch:chararray,player_info::master::legendsID:chararray,player_info::master::ihdbID:int,player_info::master::hrefID:chararray,player_info::master::firstNHL:int,player_info::master::lastNHL:int,player_info::master::firstWHA:int,player_info::master::lastWHA:int,player_info::master::pos:chararray,player_info::master::birthYear:int,player_info::master::birthMon:int,player_info::master::birthDay:int,player_info::master::birthCountry:chararray,player_info::master::birthState:chararray,player_info::master::birthCity:chararray,player_info::master::deathYear:int,player_info::master::deathMon:int,player_info::master::deathDay:int,player_info::master::deathCountry:chararray,player_info::master::deathState:chararray,player_info::master::deathCity:chararray,teams::year:int,teams::lgID:chararray,teams::tmID:chararray,teams::franchID:chararray,teams::confID:chararray,teams::divID:chararray,teams::rank:chararray,teams::playoff:chararray,teams::g:int,teams::w:int,teams::l:int,teams::t:int,teams::otl:chararray,teams::pts:chararray,teams::sow:chararray,teams::sol:chararray,teams::gf:chararray,teams::ga:chararray,teams::name:chararray,teams::pim:chararray,teams::BenchMinor:chararray,teams::PPG:chararray,teams::PPC:chararray,teams::SHA:chararray,teams::PKG:chararray,teams::PKC:chararray,teams::SHF:chararray.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1045: 
+<line 29, column 48> Could not infer the matching function for org.apache.pig.builtin.COUNT as multiple or none of them fit. Please use an explicit cast.
+
+org.apache.pig.impl.logicalLayer.validators.TypeCheckerException: ERROR 1059: 
+<line 29, column 4> Problem while reconciling output schema of ForEach
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.throwTypeCheckerException(TypeCheckingRelVisitor.java:142)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visit(TypeCheckingRelVisitor.java:182)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:190)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+Caused by: org.apache.pig.impl.logicalLayer.validators.TypeCheckerException: ERROR 1045: 
+<line 29, column 48> Could not infer the matching function for org.apache.pig.builtin.COUNT as multiple or none of them fit. Please use an explicit cast.
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingExpVisitor.visit(TypeCheckingExpVisitor.java:788)
+	at org.apache.pig.newplan.logical.expression.UserFuncExpression.accept(UserFuncExpression.java:113)
+	at org.apache.pig.newplan.ReverseDependencyOrderWalker.walk(ReverseDependencyOrderWalker.java:70)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visitExpressionPlan(TypeCheckingRelVisitor.java:191)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visit(TypeCheckingRelVisitor.java:157)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.accept(LOGenerate.java:245)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visit(TypeCheckingRelVisitor.java:174)
+	... 20 more
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1045: 
+<line 29, column 55> Could not infer the matching function for org.apache.pig.builtin.COUNT as multiple or none of them fit. Please use an explicit cast.
+
+org.apache.pig.impl.logicalLayer.validators.TypeCheckerException: ERROR 1059: 
+<line 29, column 4> Problem while reconciling output schema of ForEach
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.throwTypeCheckerException(TypeCheckingRelVisitor.java:142)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visit(TypeCheckingRelVisitor.java:182)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:190)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+Caused by: org.apache.pig.impl.logicalLayer.validators.TypeCheckerException: ERROR 1045: 
+<line 29, column 55> Could not infer the matching function for org.apache.pig.builtin.COUNT as multiple or none of them fit. Please use an explicit cast.
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingExpVisitor.visit(TypeCheckingExpVisitor.java:788)
+	at org.apache.pig.newplan.logical.expression.UserFuncExpression.accept(UserFuncExpression.java:113)
+	at org.apache.pig.newplan.ReverseDependencyOrderWalker.walk(ReverseDependencyOrderWalker.java:70)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visitExpressionPlan(TypeCheckingRelVisitor.java:191)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visit(TypeCheckingRelVisitor.java:157)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.accept(LOGenerate.java:245)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visit(TypeCheckingRelVisitor.java:174)
+	... 20 more
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1045: 
+<line 29, column 55> Could not infer the matching function for org.apache.pig.builtin.COUNT as multiple or none of them fit. Please use an explicit cast.
+
+org.apache.pig.impl.logicalLayer.validators.TypeCheckerException: ERROR 1059: 
+<line 29, column 4> Problem while reconciling output schema of ForEach
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.throwTypeCheckerException(TypeCheckingRelVisitor.java:142)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visit(TypeCheckingRelVisitor.java:182)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:190)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+Caused by: org.apache.pig.impl.logicalLayer.validators.TypeCheckerException: ERROR 1045: 
+<line 29, column 55> Could not infer the matching function for org.apache.pig.builtin.COUNT as multiple or none of them fit. Please use an explicit cast.
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingExpVisitor.visit(TypeCheckingExpVisitor.java:788)
+	at org.apache.pig.newplan.logical.expression.UserFuncExpression.accept(UserFuncExpression.java:113)
+	at org.apache.pig.newplan.ReverseDependencyOrderWalker.walk(ReverseDependencyOrderWalker.java:70)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visitExpressionPlan(TypeCheckingRelVisitor.java:191)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visit(TypeCheckingRelVisitor.java:157)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.accept(LOGenerate.java:245)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visit(TypeCheckingRelVisitor.java:174)
+	... 20 more
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1045: 
+<line 29, column 48> Could not infer the matching function for org.apache.pig.builtin.COUNT as multiple or none of them fit. Please use an explicit cast.
+
+org.apache.pig.impl.logicalLayer.validators.TypeCheckerException: ERROR 1059: 
+<line 29, column 4> Problem while reconciling output schema of ForEach
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.throwTypeCheckerException(TypeCheckingRelVisitor.java:142)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visit(TypeCheckingRelVisitor.java:182)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:190)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+Caused by: org.apache.pig.impl.logicalLayer.validators.TypeCheckerException: ERROR 1045: 
+<line 29, column 48> Could not infer the matching function for org.apache.pig.builtin.COUNT as multiple or none of them fit. Please use an explicit cast.
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingExpVisitor.visit(TypeCheckingExpVisitor.java:788)
+	at org.apache.pig.newplan.logical.expression.UserFuncExpression.accept(UserFuncExpression.java:113)
+	at org.apache.pig.newplan.ReverseDependencyOrderWalker.walk(ReverseDependencyOrderWalker.java:70)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visitExpressionPlan(TypeCheckingRelVisitor.java:191)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visit(TypeCheckingRelVisitor.java:157)
+	at org.apache.pig.newplan.logical.relational.LOGenerate.accept(LOGenerate.java:245)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.visitor.TypeCheckingRelVisitor.visit(TypeCheckingRelVisitor.java:174)
+	... 20 more
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 66, column 65> Invalid field projection. Projected field [max_scoring::tmid] does not exist in schema: max_scoring::tmID:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 66, column 65> Invalid field projection. Projected field [max_scoring::tmid] does not exist in schema: max_scoring::tmID:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 72, column 65> Invalid field projection. Projected field [max_scoring::tmid] does not exist in schema: max_scoring::tmID:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 72, column 65> Invalid field projection. Projected field [max_scoring::tmid] does not exist in schema: max_scoring::tmID:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.loadScript(GruntParser.java:557)
+	at org.apache.pig.tools.grunt.GruntParser.processScript(GruntParser.java:504)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.Script(PigScriptParser.java:1030)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:554)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 74, column 65> Invalid field projection. Projected field [max_scoring::tmid] does not exist in schema: max_scoring::tmID:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 74, column 65> Invalid field projection. Projected field [max_scoring::tmid] does not exist in schema: max_scoring::tmID:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 76, column 16> Invalid field projection. Projected field [tmID] does not exist in schema: max_scoring::tmID:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,max_player::tmID:chararray,max_player::max_pts:double.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 76, column 16> Invalid field projection. Projected field [tmID] does not exist in schema: max_scoring::tmID:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,max_player::tmID:chararray,max_player::max_pts:double.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:80)
+	at org.apache.pig.newplan.logical.relational.LOFilter.accept(LOFilter.java:79)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 83, column 145> Invalid field projection. Projected field [max_scoring::tmid] does not exist in schema: max_scoring::tmID:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 83, column 145> Invalid field projection. Projected field [max_scoring::tmid] does not exist in schema: max_scoring::tmID:chararray,max_scoring::playerID:chararray,max_scoring::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.loadScript(GruntParser.java:557)
+	at org.apache.pig.tools.grunt.GruntParser.processScript(GruntParser.java:504)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.Script(PigScriptParser.java:1030)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:554)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: <line 91, column 0>  mismatched input 'max_player_info' expecting SEMI_COLON
+
+Failed to parse: <line 91, column 0>  mismatched input 'max_player_info' expecting SEMI_COLON
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.loadScript(GruntParser.java:557)
+	at org.apache.pig.tools.grunt.GruntParser.processScript(GruntParser.java:504)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.Script(PigScriptParser.java:1030)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:554)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: <line 97, column 0>  mismatched input 'max_player_info' expecting SEMI_COLON
+
+Failed to parse: <line 97, column 0>  mismatched input 'max_player_info' expecting SEMI_COLON
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.loadScript(GruntParser.java:557)
+	at org.apache.pig.tools.grunt.GruntParser.processScript(GruntParser.java:504)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.Script(PigScriptParser.java:1030)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:554)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: <line 103, column 0>  mismatched input 'max_player_info' expecting SEMI_COLON
+
+Failed to parse: <line 103, column 0>  mismatched input 'max_player_info' expecting SEMI_COLON
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.loadScript(GruntParser.java:557)
+	at org.apache.pig.tools.grunt.GruntParser.processScript(GruntParser.java:504)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.Script(PigScriptParser.java:1030)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:554)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 101, column 53> Invalid field projection. Projected field [playerID] does not exist in schema: tmID:chararray,max_pts:double.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 101, column 53> Invalid field projection. Projected field [playerID] does not exist in schema: tmID:chararray,max_pts:double.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 101, column 53> Invalid field projection. Projected field [playerID] does not exist in schema: tmID:chararray,max_pts:double.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 101, column 53> Invalid field projection. Projected field [playerID] does not exist in schema: tmID:chararray,max_pts:double.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 101, column 76> Invalid field projection. Projected field [tmID] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 101, column 76> Invalid field projection. Projected field [tmID] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1000: Error during parsing. Encountered " <PATH> "a=join "" at line 1, column 1.
+Was expecting one of:
+    <EOF> 
+    "cat" ...
+    "clear" ...
+    "fs" ...
+    "sh" ...
+    "cd" ...
+    "cp" ...
+    "copyFromLocal" ...
+    "copyToLocal" ...
+    "dump" ...
+    "\\d" ...
+    "describe" ...
+    "\\de" ...
+    "aliases" ...
+    "explain" ...
+    "\\e" ...
+    "help" ...
+    "history" ...
+    "kill" ...
+    "ls" ...
+    "mv" ...
+    "mkdir" ...
+    "pwd" ...
+    "quit" ...
+    "\\q" ...
+    "register" ...
+    "rm" ...
+    "rmf" ...
+    "set" ...
+    "illustrate" ...
+    "\\i" ...
+    "run" ...
+    "exec" ...
+    "%default" ...
+    "%declare" ...
+    "scriptDone" ...
+    "" ...
+    "" ...
+    <EOL> ...
+    ";" ...
+    
+
+org.apache.pig.tools.pigscript.parser.ParseException: Encountered " <PATH> "a=join "" at line 1, column 1.
+Was expecting one of:
+    <EOF> 
+    "cat" ...
+    "clear" ...
+    "fs" ...
+    "sh" ...
+    "cd" ...
+    "cp" ...
+    "copyFromLocal" ...
+    "copyToLocal" ...
+    "dump" ...
+    "\\d" ...
+    "describe" ...
+    "\\de" ...
+    "aliases" ...
+    "explain" ...
+    "\\e" ...
+    "help" ...
+    "history" ...
+    "kill" ...
+    "ls" ...
+    "mv" ...
+    "mkdir" ...
+    "pwd" ...
+    "quit" ...
+    "\\q" ...
+    "register" ...
+    "rm" ...
+    "rmf" ...
+    "set" ...
+    "illustrate" ...
+    "\\i" ...
+    "run" ...
+    "exec" ...
+    "%default" ...
+    "%declare" ...
+    "scriptDone" ...
+    "" ...
+    "" ...
+    <EOL> ...
+    ";" ...
+    
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.generateParseException(PigScriptParser.java:1498)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.handle_invalid_command(PigScriptParser.java:1306)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:726)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1000: Error during parsing. Encountered " <PATH> "a=join "" at line 1, column 1.
+Was expecting one of:
+    <EOF> 
+    "cat" ...
+    "clear" ...
+    "fs" ...
+    "sh" ...
+    "cd" ...
+    "cp" ...
+    "copyFromLocal" ...
+    "copyToLocal" ...
+    "dump" ...
+    "\\d" ...
+    "describe" ...
+    "\\de" ...
+    "aliases" ...
+    "explain" ...
+    "\\e" ...
+    "help" ...
+    "history" ...
+    "kill" ...
+    "ls" ...
+    "mv" ...
+    "mkdir" ...
+    "pwd" ...
+    "quit" ...
+    "\\q" ...
+    "register" ...
+    "rm" ...
+    "rmf" ...
+    "set" ...
+    "illustrate" ...
+    "\\i" ...
+    "run" ...
+    "exec" ...
+    "%default" ...
+    "%declare" ...
+    "scriptDone" ...
+    "" ...
+    "" ...
+    <EOL> ...
+    ";" ...
+    
+
+org.apache.pig.tools.pigscript.parser.ParseException: Encountered " <PATH> "a=join "" at line 1, column 1.
+Was expecting one of:
+    <EOF> 
+    "cat" ...
+    "clear" ...
+    "fs" ...
+    "sh" ...
+    "cd" ...
+    "cp" ...
+    "copyFromLocal" ...
+    "copyToLocal" ...
+    "dump" ...
+    "\\d" ...
+    "describe" ...
+    "\\de" ...
+    "aliases" ...
+    "explain" ...
+    "\\e" ...
+    "help" ...
+    "history" ...
+    "kill" ...
+    "ls" ...
+    "mv" ...
+    "mkdir" ...
+    "pwd" ...
+    "quit" ...
+    "\\q" ...
+    "register" ...
+    "rm" ...
+    "rmf" ...
+    "set" ...
+    "illustrate" ...
+    "\\i" ...
+    "run" ...
+    "exec" ...
+    "%default" ...
+    "%declare" ...
+    "scriptDone" ...
+    "" ...
+    "" ...
+    <EOL> ...
+    ";" ...
+    
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.generateParseException(PigScriptParser.java:1498)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.handle_invalid_command(PigScriptParser.java:1306)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:726)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 101, column 53> Invalid field projection. Projected field [tmID] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 101, column 53> Invalid field projection. Projected field [tmID] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 102, column 76> Invalid field projection. Projected field [tmID] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 102, column 76> Invalid field projection. Projected field [tmID] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 103, column 76> Invalid field projection. Projected field [tmID] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 103, column 76> Invalid field projection. Projected field [tmID] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 103, column 53> Invalid field projection. Projected field [tmID] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 103, column 53> Invalid field projection. Projected field [tmID] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 103, column 76> Invalid field projection. Projected field [tmtmid] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 103, column 76> Invalid field projection. Projected field [tmtmid] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 103, column 76> Invalid field projection. Projected field [tmtmid] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 103, column 76> Invalid field projection. Projected field [tmtmid] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 103, column 82> Invalid field projection. Projected field [max_pts] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 103, column 82> Invalid field projection. Projected field [max_pts] does not exist in schema: playerID:chararray,year:int,stint:int,tmid:chararray,lgid:chararray,pos:chararray,gp:int,g:int,a:int,pts:int,pim:int,plusminus:int,ppg:int,ppa:int,shg:int,sha:int,gqg:int,gtg:int,sog:int,postgp:int,postg:int,posta:int,postpts:int,postpim:int,postplusminus:int,postppg:int,postppa:int,postshq:int,postsha:int,postgwg:int,postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 103, column 210> Invalid field projection. Projected field [scoring::goals] does not exist in schema: max_player::tmID:chararray,max_player::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 103, column 210> Invalid field projection. Projected field [scoring::goals] does not exist in schema: max_player::tmID:chararray,max_player::max_pts:double,scoring::playerID:chararray,scoring::year:int,scoring::stint:int,scoring::tmid:chararray,scoring::lgid:chararray,scoring::pos:chararray,scoring::gp:int,scoring::g:int,scoring::a:int,scoring::pts:int,scoring::pim:int,scoring::plusminus:int,scoring::ppg:int,scoring::ppa:int,scoring::shg:int,scoring::sha:int,scoring::gqg:int,scoring::gtg:int,scoring::sog:int,scoring::postgp:int,scoring::postg:int,scoring::posta:int,scoring::postpts:int,scoring::postpim:int,scoring::postplusminus:int,scoring::postppg:int,scoring::postppa:int,scoring::postshq:int,scoring::postsha:int,scoring::postgwg:int,scoring::postsog:int.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:142)
+	at org.apache.pig.newplan.logical.relational.LOInnerLoad.accept(LOInnerLoad.java:128)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:124)
+	at org.apache.pig.newplan.logical.relational.LOForEach.accept(LOForEach.java:87)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1200: <line 105, column 75>  Syntax error, unexpected symbol at or near ')'
+
+Failed to parse: <line 105, column 75>  Syntax error, unexpected symbol at or near ')'
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:244)
+	at org.apache.pig.parser.QueryParserDriver.parse(QueryParserDriver.java:182)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1791)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 113, column 39> Invalid field projection. Projected field [max_player_info::tmID] does not exist in schema: playerID:chararray,tmID:chararray,max_pts:double,year:int,goals:int,assists:int,firstName:chararray,lastName:chararray.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 113, column 39> Invalid field projection. Projected field [max_player_info::tmID] does not exist in schema: playerID:chararray,tmID:chararray,max_pts:double,year:int,goals:int,assists:int,firstName:chararray,lastName:chararray.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 121, column 48> Invalid field projection. Projected field [max_player_info::tmID] does not exist in schema: playerID:chararray,tmID:chararray,max_pts:double,year:int,goals:int,assists:int,firstName:chararray,lastName:chararray.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 121, column 48> Invalid field projection. Projected field [max_player_info::tmID] does not exist in schema: playerID:chararray,tmID:chararray,max_pts:double,year:int,goals:int,assists:int,firstName:chararray,lastName:chararray.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1025: 
+<line 121, column 48> Invalid field projection. Projected field [player_info::tmID] does not exist in schema: playerID:chararray,tmID:chararray,max_pts:double,year:int,goals:int,assists:int,firstName:chararray,lastName:chararray.
+
+org.apache.pig.impl.plan.PlanValidationException: ERROR 1025: 
+<line 121, column 48> Invalid field projection. Projected field [player_info::tmID] does not exist in schema: playerID:chararray,tmID:chararray,max_pts:double,year:int,goals:int,assists:int,firstName:chararray,lastName:chararray.
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.findColNum(ProjectExpression.java:191)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.setColumnNumberFromAlias(ProjectExpression.java:174)
+	at org.apache.pig.newplan.logical.visitor.ColumnAliasConversionVisitor$1.visit(ColumnAliasConversionVisitor.java:53)
+	at org.apache.pig.newplan.logical.expression.ProjectExpression.accept(ProjectExpression.java:215)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:95)
+	at org.apache.pig.newplan.logical.relational.LOJoin.accept(LOJoin.java:172)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:175)
+	at org.apache.pig.PigServer$Graph.validateQuery(PigServer.java:1792)
+	at org.apache.pig.PigServer$Graph.registerQuery(PigServer.java:1764)
+	at org.apache.pig.PigServer.registerQuery(PigServer.java:707)
+	at org.apache.pig.tools.grunt.GruntParser.processPig(GruntParser.java:1075)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:505)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
+Pig Stack Trace
+---------------
+ERROR 1000: Error during parsing. Encountered " <IDENTIFIER> "exit "" at line 4, column 1.
+Was expecting one of:
+    <EOF> 
+    "cat" ...
+    "clear" ...
+    "fs" ...
+    "sh" ...
+    "cd" ...
+    "cp" ...
+    "copyFromLocal" ...
+    "copyToLocal" ...
+    "dump" ...
+    "\\d" ...
+    "describe" ...
+    "\\de" ...
+    "aliases" ...
+    "explain" ...
+    "\\e" ...
+    "help" ...
+    "history" ...
+    "kill" ...
+    "ls" ...
+    "mv" ...
+    "mkdir" ...
+    "pwd" ...
+    "quit" ...
+    "\\q" ...
+    "register" ...
+    "rm" ...
+    "rmf" ...
+    "set" ...
+    "illustrate" ...
+    "\\i" ...
+    "run" ...
+    "exec" ...
+    "%default" ...
+    "%declare" ...
+    "scriptDone" ...
+    "" ...
+    "" ...
+    <EOL> ...
+    ";" ...
+    
+
+org.apache.pig.tools.pigscript.parser.ParseException: Encountered " <IDENTIFIER> "exit "" at line 4, column 1.
+Was expecting one of:
+    <EOF> 
+    "cat" ...
+    "clear" ...
+    "fs" ...
+    "sh" ...
+    "cd" ...
+    "cp" ...
+    "copyFromLocal" ...
+    "copyToLocal" ...
+    "dump" ...
+    "\\d" ...
+    "describe" ...
+    "\\de" ...
+    "aliases" ...
+    "explain" ...
+    "\\e" ...
+    "help" ...
+    "history" ...
+    "kill" ...
+    "ls" ...
+    "mv" ...
+    "mkdir" ...
+    "pwd" ...
+    "quit" ...
+    "\\q" ...
+    "register" ...
+    "rm" ...
+    "rmf" ...
+    "set" ...
+    "illustrate" ...
+    "\\i" ...
+    "run" ...
+    "exec" ...
+    "%default" ...
+    "%declare" ...
+    "scriptDone" ...
+    "" ...
+    "" ...
+    <EOL> ...
+    ";" ...
+    
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.generateParseException(PigScriptParser.java:1498)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.handle_invalid_command(PigScriptParser.java:1306)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:726)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.run(Grunt.java:66)
+	at org.apache.pig.Main.run(Main.java:564)
+	at org.apache.pig.Main.main(Main.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:234)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:148)
+================================================================================
