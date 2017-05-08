@@ -1,17 +1,17 @@
-function loadData() {
-  d3.json("public/data.json", function(error, data) {
+function loadData(file, svgSelector) {
+  d3.json(file, function(error, data) {
     if (error) {
       console.error("failed to load data ", error);
     }
     console.log("load data ", data);
-    drawCircle(data);
+    drawCircle(data, svgSelector);
   });
 }
 
-function drawCircle(data) {
+function drawCircle(data, svgSelector) {
   console.log("ndoes=", data["nodes"].length);
   var svg = d3
-    .select(".svg-circle")
+    .select(svgSelector)
     .attr(
       "height",
       d3.max(data["nodes"], function(d) {
@@ -98,6 +98,5 @@ function drawLine(svg, data) {
     .on("mouseout", tip.hide);
 }
 
-loadData();
-// drawChart();
-// drawSVGChart();
+loadData('public/data.json', '.svg-circle');
+loadData('public/data-02.json', '.svg-circle2');
