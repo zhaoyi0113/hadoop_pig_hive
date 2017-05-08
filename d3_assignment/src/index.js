@@ -92,7 +92,7 @@ function drawLine(svg, data) {
     .attr("y2", function(d) {
       return d.y2;
     })
-    .attr("stroke-width", 2)
+    .attr("stroke-width", 1)
     .attr("stroke", "black")
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide);
