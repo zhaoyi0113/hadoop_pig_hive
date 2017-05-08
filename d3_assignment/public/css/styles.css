@@ -5,4 +5,17 @@
         padding: 3px;
         margin: 1px;
         color: white;
+}
+.svg-chart rect {
+        fill: steelblue;
     }
+
+    .svg-chart text {
+        fill: white;
+        font: 10px sans-serif;
+        text-anchor: end;
+    }
+
+.svg-circle circle {
+    fill: steelblue;
+}

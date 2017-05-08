@@ -1,4 +1,12 @@
-function loadData() {}
+function loadData() {
+  d3.json("public/data.json", function(error, data) {
+    if (error) {
+      console.error("failed to load data ", error);
+    }
+    console.log("load data ", data);
+    drawCircle(data);
+  });
+}
 
 function drawChart() {
   var data = [4, 8, 15, 16, 23, 42];
@@ -73,4 +81,41 @@ function drawSVGChart() {
     });
 }
 
-drawChart();
+function parseData(data) {}
+
+function drawCircle(data) {
+  console.log("ndoes=", data["nodes"].length);
+  var svg = d3
+    .select(".svg-circle")
+    .attr(
+      "height",
+      d3.max(data["nodes"], function(d) {
+        return d.y + 50;
+      })
+    )
+    .attr(
+      "width",
+      d3.max(data["nodes"], function(d) {
+        return d.x + 50;
+      })
+    );
+  var circle = svg.selectAll("circle").data(data.nodes);
+
+  var circleEnter = circle.enter().append("circle");
+  circleEnter.attr("cy", function(d) {
+    console.log("cy=", d);
+    return d.y;
+  });
+  circleEnter.attr("cx", function(d, i) {
+    return i * 100 + 30;
+  });
+  circleEnter.attr("r", function(d) {
+    return Math.sqrt(20);
+  });
+  circleEnter.on('mouseover', function(d){
+    console.log('mouse over ', d);
+  });
+}
+loadData();
+// drawChart();
+// drawSVGChart();
