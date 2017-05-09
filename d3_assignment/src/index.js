@@ -36,7 +36,7 @@ function drawCircle(data, svgSelector) {
     "width",
     maxX
   );
-  var ratio = totalAmount / Math.min(maxX, maxY);
+  var ratio = totalAmount / Math.max(maxX, maxY);
   var scale = d3
     .scaleLinear()
     .domain([
@@ -66,10 +66,10 @@ function drawCircle(data, svgSelector) {
   });
   circleEnter.on("mouseover", tip.show).on("mouseout", tip.hide);
 
-  drawLine(svg, data);
+  drawLine(svg, data, totalAmount);
 }
 
-function drawLine(svg, data) {
+function drawLine(svg, data, totalAmount) {
   var links = data["links"].map(function(link) {
     var node1 = data["nodes"].filter(function(node) {
       return node.id == link.node01;
@@ -101,6 +101,13 @@ function drawLine(svg, data) {
     );
   });
   svg.call(tip);
+  var scale = d3
+    .scaleLinear()
+    .domain([
+      1,
+      totalAmount
+    ])
+    .range([0, 20]);
   svg
     .selectAll("line")
     .data(links)
@@ -118,7 +125,7 @@ function drawLine(svg, data) {
     .attr("y2", function(d) {
       return d.y2;
     })
-    .attr("stroke-width", 1)
+    .attr("stroke-width", function(d){console.log(scale(d.amount));return scale(d.amount);})
     .attr("stroke", "black")
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide);
