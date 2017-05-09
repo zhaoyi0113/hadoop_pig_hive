@@ -10,6 +10,21 @@ function loadData(file, svgSelector) {
 
 function drawCircle(data, svgSelector) {
   console.log("ndoes=", data["nodes"].length);
+  var nodeAmount = data["nodes"].map(function(node) {
+    var amount = 0;
+    data["links"].map(function(link) {
+        if(link.node01 === node.id || link.node02 === node.id){
+            amount += link.amount;
+        }
+    });
+    return {id: node.id, amount: amount};
+  });
+  var totalAmount = 0;
+  data["links"].map(function(link){
+    totalAmount += link.amount;
+  });
+  console.log('total amount ', totalAmount);
+  console.log('node amount ', nodeAmount);
   var svg = d3
     .select(svgSelector)
     .attr(
@@ -24,6 +39,20 @@ function drawCircle(data, svgSelector) {
         return d.x + 50;
       })
     );
+  var scale = d3
+    .scaleLinear()
+    .domain([
+      0,
+      d3.max(data["nodes"], function(d) {
+        return (d.x + 50) * 2;
+      })
+    ])
+    .range([
+      0,
+      d3.max(data["nodes"], function(d) {
+        return d.x + 50;
+      })
+    ]);
   var tip = d3.tip().attr("class", "d3-tip").offset([-10, 0]).html(function(d) {
     console.log("show tip ", d);
     return "<strong>Site:</strong> <span style='color:red'>" + d.id + "</span>";
@@ -39,6 +68,7 @@ function drawCircle(data, svgSelector) {
     return d.x;
   });
   circleEnter.attr("r", function(d) {
+    console.log(d.x + "=" + scale(d.x));
     return Math.sqrt(50);
   });
   circleEnter.on("mouseover", tip.show).on("mouseout", tip.hide);
@@ -71,7 +101,10 @@ function drawLine(svg, data) {
       d.n1 +
       "</span><br><strong>Site2:</strong><span>" +
       d.n2 +
-      "</span>"+"<br><strong>Amount:</strong><span>"+d.amount+ "</span></div>"
+      "</span>" +
+      "<br><strong>Amount:</strong><span>" +
+      d.amount +
+      "</span></div>"
     );
   });
   svg.call(tip);
@@ -98,5 +131,5 @@ function drawLine(svg, data) {
     .on("mouseout", tip.hide);
 }
 
-loadData('public/data.json', '.svg-circle');
-loadData('public/data-02.json', '.svg-circle2');
+loadData("public/data.json", ".svg-circle");
+loadData("public/data-02.json", ".svg-circle2");
