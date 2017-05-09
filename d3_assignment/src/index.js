@@ -13,51 +13,44 @@ function drawCircle(data, svgSelector) {
   var nodeAmount = data["nodes"].map(function(node) {
     var amount = 0;
     data["links"].map(function(link) {
-        if(link.node01 === node.id || link.node02 === node.id){
-            amount += link.amount;
-        }
+      if (link.node01 === node.id || link.node02 === node.id) {
+        amount += link.amount;
+      }
     });
-    return {id: node.id, amount: amount};
+    return { id: node.id, amount: amount, x: node.x, y: node.y };
   });
   var totalAmount = 0;
-  data["links"].map(function(link){
+  data["links"].map(function(link) {
     totalAmount += link.amount;
   });
-  console.log('total amount ', totalAmount);
-  console.log('node amount ', nodeAmount);
-  var svg = d3
-    .select(svgSelector)
-    .attr(
-      "height",
-      d3.max(data["nodes"], function(d) {
-        return d.y + 50;
-      })
-    )
-    .attr(
-      "width",
-      d3.max(data["nodes"], function(d) {
-        return d.x + 50;
-      })
-    );
+  console.log("total amount ", totalAmount);
+  console.log("node amount ", nodeAmount);
+  var maxX = d3.max(data["nodes"], function(d) {
+    return d.x + 50;
+  });
+  var maxY = d3.max(data["nodes"], function(d) {
+    return d.y + 50;
+  });
+  console.log('max = ', maxX, maxY);
+  var svg = d3.select(svgSelector).attr("height", maxY).attr(
+    "width",
+    maxX
+  );
+  var ratio = totalAmount / Math.min(maxX, maxY);
   var scale = d3
     .scaleLinear()
     .domain([
       0,
-      d3.max(data["nodes"], function(d) {
-        return (d.x + 50) * 2;
+      d3.max(nodeAmount, function(node) {
+        return node.amount * ratio;
       })
     ])
-    .range([
-      0,
-      d3.max(data["nodes"], function(d) {
-        return d.x + 50;
-      })
-    ]);
+    .range([0, totalAmount]);
   var tip = d3.tip().attr("class", "d3-tip").offset([-10, 0]).html(function(d) {
     console.log("show tip ", d);
     return "<strong>Site:</strong> <span style='color:red'>" + d.id + "</span>";
   });
-  var circle = svg.selectAll("circle").data(data.nodes);
+  var circle = svg.selectAll("circle").data(nodeAmount);
   svg.call(tip);
   var circleEnter = circle.enter().append("circle");
   circleEnter.attr("cy", function(d) {
@@ -69,7 +62,7 @@ function drawCircle(data, svgSelector) {
   });
   circleEnter.attr("r", function(d) {
     console.log(d.x + "=" + scale(d.x));
-    return Math.sqrt(50);
+    return Math.sqrt(scale(d.x));
   });
   circleEnter.on("mouseover", tip.show).on("mouseout", tip.hide);
 
