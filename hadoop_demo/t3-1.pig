@@ -6,9 +6,9 @@ teams = load '/usr/input/Teams.csv' using org.apache.pig.piggybank.storage.CSVEx
 
 grp_by_team = group teams by name;
 
-wins = foreach grp_by_team generate group as team, COUNT(teams.g) as wins;
-losses = foreach grp_by_team generate group as team, COUNT(teams.l) as losses;
-ties = foreach grp_by_team generate group as team, COUNT(teams.t) as ties;
+wins = foreach grp_by_team generate group as team, SUM(teams.g) as wins;
+losses = foreach grp_by_team generate group as team, SUM(teams.l) as losses;
+ties = foreach grp_by_team generate group as team, SUM(teams.t) as ties;
 
 join_sum = join wins by team, losses by team, ties by team;
 
