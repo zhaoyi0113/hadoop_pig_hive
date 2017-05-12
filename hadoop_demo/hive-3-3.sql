@@ -1,5 +1,9 @@
 
 set hive.execution.engine=tez;
+analyze table ice_hockey_Teams compute statistics;
+analyze table awardscoaches compute statistics;
+analyze table master compute statistics;
+
 select a.TeamName as TeamName, a.firstName as FirstName, a.lastname as LastName, a.award as Award, a.won as Won from (
     select t.name as TeamName, m.firstName FirstName, m.lastname LastName, a.award award, a.won won
     from (
