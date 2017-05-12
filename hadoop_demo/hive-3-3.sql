@@ -1,3 +1,5 @@
+
+set hive.execution.engine=tez;
 select a.TeamName as TeamName, a.firstName as FirstName, a.lastname as LastName, a.award as Award, a.won as Won from (
     select t.name as TeamName, m.firstName FirstName, m.lastname LastName, a.award award, a.won won
     from (

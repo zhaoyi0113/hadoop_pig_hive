@@ -1,0 +1,8 @@
+pm <- read.csv('../beijing_20160101-20161231/beijing_all_20160101.csv', header = TRUE)
+head(pm)
+
+pm25 <- pm[pm$type == 'PM2.5',]
+head(pm25)
+
+pm2524h <- pm[pm$type == 'PM2.5_24h',]
+barplot(pm25$东四)
