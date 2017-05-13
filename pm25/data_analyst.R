@@ -89,7 +89,7 @@ getMeanValueOnEachKPI <- function(datas){
     }
   }
   total <- total[, !(names(total) %in% c('date', 'hour', 'type'))]
-  total <- colMeans(total)
+  total <- as.list(colMeans(total))
 }
 
 # read data with the date period
@@ -114,10 +114,11 @@ queryDataWithSum <- function(start, end, kpi){
     date <- date + 1
   }
   getMeanValueOnEachKPI(kpis)
+  
 }
 
 # query data for the given month
-queryDataForMonth <- function(year, month, kpi){
+queryDataForMonth <- function(year, month, kpi='AQI'){
   startDate <- as.Date(str_c(year,'-',month,'-01'))
   endDate <- NA
   if(typeof(month) == 'character'){
@@ -132,16 +133,43 @@ queryDataForMonth <- function(year, month, kpi){
 }
 
 # group data by month
-queryDataByMonth <- function(year, kpi){
+queryDataForYear <- function(year, kpi='AQI'){
   startDate = as.Date(str_c(year, '-01-01'))
   endDate = as.Date(str_c(year, '-01-31'))
-  monthData <- list()
+  monthData <- data.frame(Date=character(), stringsAsFactors=FALSE)
   for(m in c(rep(1:12))){
     print(str_c('query data for month ',year,m))
     md <- queryDataForMonth(year, m, kpi)
     cn <- str_c(year,'-',m)
-    monthData[[cn]] <- md
+    monthData[length(nrow(monthData)), ] <- cn
+    if(length(colnames(monthData)) == 1){
+      monthData <- cbind(monthData, md) 
+    }else{
+      newR <- data.frame(Date=character(), stringsAsFactors = FALSE)
+      newR[1,] <- cn
+      newR <- cbind(newR, md)
+      monthData <- rbind(monthData, newR)
+    }
   }
   monthData
+}
+
+queryDataForQuarter <- function(year, quarter='1', kpi='AQI'){
+  startDate <- NA
+  endDate <- NA
+  if(quarter == '1'){
+    startDate <- as.Date(str_c(year,'-01-01'))
+    endDate <- as.Date(str_c(year, '-03-31'))
+  } else if(quarter == '2'){
+    startDate <- as.Date(str_c(year,'-04-01'))
+    endDate <- as.Date(str_c(year, '-06-30'))
+  } else if(quarter == '3'){
+    startDate <- as.Date(str_c(year,'-07-01'))
+    endDate <- as.Date(str_c(year, '-09-30'))
+  } else if(quarter == '4'){
+    startDate <- as.Date(str_c(year,'-10-01'))
+    endDate <- as.Date(str_c(year, '-12-31'))
+  }
+  queryDataWithSum(startDate, endDate, kpi)
 }
 

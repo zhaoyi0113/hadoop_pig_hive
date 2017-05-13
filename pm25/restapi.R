@@ -8,18 +8,23 @@ normalMean <- function(samples=10){
   mean(data)
 }
 
-#* @get /data/monthly
+#* @get /data/year
 getMonthlyData <- function(year = '2016', kpi = 'AQI'){
-  data <- queryDataByMonth(year, kpi)
-  toJSON(d)
+  data <- queryDataForYear(year, kpi)
+  toJSON(data)
 }
 
 #* @get /data/month
 getMonthData <- function(year = '2016', month='01', kpi='AQI'){
   data <- queryDataForMonth(year, month, kpi)
-  toJSON(d)
+  toJSON(data)
 }
 
+#* @get /data/quarter
+getQuarterData <- function(year = '2016', quarter='1', kpi='AQI'){
+  data <- queryDataForQuarter(year, quarter, kpi)
+  toJSON(data)
+}
 
 #* @post /sum
 addTwo <- function(a, b){
