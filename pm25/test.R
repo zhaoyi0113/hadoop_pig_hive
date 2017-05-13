@@ -1,3 +1,7 @@
+r <- getOption("repos")
+r["CRAN"] <- "http://cran.us.r-project.org"
+options(repos = r)
+
 pm <- read.csv('../beijing_20160101-20161231/beijing_all_20160101.csv', header = TRUE)
 head(pm)
 
@@ -22,7 +26,6 @@ dat <- data.frame(
   genotype=rep(c('aa','ab'), 2)
 )
 dat
-rowSums(dat[,c("sid")])
 
 pheno <- data.frame(
   snpname=rep(letters[1:2],2),
@@ -36,11 +39,15 @@ library(plyr)
 
 ddply(cbind(name=c(rownames(dat), rownames(pheno)), rbind.fill(list(dat, pheno))), .(snpname, genotype), summarise, sid=sum(sid))
 
-install.packages('gdata')
-
+# install.packages('gdata')
+# install.packages('lubridate')
+library('lubridate')
 source('data_analyst.R')
 date <- querySingleDayData(as.Date('2016-01-01'))
 date2 <- querySingleDayData(as.Date('2016-01-02'))
+all <- queryDataWithSum('2016-01-01', '2016-01-3', 'AQI')
+data <- queryDate('2016-01-01', '2016-03-01')
+
 
 library(ggplot2)
 str(date[['AQI']])
@@ -50,5 +57,7 @@ aqi2 <- date2[['AQI']]
 
 total <- getTotalValue(list(aqi, aqi2))
 names(total)
-ggplot(aqi, aes(x = DongSi, y = factor(hour), col=hour, size=DongSi)) + geom_point()
+ggplot(all, aes(x = DongSi, y = factor(hour), col=hour, size=DongSi)) + geom_point()
 ggplot(aqi, aes(x = DongSi, y = factor(hour), col=hour, size=DongSi)) +  geom_point() + geom_smooth()
+
+str(data)
