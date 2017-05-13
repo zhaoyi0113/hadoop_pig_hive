@@ -45,7 +45,7 @@ library('lubridate')
 source('data_analyst.R')
 date <- querySingleDayData(as.Date('2016-01-01'))
 date2 <- querySingleDayData(as.Date('2016-01-02'))
-all <- queryDataWithSum('2016-01-01', '2016-01-3', 'AQI')
+all <- queryDataWithSum('2016-01-01', '2016-01-1', 'AQI')
 data <- queryDate('2016-01-01', '2016-03-01')
 
 
