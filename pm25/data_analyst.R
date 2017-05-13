@@ -88,8 +88,8 @@ getMeanValueOnEachKPI <- function(datas){
       }
     }
   }
-  total <- total[, !(names(c) %in% c('date', 'hour', 'type'))]
-  total <- colMeans(total, na.rm = TRUE)
+  total <- total[, !(names(total) %in% c('date', 'hour', 'type'))]
+  total <- colMeans(total)
 }
 
 # read data with the date period
