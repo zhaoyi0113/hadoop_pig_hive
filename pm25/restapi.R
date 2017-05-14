@@ -9,8 +9,8 @@ normalMean <- function(samples=10){
 }
 
 #* @get /data/year
-getMonthlyData <- function(year = '2016', kpi = 'AQI'){
-  data <- queryDataForYear(year, kpi)
+getMonthlyData <- function(year = '2016', kpi = 'AQI', category='MONTH'){
+  data <- queryDataForYear(year, kpi, category)
   toJSON(data)
 }
 
