@@ -57,7 +57,7 @@ queryDataWithRange <- function(start, end, kpi='AQI') {
     kpiDF <- kpiMean
     date <- date + 1
   }
-  sub <- data.frame(Date = startDate, type = kpi)
+  sub <- data.frame(Date = format(startDate, '%Y-%m-%d'), type = kpi, stringsAsFactors = FALSE)
   kpiDF <- cbind(sub, t(kpiDF))
   kpiDF
 }

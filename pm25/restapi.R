@@ -2,15 +2,11 @@
 #source('test.R')
 source('data_analyst.R')
 
-#* @get /mean
-normalMean <- function(samples=10){
-  data <- rnorm(samples)
-  mean(data)
-}
 
 #* @get /data/year
 getMonthlyData <- function(year = '2016', kpi = 'AQI', category='MONTH'){
   data <- queryDataForYear(year, kpi, category)
+  data[is.na(data)] <- 0
   toJSON(data)
 }
 

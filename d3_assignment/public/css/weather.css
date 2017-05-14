@@ -12,3 +12,12 @@
     line-height: 20px;
     margin: 10px;
 }
+
+.search-bar{
+    display: flex;
+    flex-direction: row;
+}
+
+.search-button{
+    margin-left: auto;
+}
