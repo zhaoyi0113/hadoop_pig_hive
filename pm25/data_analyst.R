@@ -6,7 +6,6 @@ library(plyr)
 library(dplyr)
 
 source('raw_data.R')
-loadData('2016')
 
 querySingleDayData <- function(date) {
   getDataByDate(date)
@@ -67,8 +66,6 @@ queryDataWithRange <- function(start, end, kpi) {
   kpis <- list()
   kpiDF <- NA
   while (date <= endDate) {
-    fileName <-
-      str_c(path, 'beijing_all_', format(date, "%Y%m%d"), '.csv')
     data <- querySingleDayData(date)
     aqi <- data[[kpi]]
     aqi[is.na(aqi)] <- 0
@@ -82,7 +79,7 @@ queryDataWithRange <- function(start, end, kpi) {
     date <- date + 1
   }
   sub <- data.frame(Date = startDate, type = kpi)
-  kpiDF <- cbind(sub, t(kpiMean))
+  kpiDF <- cbind(sub, t(kpiDF))
   kpiDF
 }
 
@@ -110,7 +107,6 @@ queryDataForYear <-
            kpi = 'AQI',
            category = 'MONTH') {
     monthData <- NA
-    
     if (category == 'QUARTER') {
       for (m in c(rep(1:4))) {
         md <- NA
