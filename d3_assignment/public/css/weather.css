@@ -1,0 +1,14 @@
+.container{
+    margin-top: 10px;
+}
+
+.district-select-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.district-select-label{
+    height: 20px;
+    line-height: 20px;
+    margin: 10px;
+}

@@ -26,6 +26,12 @@ getQuarterData <- function(year = '2016', quarter='1', kpi='AQI'){
   toJSON(data)
 }
 
+#* @get /districts
+getDistricts <- function() {
+  data <- names((cachedData[[1]][1])[[1]])[-c(1:3)]
+  
+  toJSON(data)
+}
 #* @post /sum
 addTwo <- function(a, b){
   as.numeric(a) + as.numeric(b)

@@ -2,20 +2,38 @@
 <html>
 
 <head>
-    <link href="public/css/d3.geomap.css" rel="stylesheet">
-    <!--<link href='public/css/us-state.css' rel='stylesheet'>-->
+    <link href="public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="public/css/weather.css" rel="stylesheet">
 </head>
 
 <body>
-    
+    <div class="container col-md-8 col-xs-8 col-sm-8">
+        <div class="page-header">
+            <h3>Air Quality of Beijing in 2016</h3>
+        </div>
+        <div class="district-select-container">
+            <span class="district-select-label">District</span>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle districts-label" type="button" id="districts-button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+            Districts
+            <span class="caret"></span>
+            </button>
+                <ul class="dropdown-menu districts-dropdown" aria-labelledby="dropdownMenu1">
+                </ul>
+            </div>
+        </div>
+    </div>
     <div id="map"></div>
-    <svg class='us-state'  width="960" height="600"  fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+    <svg class='us-state' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
     <br>
-    <svg class='china'  width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+    <svg class='china' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
     <script src="http://d3js.org/d3.v4.min.js"></script>
-    <!--<script src='libs/d3.geomap.dependencies.min.js'></script>
-    <script src='libs/d3.geomap.min.js'></script>-->
-    <script type='text/javascript' src='./src/map.js'></script>
+    <script type='text/javascript' src="libs/jquery.min.js"></script>
+    <script type='text/javascript' src="libs/bootstrap.min.js"></script>
+    <!--<script type='text/javascript' src='./src/map.js'></script>-->
+    <script type='text/javascript' src='./src/weather.js'></script>
 </body>
 
 </html>
