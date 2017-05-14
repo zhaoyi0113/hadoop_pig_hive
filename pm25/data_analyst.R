@@ -29,29 +29,8 @@ queryDate <- function(start, end) {
   split(allData, allData$type)
 }
 
-##
-# add all kpi values from the list
-##
-getMeanValueOnEachKPI <- function(datas) {
-  total = NA
-  for (data in datas) {
-    if (is.na(total)) {
-      total <- data
-    } else{
-      for (col in names(data)) {
-        if (col != 'date' && col != 'hour' && col != 'type') {
-          total[, eval(quote(col))] <-
-            total[, eval(quote(col))] + data[, eval(quote(col))]
-        }
-      }
-    }
-  }
-  total <- total[,!(names(total) %in% c('date', 'hour', 'type'))]
-  total <- as.list(colMeans(total))
-}
-
 # read data with the date period
-queryDataWithRange <- function(start, end, kpi) {
+queryDataWithRange <- function(start, end, kpi='AQI') {
   startDate <- start
   endDate <- end
   if (typeof(startDate) == 'character') {
@@ -68,13 +47,13 @@ queryDataWithRange <- function(start, end, kpi) {
   while (date <= endDate) {
     data <- querySingleDayData(date)
     aqi <- data[[kpi]]
-    aqi[is.na(aqi)] <- 0
+    # aqi[is.na(aqi)] <- 0
     if (is.na(kpiDF)) {
       kpiDF <- aqi[-c(1:3)]
     } else {
       kpiDF <- rbind(kpiDF , aqi[-c(1:3)])
     }
-    kpiMean <- sapply(kpiDF, FUN = mean)
+    kpiMean <- sapply(kpiDF, FUN = mean, na.rm=TRUE)
     kpiDF <- kpiMean
     date <- date + 1
   }
@@ -170,3 +149,13 @@ queryDataForQuarter <-
     print(str_c('query data ', startDate, endDate, kpi))
     queryDataWithRange(startDate, endDate, kpi)
   }
+
+y <- queryDataForYear('2016', 'PM2.5', 'DAY')
+a <- y[c('Date', 'DongSi')]
+b <- y[c('Date', 'TongZhou')]
+c <- y[c('Date', 'YanQing')]
+colnames(a) <- c('Date', 'V')
+colnames(b) <- c('Date', 'V')
+colnames(c) <- c('Date', 'V')
+
+ggplot() + geom_point(data = a, aes(x=Date, y=V), col='blue') +geom_point(data = b, aes(x=Date, y=V), col='yellow') + geom_point(data = c, aes(x=Date, y=V), col='red') 
