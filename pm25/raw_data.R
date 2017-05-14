@@ -56,7 +56,11 @@ loadData <- function(year){
     data <- read.csv(fileName, header = TRUE)
     #data[is.na(data)] <- 0
     data <- changeColumnName(data)
-    s <- split(data, data$type)
+    dataExtra <- read.csv(str_c(path, 'beijing_extra_', strDate, '.csv'))
+    dataExtra <- changeColumnName(dataExtra)
+    print(str_c('load file:',path, 'beijing_all_', strDate, '.csv'))
+    allData <- rbind(data, dataExtra)
+    s <- split(allData, allData$type)
     cachedData[[strDate]] <- s
     startDate <- startDate + 1
   }

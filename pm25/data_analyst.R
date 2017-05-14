@@ -30,7 +30,7 @@ queryDate <- function(start, end) {
 }
 
 # read data with the date period
-queryDataWithRange <- function(start, end, kpi='AQI') {
+queryDataWithRange <- function(start='2016-01-01', end='2016-01-01', kpi='AQI') {
   startDate <- start
   endDate <- end
   if (typeof(startDate) == 'character') {
@@ -150,12 +150,12 @@ queryDataForQuarter <-
     queryDataWithRange(startDate, endDate, kpi)
   }
 
-y <- queryDataForYear('2016', 'PM2.5', 'DAY')
-a <- y[c('Date', 'DongSi')]
-b <- y[c('Date', 'TongZhou')]
-c <- y[c('Date', 'YanQing')]
-colnames(a) <- c('Date', 'V')
-colnames(b) <- c('Date', 'V')
-colnames(c) <- c('Date', 'V')
+#y <- queryDataForYear('2016', 'PM2.5', 'DAY')
+#a <- y[c('Date', 'DongSi')]
+#b <- y[c('Date', 'TongZhou')]
+#c <- y[c('Date', 'YanQing')]
+#colnames(a) <- c('Date', 'V')
+#colnames(b) <- c('Date', 'V')
+#colnames(c) <- c('Date', 'V')
 
-ggplot() + geom_point(data = a, aes(x=Date, y=V), col='blue') +geom_point(data = b, aes(x=Date, y=V), col='yellow') + geom_point(data = c, aes(x=Date, y=V), col='red') 
+#ggplot() + geom_point(data = a, aes(x=Date, y=V), col='blue') +geom_point(data = b, aes(x=Date, y=V), col='yellow') + geom_point(data = c, aes(x=Date, y=V), col='red') 
