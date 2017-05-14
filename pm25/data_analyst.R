@@ -120,6 +120,20 @@ queryDataForYear <-
       startDate <- str_c(year, '-01-01')
       endDate <- str_c(year, '-12-31')
       monthData <- queryDataWithRange(startDate, endDate, kpi)
+    } else if(category == 'DAY'){
+      startDate <- as.Date(str_c(year, '-01-01'))
+      endDate <- as.Date(str_c(year, '-12-31'))
+      dayNum <- endDate - startDate
+      
+      for(d in c(rep(1:dayNum))){
+        
+        md <- queryDataWithRange(startDate,startDate,kpi)
+        if (is.na(monthData)) {
+          monthData <- md[0,]
+        }
+        monthData[nrow(monthData) + 1,] <- md[1,]
+        startDate <- startDate + 1
+      }
     }
     else {
       for (m in c(rep(1:12))) {
