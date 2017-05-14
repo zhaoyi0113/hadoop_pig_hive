@@ -132,7 +132,7 @@ queryDataWithSum <- function(start, end, kpi) {
     
     date <- date + 1
   }
-  sub <- data.frame(Date = format(startDate, format = '%Y%m%d'), type = kpi)
+  sub <- data.frame(Date = startDate, type = kpi)
   kpiDF <- cbind(sub, t(kpiMean))
   kpiDF
 }
@@ -171,7 +171,12 @@ queryDataForYear <-
         }
         monthData[nrow(monthData) + 1, ] <- md[1, ]
       }
-    } else {
+    } else if(category == 'YEAR'){
+      startDate <- str_c(year,'-01-01')
+      endDate <- str_c(year,'-12-31')
+      monthData <- queryDataWithSum(startDate, endDate, kpi)
+    } 
+    else {
       for (m in c(rep(1:12))) {
         md <- NA
         md <- queryDataForMonth(year, m, kpi)
