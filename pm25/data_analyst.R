@@ -150,12 +150,42 @@ queryDataForQuarter <-
     queryDataWithRange(startDate, endDate, kpi)
   }
 
-#y <- queryDataForYear('2016', 'PM2.5', 'DAY')
-#a <- y[c('Date', 'DongSi')]
-#b <- y[c('Date', 'TongZhou')]
-#c <- y[c('Date', 'YanQing')]
-#colnames(a) <- c('Date', 'V')
-#colnames(b) <- c('Date', 'V')
-#colnames(c) <- c('Date', 'V')
+querySiteDate <- function(site, year='2016', category='MONTH'){
+  kpis <- getAllKPIs()
+  results <- data.frame(stringsAsFactors = FALSE)
+  for(kpi in kpis){
+    d <- queryDataForYear(year, kpi, category)
+    if(length(colnames(results)) == 0){
+      results <- d[c('Date', site)]
+      colnames(results) <- c('Date', kpi)
+    } else {
+      results <- cbind(results, d[site])
+      colnames(results) <- c(colnames(results)[1: length(colnames(results))-1], kpi)
+    }
+  }
+  results
+  
+}
 
-#ggplot() + geom_point(data = a, aes(x=Date, y=V), col='blue') +geom_point(data = b, aes(x=Date, y=V), col='yellow') + geom_point(data = c, aes(x=Date, y=V), col='red') 
+y <- queryDataForYear('2016', 'PM2.5', 'DAY')
+a <- y[c('Date', 'DongSi')]
+b <- y[c('Date', 'TongZhou')]
+c <- y[c('Date', 'YanQing')]
+colnames(a) <- c('Date', 'V')
+colnames(b) <- c('Date', 'V')
+colnames(c) <- c('Date', 'V')
+
+#ggplot() + geom_line(data = a, aes(x=Date, y=V), col='blue') +geom_line(data = b, aes(x=Date, y=V), col='yellow') + geom_point(data = c, aes(x=Date, y=V), col='red') 
+
+plotData <- function(cols){
+  d <- querySiteDate('DongSi', '2016', 'MONTH')
+  g <- ggplot()
+  for(c in cols){
+    g <- g + geom_line(data = d, aes_string(x='Date', y=c, group=1)) + geom_text(aes(x=d$Date[1], y=d[[c]][1], label=c))
+  }
+  g
+}
+
+plotData(c('AQI', 'PM2.5', 'PM10','PM10_24h', 'PM2.5_24h'))
+
+#ggplot() + geom_line(data=d, aes(x=Date, y=CO, group=1, col='blue')) + geom_line(data=d, aes(x=Date, y=AQI, group=1, col='red'))

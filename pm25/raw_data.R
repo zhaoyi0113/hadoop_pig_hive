@@ -72,6 +72,9 @@ getDataByDate <- function(date) {
   cachedData[[strDate]]
 }
 getDistricts <- function(){
-  #names((cachedData[[1]][1])[[1]])[-c(1:3)]
-  names(cachedData)
+  names((cachedData[[1]][1])[[1]])[-c(1:3)]
+}
+
+getAllKPIs <- function(){
+  names(cachedData[[1]])
 }
