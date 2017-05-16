@@ -2,11 +2,11 @@ var selectedDistrict;
 var selectedRegion = 1; //0: city, 1: suburb
 var city = [
   "DongSi",
-  "HuaiRou",
-//   "NongZhanGuan",
-//   "ZhiWuYuan",
-//   "FengTaiHuaYuan",
-//   "BeibuXinqu"
+  "HuaiRou"
+  //   "NongZhanGuan",
+  //   "ZhiWuYuan",
+  //   "FengTaiHuaYuan",
+  //   "BeibuXinqu"
 ];
 var suburb = [
   "FangShan",
@@ -54,7 +54,7 @@ function getColor(site) {
   return "black";
 }
 
-function draw(site, data) {
+function drawLineChart(site, data) {
   console.log("draw data", data);
   var svg = d3
     .select(".data-chart")
@@ -143,13 +143,17 @@ function parseData(json) {
   return charDatas;
 }
 
-$.ajax({
-  url: "http://localhost:8000/data/year?kpi=AQI&category=DAY"
-}).done(function(data) {
-  var json = JSON.parse(data);
-  console.log("parse data ", json);
-  var charDatas = parseData(json);
-  charDatas.map(function(data) {
-    draw(data.site, data.data);
+function queryAndDrawByDate() {
+  $.ajax({
+    url: "http://localhost:8000/data/year?kpi=AQI&category=DAY"
+  }).done(function(data) {
+    var json = JSON.parse(data);
+    console.log("parse data ", json);
+    var charDatas = parseData(json);
+    charDatas.map(function(data) {
+      drawLineChart(data.site, data.data);
+    });
   });
-});
+}
+
+queryAndDrawByDate()

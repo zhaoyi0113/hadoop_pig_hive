@@ -19,7 +19,7 @@ join_coach_team = foreach (group join_coach_award by tmID) generate group as tmI
 join_coach_award_team = foreach (join join_coach_award by (tmID, award), join_coach_team by (tmID, award)) generate 
     join_coach_award::coachID as coachID,  join_coach_award::tmID as tmID, join_coach_award::Win as Win, join_coach_team::award as award;
 
-max_coach_award = foreach (group join_coach_award_team by (tmID, coachID, award)) generate flatten(group) as(tmID, coachID, award), MAX(join_coach_award_team.Win) as Win ;
+max_coach_award = foreach (group join_coach_award_team by (tmID, coachID, award)) generate flatten(group) as(tmID, coachID, award), SUM(join_coach_award_team.Win) as Win ;
 
 coach_master = foreach (join max_coach_award by coachID, master by coachID) generate max_coach_award::coachID as coachID, 
     max_coach_award::award as award, max_coach_award::tmID as tmID, master::firstName as firstName, master::lastName as lastName, max_coach_award::Win as Win;

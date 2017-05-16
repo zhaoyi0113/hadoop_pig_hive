@@ -2,3 +2,4 @@ hadoop
 node_modules
 .Rproj.user
 .idea
+pig*log
