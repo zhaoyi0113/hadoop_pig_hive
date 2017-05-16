@@ -34,6 +34,8 @@ $.ajax({
     $(".districts-dropdown-" + d).click(function(e) {
       e.preventDefault();
       $(".districts-label").text(d);
+      selectedDistrict = d;
+      queryAndDrawBySite(selectedDistrict);
       $(".districts-label").append('<span class="caret"></span>');
     });
   });
@@ -55,7 +57,7 @@ function getColor(site) {
 }
 
 function drawLineChart(site, data) {
-  console.log("draw data", data);
+  console.log("draw data", data, "for site ", site);
   var svg = d3
     .select(".data-chart")
     .attr("width", Math.max(10 * data.length, 960)),
@@ -113,8 +115,23 @@ function drawLineChart(site, data) {
     .attr("stroke-width", 1.5)
     .attr("d", line);
 
-  var circle = g.selectAll("circle").data(data).enter().append("circle");
-  circle.attr("stroke", getColor(site));
+  var tip = d3.tip().attr("class", "d3-tip").offset([-10, 0]).html(function(d) {
+    console.log("show tip ", d);
+    return (
+      "<strong>Site:</strong> <span style='color:red'>" + d.date + "</span>"
+    );
+  });
+  g.call(tip);
+
+  var div = d3
+    .select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+  var circle = g.selectAll("dot").data(data).enter().append("circle");
+  //   circle.attr("stroke", getColor(site));
+  circle.attr("fill", "steelblue");
   circle.attr("cy", function(d) {
     return y(d.value);
   });
@@ -122,12 +139,27 @@ function drawLineChart(site, data) {
     return x(d.date);
   });
   circle.attr("r", 5);
+  circle
+    .on("mouseover", function(d) {
+      console.log("mouse over ", d);
+      var format = d3.timeFormat("%d-%m-%Y");
+      console.log("parse time ", format(d.date));
+      div.transition().duration(200).style("opacity", 0.9);
+      div
+        .html(format(d.date))
+        .style("left", d3.event.pageX + "px")
+        .style("top", d3.event.pageY - 28 + "px");
+    })
+    .on("mouseout", function(d) {
+      console.log("mouse out");
+      div.transition().duration(500).style("opacity", 0);
+    });
 }
 
+var parseTime = d3.timeParse("%Y-%m-%d");
 function parseData(json) {
   var date = json["Date"];
   var charDatas = [];
-  var parseTime = d3.timeParse("%Y-%m-%d");
   var showDistricts = selectedRegion === 0 ? city : suburb;
   showDistricts.map(function(dist) {
     console.log("parse dist ", dist);
@@ -145,7 +177,7 @@ function parseData(json) {
 
 function queryAndDrawByDate() {
   $.ajax({
-    url: "http://localhost:8000/data/year?kpi=AQI&category=DAY"
+    url: "http://localhost:8000/data/year?kpi=AQI&category=MONTH"
   }).done(function(data) {
     var json = JSON.parse(data);
     console.log("parse data ", json);
@@ -156,4 +188,24 @@ function queryAndDrawByDate() {
   });
 }
 
-queryAndDrawByDate()
+function queryAndDrawBySite(site) {
+  $.ajax({
+    url: "http://localhost:8000/data/site?year=2016&site=" +
+      site +
+      "&category=MONTH"
+  }).done(function(data) {
+    console.log("get data ", data);
+    var length = Object.keys(data[0]).length;
+    var keys = Object.keys(data[0]);
+    for (var i = 1; i < length; i++) {
+      var charData = [];
+      data.map(function(d) {
+        charData.push({ date: parseTime(d["Date"]), value: d[keys[i]] });
+      });
+      drawLineChart("DongSi", charData);
+    }
+  });
+}
+
+// queryAndDrawByDate();
+// queryAndDrawBySite(selectedDistrict);
