@@ -35,7 +35,6 @@ $.ajax({
             e.preventDefault();
             $(".districts-label").text(d);
             selectedDistrict = d;
-
             $(".districts-label").append('<span class="caret"></span>');
         });
     });
@@ -68,21 +67,23 @@ function selectKpi(e) {
 }
 
 function getColor(site) {
-    if (site === "DongSi") {
-        return "steelblue";
-    } else if (site == "BeibuXinqu") {
-        return "steelyellow";
-    } else if (site == "ZhiWuYuan") {
-        return "lightgreen";
-    } else if (site == "FengTaiHuaYuan") {
-        return "lightred";
-    } else if (site == "NongZhanGuan") {
-        return "orange";
+    if (site === "AQI") {
+        return "rgb(0,153,102)";
+    } else if (site == "PM2.5") {
+        return "rgb(128,188,77)";
+    } else if (site == "PM10") {
+        return "rgb(255, 222, 51)";
+    } else if (site == "CO") {
+        return "rgb(255, 188, 51)";
+    } else if (site == "NO2") {
+        return "rgb(255, 152, 51)";
+    } else if (site == "SO2") {
+        return "rgb(102, 0, 153)";
     }
     return "black";
 }
 
-function drawLineChart(site, data, drawAxial) {
+function drawLineChart(site, data, drawAxial, kpi) {
     console.log("draw data", data, "for site ", site);
     var svg = d3
         .select(".data-chart")
@@ -138,7 +139,7 @@ function drawLineChart(site, data, drawAxial) {
     g.append("path")
         .datum(data)
         .attr("fill", "none")
-        .attr("stroke", getColor(site))
+        .attr("stroke", getColor(kpi))
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 1.5)
@@ -159,8 +160,8 @@ function drawLineChart(site, data, drawAxial) {
         .style("opacity", 0);
 
     var circle = g.selectAll("dot").data(data).enter().append("circle");
-    //   circle.attr("stroke", getColor(site));
-    circle.attr("fill", "steelblue");
+    circle.attr("stroke", getColor(kpi));
+    circle.attr("fill", getColor(kpi));
     circle.attr("cy", function(d) {
         return y(d.value);
     });
@@ -168,6 +169,7 @@ function drawLineChart(site, data, drawAxial) {
         return x(d.date);
     });
     circle.attr("r", 5);
+
     circle
         .on("mouseover", function(d) {
             console.log("mouse over ", d);
@@ -175,7 +177,7 @@ function drawLineChart(site, data, drawAxial) {
             console.log("parse time ", format(d.date));
             div.transition().duration(200).style("opacity", 0.9);
             div
-                .html('<div>' + format(d.date) + '<br>' + d.value + '</div>')
+                .html('<div>' + kpi + '<br>' + format(d.date) + '<br>' + d.value + '</div>')
                 .style("left", d3.event.pageX + "px")
                 .style("top", d3.event.pageY - 28 + "px");
         })
@@ -183,6 +185,15 @@ function drawLineChart(site, data, drawAxial) {
             console.log("mouse out");
             div.transition().duration(500).style("opacity", 0);
         });
+    // draw kpi label on each line
+    svg.append("text")
+        .attr("dy", y(data[0].value))
+        .attr('dx', x(data[0].date) + 10)
+        .attr("text-anchor", "start")
+        .style("fill", getColor(kpi))
+        .text(kpi);
+
+
 }
 
 var parseTime = d3.timeParse("%Y-%m-%d");
@@ -225,12 +236,14 @@ function drawDataByKPIs() {
     var kpis = getSelectedKPI();
     console.log('get kpis ', kpis)
     d3.selectAll(".data-chart > g").remove();
+    d3.selectAll(".data-chart > text").remove();
     for (var i = 0; i < kpis.length; i++) {
         var charData = [];
         searchedData.map(function(d) {
-            charData.push({ date: parseTime(d["Date"]), value: d[kpis[i]] });
+            var v = parseFloat(d[kpis[i]]) || 0
+            charData.push({ date: parseTime(d["Date"]), value: v });
         });
-        drawLineChart("DongSi", charData, i === 0);
+        drawLineChart("DongSi", charData, i === 0, kpis[i]);
     }
 }
 
@@ -238,7 +251,7 @@ function queryAndDrawBySite(site) {
     $.ajax({
         url: "http://localhost:8000/data/site?year=2016&site=" +
             site +
-            "&category=MONTH"
+            "&category=DAY"
     }).done(function(data) {
         console.log("get data ", data);
         searchedData = data;

@@ -1,3 +1,9 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container {
     margin-top: 10px;
 }
@@ -5,6 +11,7 @@
 .district-select-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .district-select-label {
@@ -26,7 +33,7 @@ div.tooltip {
     position: absolute;
     text-align: center;
     width: 100px;
-    height: 28px;
+    height: 50px;
     padding: 2px;
     font: 12px sans-serif;
     background: lightsteelblue;
@@ -44,7 +51,38 @@ div.tooltip {
     margin: 0px 10px;
 }
 
+.data-chart-container {
+    overflow: auto;
+    display: inline-block;
+    width: 960px;
+    border-color: black;
+}
+
 .data-chart {
     background-color: rgb(247, 252, 197);
     margin: 30px;
+}
+
+.pm-kpi-checkbox .aqi-label {
+    color: rgb(0, 153, 102);
+}
+
+.pm-kpi-checkbox .pm2_5-label {
+    color: rgb(128, 188, 77);
+}
+
+.pm-kpi-checkbox .pm10-label {
+    color: rgb(255, 222, 51);
+}
+
+.pm-kpi-checkbox .co-label {
+    color: rgb(255, 188, 51);
+}
+
+.pm-kpi-checkbox .no2-label {
+    color: rgb(255, 152, 51);
+}
+
+.pm-kpi-checkbox .so2-label {
+    color: rgb(102, 0, 153);
 }

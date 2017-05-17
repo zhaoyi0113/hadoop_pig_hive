@@ -31,6 +31,8 @@ getDistricts <- function() {
 #* @get /data/site
 getSiteData <- function(site, year='2016', category='MONTH'){
   data <- querySiteDate(site, year, category)  
+  #data[is.na(data)] <- 0
+  #toJSON(data)
 }
 
 #* @post /sum

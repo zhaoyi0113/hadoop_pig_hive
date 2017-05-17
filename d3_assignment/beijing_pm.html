@@ -11,7 +11,7 @@
 <body>
     <div class="container col-md-8 col-xs-8 col-sm-8">
         <div class="page-header">
-            <!--<h3>Air Quality of Beijing in 2016</h3>-->
+            <h3>Air Quality of Beijing in 2016</h3>
         </div>
 
         <div class="search-bar">
@@ -29,27 +29,27 @@
             <div class="pm-kpi-checkbox">
                 <label class="kpi-selection">
                     <input class="aqi" type="checkbox"  checked onclick='selectKpi(this)'/>
-                    <span>AQI</span>
+                    <span class="aqi-label">AQI</span>
                 </label>
                 <label class="kpi-selection">
                     <input class="pm2_5" type="checkbox"  onclick='selectKpi(this)' />
-                    <span>PM2.5</span>
+                    <span class="pm2_5-label">PM2.5</span>
                 </label>
                 <label class="kpi-selection">
                     <input class="pm10" type="checkbox" onclick='selectKpi(this)' />
-                    <span>PM10</span>
+                    <span class="pm10-label">PM10</span>
                 </label>
                 <label class="kpi-selection">
                     <input class="co" type="checkbox" onclick='selectKpi(this)' />
-                    <span>CO</span>
+                    <span class="co-label">CO</span>
                 </label>
                 <label class="kpi-selection">
                     <input class="no2" type="checkbox" onclick='selectKpi(this)' />
-                    <span>NO2</span>
+                    <span class="no2-label">NO2</span>
                 </label>
                 <label class="kpi-selection">
                     <input class="so2" type="checkbox" onclick='selectKpi(this)' />
-                    <span>SO2</span>
+                    <span class="so2-label">SO2</span>
                 </label>
             </div>
             <button class="btn btn-default search-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing " onclick="searchAction()">Search</button>
@@ -57,7 +57,9 @@
 
     </div>
     <div id="map"></div>
-    <svg class='data-chart' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+    <div class="data-chart-container">
+        <svg class='data-chart' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+    </div>
     <br>
     <svg class='china' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
 
