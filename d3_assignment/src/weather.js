@@ -23,6 +23,25 @@ var suburb = [
     "YanQing"
 ];
 var grading = "MONTH";
+$('.chart-map-toggle').bootstrapToggle({
+    on: 'Chart',
+    off: 'Map'
+});
+
+function removeDrawer() {
+    d3.selectAll(".data-chart > g").remove();
+    d3.selectAll(".data-chart > text").remove();
+}
+
+$('.chart-map-toggle').change(function() {
+    var chart = $('.chart-map-toggle').prop('checked');
+    removeDrawer();
+    if (chart) {
+        drawDataByKPIs();
+    } else {
+        //map
+    }
+});
 $.ajax({
     url: "http://localhost:8000/districts"
 }).done(function(data) {
@@ -235,8 +254,7 @@ function drawDataByKPIs() {
     }
     var kpis = getSelectedKPI();
     console.log('get kpis ', kpis)
-    d3.selectAll(".data-chart > g").remove();
-    d3.selectAll(".data-chart > text").remove();
+    removeDrawer();
     for (var i = 0; i < kpis.length; i++) {
         var charData = [];
         searchedData.map(function(d) {
