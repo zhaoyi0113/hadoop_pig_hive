@@ -4,6 +4,7 @@
 <head>
     <link href="public/css/bootstrap.min.css" rel="stylesheet">
     <link href="public/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="public/css/font-awesome.min.css" rel="stylesheet">
     <link href="public/css/weather.css" rel="stylesheet">
 </head>
 
@@ -12,12 +13,12 @@
         <div class="page-header">
             <!--<h3>Air Quality of Beijing in 2016</h3>-->
         </div>
+
         <div class="search-bar">
             <div class="district-select-container">
                 <span class="district-select-label">District</span>
                 <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle districts-label" type="button" id="districts-button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="true">
+                    <button class="btn btn-default dropdown-toggle districts-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Districts
             <span class="caret"></span>
             </button>
@@ -25,13 +26,62 @@
                     </ul>
                 </div>
             </div>
-            <button class="btn btn-default search-button">Search</button>
+            <div class="pm-kpi-checkbox">
+                <label class="kpi-selection">
+                    <input class="aqi" type="checkbox" aria-label='pm2.5' checked/>
+                    <span>AQI</span>
+                </label>
+                <label class="kpi-selection">
+                    <input class="pm2.5" type="checkbox" aria-label='pm2.5' />
+                    <span>PM2.5</span>
+                </label>
+                <label class="kpi-selection">
+                    <input class="pm10" type="checkbox" aria-label='pm2.5' />
+                    <span>PM10</span>
+                </label>
+                <label class="kpi-selection">
+                    <input class="co" type="checkbox" aria-label='pm2.5' />
+                    <span>CO</span>
+                </label>
+                <label class="kpi-selection">
+                    <input class="no2" type="checkbox" aria-label='pm2.5' />
+                    <span>NO2</span>
+                </label>
+                <label class="kpi-selection">
+                    <input class="so2" type="checkbox" aria-label='pm2.5' />
+                    <span>SO2</span>
+                </label>
+            </div>
+            <button class="btn btn-default search-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing " onclick="searchAction()">Search</button>
         </div>
+
     </div>
     <div id="map"></div>
     <svg class='data-chart' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
     <br>
     <svg class='china' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Error</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Please select District.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <script src="libs/d3.min.js"></script>
     <script src='libs/index.js'></script>
     <script type='text/javascript' src="libs/jquery.min.js"></script>

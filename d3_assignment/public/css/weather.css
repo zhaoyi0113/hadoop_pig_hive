@@ -1,37 +1,50 @@
-.container{
+.container {
     margin-top: 10px;
 }
 
-.district-select-container{
+.district-select-container {
     display: flex;
     flex-direction: row;
 }
 
-.district-select-label{
+.district-select-label {
     height: 20px;
     line-height: 20px;
     margin: 10px;
 }
 
-.search-bar{
+.search-bar {
     display: flex;
     flex-direction: row;
 }
 
-.search-button{
+.search-button {
     margin-left: auto;
 }
 
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 100px;
+    height: 28px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
 
-div.tooltip {	
-    position: absolute;			
-    text-align: center;			
-    width: 100px;					
-    height: 28px;					
-    padding: 2px;				
-    font: 12px sans-serif;		
-    background: lightsteelblue;	
-    border: 0px;		
-    border-radius: 8px;			
-    pointer-events: none;			
+.pm-kpi-checkbox {
+    display: flex;
+    margin: 10px;
+}
+
+.kpi-selection {
+    margin: 0px 10px;
+}
+
+.data-chart {
+    background-color: rgb(247, 252, 197);
+    margin: 30px;
 }
