@@ -48,7 +48,6 @@ function searchAction() {
     } else {
         var $this = $('.search-button');
         $this.button('loading');
-        d3.selectAll(".data-chart > g").remove();
         queryAndDrawBySite(selectedDistrict);
     }
 }
@@ -56,12 +55,16 @@ function searchAction() {
 function getSelectedKPI() {
     var kpis = [];
     $('.pm-kpi-checkbox .aqi').is(":checked") && kpis.push('AQI');
-    $('.pm-kpi-checkbox .pm2.5').is(":checked") && kpis.push('PM2.5');
+    $('.pm-kpi-checkbox .pm2_5').is(":checked") && kpis.push('PM2.5');
     $('.pm-kpi-checkbox .pm10').is(":checked") && kpis.push('PM10');
     $('.pm-kpi-checkbox .co').is(":checked") && kpis.push('CO');
     $('.pm-kpi-checkbox .no2').is(":checked") && kpis.push('NO2');
     $('.pm-kpi-checkbox .so2').is(":checked") && kpis.push('SO2');
     return kpis;
+}
+
+function selectKpi(e) {
+    drawDataByKPIs();
 }
 
 function getColor(site) {
@@ -215,6 +218,22 @@ function queryAndDrawByDate() {
     });
 }
 
+function drawDataByKPIs() {
+    if (!searchedData) {
+        return;
+    }
+    var kpis = getSelectedKPI();
+    console.log('get kpis ', kpis)
+    d3.selectAll(".data-chart > g").remove();
+    for (var i = 0; i < kpis.length; i++) {
+        var charData = [];
+        searchedData.map(function(d) {
+            charData.push({ date: parseTime(d["Date"]), value: d[kpis[i]] });
+        });
+        drawLineChart("DongSi", charData, i === 0);
+    }
+}
+
 function queryAndDrawBySite(site) {
     $.ajax({
         url: "http://localhost:8000/data/site?year=2016&site=" +
@@ -225,16 +244,7 @@ function queryAndDrawBySite(site) {
         searchedData = data;
         var $this = $('.search-button');
         $this.button('reset');
-        var length = Object.keys(data[0]).length;
-        var keys = Object.keys(data[0]);
-        var kpis = getSelectedKPI();
-        for (var i = 0; i < kpis.length; i++) {
-            var charData = [];
-            data.map(function(d) {
-                charData.push({ date: parseTime(d["Date"]), value: d[kpis[i]] });
-            });
-            drawLineChart("DongSi", charData, i === 0);
-        }
+        drawDataByKPIs();
     });
 }
 
