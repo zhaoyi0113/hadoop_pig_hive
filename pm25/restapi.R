@@ -1,3 +1,4 @@
+library(jsonlite)
 
 #source('test.R')
 source('data_analyst.R')

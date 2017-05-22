@@ -53,12 +53,12 @@
                     <span class="so2-label">SO2</span>
                 </label>
             </div>
-            <input class="chart-map-toggle" type="checkbox" checked data-toggle="toggle" />
+            <!--<input class="chart-map-toggle" type="checkbox" checked data-toggle="toggle" />-->
             <button class="btn btn-default search-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing " onclick="searchAction()">Search</button>
         </div>
     </div>
 
-    <div id="map"></div>
+    <!--<div id="map" width="960" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></div>-->
     <div class="data-chart-container">
         <svg class='data-chart' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
     </div>
@@ -86,12 +86,12 @@
         </div>
     </div>
 
-    <script src="libs/d3.min.js"></script>
-    <script src='libs/index.js'></script>
+    <script type='text/javascript' src="libs/d3.min.js"></script>
+    <script type='text/javascript' src='libs/index.js'></script>
     <script type='text/javascript' src="libs/jquery.min.js"></script>
     <script type='text/javascript' src="libs/bootstrap.min.js"></script>
     <script type='text/javascript' src='libs/bootstrap-toggle.min.js'></script>
-    <!--<script type='text/javascript' src='./src/map.js'></script>-->
+    <script type='text/javascript' src='./src/map.js'></script>
     <script type='text/javascript' src='./src/weather.js'></script>
 </body>
 

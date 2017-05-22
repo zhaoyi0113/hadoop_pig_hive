@@ -4,7 +4,7 @@ library(plyr)
 library(lubridate)
 library(plyr)
 library(dplyr)
-
+library(ggplot2)
 source('raw_data.R')
 
 querySingleDayData <- function(date) {
@@ -164,7 +164,6 @@ querySiteDate <- function(site, year='2016', category='MONTH'){
     }
   }
   results
-  
 }
 
 y <- queryDataForYear('2016', 'PM2.5', 'DAY')
