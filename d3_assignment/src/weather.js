@@ -31,15 +31,20 @@ $('.chart-map-toggle').bootstrapToggle({
 function removeDrawer() {
     d3.selectAll(".data-chart > g").remove();
     d3.selectAll(".data-chart > text").remove();
+
 }
 
 $('.chart-map-toggle').change(function() {
     var chart = $('.chart-map-toggle').prop('checked');
-    removeDrawer();
+    // removeDrawer();
     if (chart) {
-        drawDataByKPIs();
+        $('.data-chart').show();
+        $('#map').hide();
+        // drawDataByKPIs();
     } else {
         //map
+        $('.data-chart').hide();
+        $('#map').show();
     }
 });
 $.ajax({
@@ -248,7 +253,7 @@ function queryAndDrawByDate() {
     });
 }
 
-function drawDataByKPIs() {
+function drawDataByKPIs(site) {
     if (!searchedData) {
         return;
     }
@@ -261,7 +266,7 @@ function drawDataByKPIs() {
             var v = parseFloat(d[kpis[i]]) || 0
             charData.push({ date: parseTime(d["Date"]), value: v });
         });
-        drawLineChart("DongSi", charData, i === 0, kpis[i]);
+        drawLineChart(site, charData, i === 0, kpis[i]);
     }
 }
 
@@ -275,9 +280,10 @@ function queryAndDrawBySite(site) {
         searchedData = data;
         var $this = $('.search-button');
         $this.button('reset');
-        drawDataByKPIs();
+        drawDataByKPIs(site);
     });
 }
+$('#map').hide();
 
 // queryAndDrawByDate();
 // queryAndDrawBySite(selectedDistrict);

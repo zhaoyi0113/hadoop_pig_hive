@@ -24,6 +24,7 @@ function fillFn(d) {
 
 function drawMap(selector, jsonFile) {
     var svg = d3.select(selector);
+    console.log('get svg', svg);
     var width = 960;
     var height = 600;
     d3.json(jsonFile, function(error, json) {
@@ -59,7 +60,7 @@ function drawMap(selector, jsonFile) {
             .enter()
             .append("path")
             .attr("d", path)
-            .style("stroke", "#fff")
+            .style("stroke", "red")
             .style("stroke-width", "1")
             .style("fill", fillFn)
             .on("mouseover", mouseover)
