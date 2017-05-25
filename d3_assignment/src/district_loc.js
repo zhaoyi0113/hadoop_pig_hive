@@ -1,4 +1,4 @@
-var location = {
+var districtLocation = {
   "DongSi": { longitude: 116.417, latitude: 39.929 },
   "TianTan": { longitude: 116.407, latitude: 39.886 },
   "GuanYuan": { longitude: 116.339, latitude: 39.929 },

@@ -37,13 +37,13 @@ $(".chart-map-toggle").change(function() {
   var chart = $(".chart-map-toggle").prop("checked");
   // removeDrawer();
   if (chart) {
-    $(".data-chart").show();
-    $("#map").hide();
+    $(".data-chart-container").show();
+    $(".map-container").hide();
     // drawDataByKPIs();
   } else {
     //map
-    $(".data-chart").hide();
-    $("#map").show();
+    $(".data-chart-container").hide();
+    $(".map-container").show();
   }
 });
 $.ajax({
@@ -285,7 +285,6 @@ function queryAndDrawBySite(site) {
     drawDataByKPIs(site);
   });
 }
-$("#map").hide();
-
+$(".map-container").hide();
 // queryAndDrawByDate();
 // queryAndDrawBySite(selectedDistrict);

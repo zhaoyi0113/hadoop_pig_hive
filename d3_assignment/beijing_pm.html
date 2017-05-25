@@ -2,97 +2,101 @@
 <html>
 
 <head>
-    <link href="public/css/bootstrap.min.css" rel="stylesheet">
-    <link href="public/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="public/css/font-awesome.min.css" rel="stylesheet">
-    <link href="public/css/weather.css" rel="stylesheet">
-    <link href="public/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <link href="public/css/bootstrap.min.css" rel="stylesheet">
+  <link href="public/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="public/css/font-awesome.min.css" rel="stylesheet">
+  <link href="public/css/weather.css" rel="stylesheet">
+  <link href="public/css/bootstrap-toggle.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container col-md-8 col-xs-8 col-sm-8">
-        <div class="page-header">
-            <h3>Air Quality of Beijing in 2016</h3>
-        </div>
+  <div class="container col-md-8 col-xs-8 col-sm-8">
+    <div class="page-header">
+      <h3>Air Quality of Beijing in 2016</h3>
+      <input class="chart-map-toggle" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="warning" />
+    </div>
 
-        <div class="search-bar">
-            <div class="district-select-container">
-                <span class="district-select-label">District</span>
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle districts-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <div class="chart-container">
+      <div class="search-bar">
+        <div class="district-select-container">
+          <span class="district-select-label">District</span>
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle districts-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Districts
             <span class="caret"></span>
             </button>
-                    <ul class="dropdown-menu districts-dropdown" aria-labelledby="dropdownMenu1">
-                    </ul>
-                </div>
-            </div>
-            <div class="pm-kpi-checkbox">
-                <label class="kpi-selection">
+            <ul class="dropdown-menu districts-dropdown" aria-labelledby="dropdownMenu1">
+            </ul>
+          </div>
+        </div>
+        <div class="pm-kpi-checkbox">
+          <label class="kpi-selection">
                     <input class="aqi" type="checkbox"  checked onclick='selectKpi(this)'/>
                     <span class="aqi-label">AQI</span>
                 </label>
-                <label class="kpi-selection">
+          <label class="kpi-selection">
                     <input class="pm2_5" type="checkbox"  onclick='selectKpi(this)' />
                     <span class="pm2_5-label">PM2.5</span>
                 </label>
-                <label class="kpi-selection">
+          <label class="kpi-selection">
                     <input class="pm10" type="checkbox" onclick='selectKpi(this)' />
                     <span class="pm10-label">PM10</span>
                 </label>
-                <label class="kpi-selection">
+          <label class="kpi-selection">
                     <input class="co" type="checkbox" onclick='selectKpi(this)' />
                     <span class="co-label">CO</span>
                 </label>
-                <label class="kpi-selection">
+          <label class="kpi-selection">
                     <input class="no2" type="checkbox" onclick='selectKpi(this)' />
                     <span class="no2-label">NO2</span>
                 </label>
-                <label class="kpi-selection">
+          <label class="kpi-selection">
                     <input class="so2" type="checkbox" onclick='selectKpi(this)' />
                     <span class="so2-label">SO2</span>
                 </label>
-            </div>
-            <input class="chart-map-toggle" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="warning" />
-            <button class="btn btn-default search-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing " onclick="searchAction()">Search</button>
         </div>
+        <button class="btn btn-default search-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing " onclick="searchAction()">Search</button>
+      </div>
     </div>
+  </div>
 
-    <svg id="map" width="960" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></div>
-    <div class="data-chart-container">
-        <svg class='data-chart' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
-    </div>
-    <br>
-    <svg class='china' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+  <div class="map-container">
+    <svg id="map" width="1200" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
+  </svg>
+  </div>
+  <div class="data-chart-container">
+    <svg class='data-chart' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+  </div>
+  <br>
 
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Error</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Please select District.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Error</h4>
         </div>
-    </div>
+        <div class="modal-body">
+          <p>Please select District.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
 
-    <script type='text/javascript' src="libs/d3.min.js"></script>
-    <script type='text/javascript' src='libs/index.js'></script>
-    <script type='text/javascript' src="libs/jquery.min.js"></script>
-    <script type='text/javascript' src="libs/bootstrap.min.js"></script>
-    <script type='text/javascript' src='libs/bootstrap-toggle.min.js'></script>
-    <script type='text/javascript' src='./src/map.js'></script>
-    <script type='text/javascript' src='./src/weather.js'></script>
+    </div>
+  </div>
+
+  <script type='text/javascript' src="libs/d3.min.js"></script>
+  <script type='text/javascript' src='libs/index.js'></script>
+  <script type='text/javascript' src="libs/jquery.min.js"></script>
+  <script type='text/javascript' src="libs/bootstrap.min.js"></script>
+  <script type='text/javascript' src='libs/bootstrap-toggle.min.js'></script>
+  <script type='text/javascript' src='./src/district_loc.js'></script>
+  <script type='text/javascript' src='./src/map.js'></script>
+  <script type='text/javascript' src='./src/weather.js'></script>
 </body>
 
 </html>

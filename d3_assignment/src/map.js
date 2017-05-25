@@ -25,8 +25,7 @@ function fillFn(d) {
 
 function drawMap(selector, jsonFile) {
   var svg = d3.select(selector);
-  console.log("get svg", svg);
-  var width = 960;
+  var width = 1200;
   var height = 600;
   d3.json(jsonFile, function(error, json) {
     if (error) throw error;
@@ -66,6 +65,53 @@ function drawMap(selector, jsonFile) {
       .style("fill", fillFn)
       .on("mouseover", mouseover)
       .on("mouseout", mouseout);
+
+    svg
+      .selectAll("rect")
+      .data(Object.keys(districtLocation))
+      .enter()
+      .append("rect")
+      .attr("x", function(d) {
+        const t = projection([
+          districtLocation[d].longitude,
+          districtLocation[d].latitude
+        ]);
+        return t[0];
+      })
+      .attr("y", function(d) {
+        const t = projection([
+          districtLocation[d].longitude,
+          districtLocation[d].latitude
+        ]);
+        return t[1];
+      })
+      .attr("height", "40px")
+      .attr("width", "40px")
+      .attr("fill", "red");
+
+    svg
+      .selectAll("text")
+      .data(Object.keys(districtLocation))
+      .enter()
+      .append("text")
+      .attr("dx", function(d) {
+        const t = projection([
+          districtLocation[d].longitude,
+          districtLocation[d].latitude
+        ]);
+        return t[0] + 3;
+      })
+      .attr("dy", function(d) {
+        const t = projection([
+          districtLocation[d].longitude,
+          districtLocation[d].latitude
+        ]);
+        return t[1] + 12;
+      })
+      .attr("font-size", "8px")
+      .text(function(d) {
+        return d;
+      });
   });
 }
 
