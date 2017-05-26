@@ -7,6 +7,7 @@
   <link href="public/css/font-awesome.min.css" rel="stylesheet">
   <link href="public/css/weather.css" rel="stylesheet">
   <link href="public/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <link href="public/css/dashboard.css" rel="stylesheet">
 </head>
 
 <body>
@@ -74,9 +75,67 @@
         <h1>
           Dashboard
         </h1>
-        <div class="map-container">
-          <svg id="map" width="960" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
-          </svg>
+        <div class="kpi-summaries">
+          <div class="kpi-summary">
+            <div class="header">
+              <div class="kpi">AQI</div>
+              <div class="value"></div>
+            </div>
+            <div class="footer">
+              <div class="text-label">View Details</div>
+              <i class="fa fa-arrow-circle-right"></i>
+            </div>
+          </div>
+          <div class="kpi-summary">
+            <div class="header">
+              <div class="kpi">PM2.5</div>
+              <div class="value"></div>
+            </div>
+            <div class="footer">
+              <div class="text-label">View Details</div>
+              <i class="fa fa-arrow-circle-right"></i>
+            </div>
+          </div>
+          <div class="kpi-summary">
+            <div class="header">
+              <div class="kpi">PM10</div>
+              <div class="value"></div>
+            </div>
+            <div class="footer">
+              <div class="text-label">View Details</div>
+              <i class="fa fa-arrow-circle-right"></i>
+            </div>
+          </div>
+          <div class="kpi-summary">
+            <div class="header">
+              <div class="kpi">CO</div>
+              <div class="value"></div>
+            </div>
+            <div class="footer">
+              <div class="text-label">View Details</div>
+              <i class="fa fa-arrow-circle-right"></i>
+            </div>
+          </div>
+          <div class="kpi-summary">
+            <div class="header">
+              <div class="kpi">NO2</div>
+              <div class="value"></div>
+            </div>
+            <div class="footer">
+              <div class="text-label">View Details</div>
+              <i class="fa fa-arrow-circle-right"></i>
+            </div>
+          </div>
+          <div class="kpi-summary">
+            <div class="header">
+              <div class="kpi">SO2</div>
+              <div class="value"></div>
+            </div>
+            <div class="footer">
+              <div class="text-label">View Details</div>
+              <i class="fa fa-arrow-circle-right"></i>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -84,6 +143,7 @@
         <svg id="beijing-map" width="960" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
           </svg>
       </div>
+
       <div class="weather-Charts">
         <h1>Charts</h1>
         <div class="chart-container">
@@ -151,6 +211,7 @@
 
   <script type='text/javascript' src='./src/district_loc.js'></script>
   <script type='text/javascript' src='./src/router.js'></script>
+  <script type='text/javascript' src='./src/dashboard.js'></script>
   <script type='text/javascript' src='./src/map.js'></script>
   <script type='text/javascript' src='./src/weather.js'></script>
 </body>

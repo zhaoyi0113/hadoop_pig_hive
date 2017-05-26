@@ -9,6 +9,7 @@ body {
   margin-top: 50px;
   left: 230px;
   position: absolute;
+  width: 80%;
 }
 
 @media(min-width:768px) {

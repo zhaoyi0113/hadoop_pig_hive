@@ -64,9 +64,6 @@ function getSelectedKPI() {
   return kpis;
 }
 
-function getAllKpis() {
-  return ["AQI", "PM2.5", "PM10", "CO", "NO2", "SO2"];
-}
 
 function selectKpi(e) {
   drawDataByKPIs();

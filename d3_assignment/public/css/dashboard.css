@@ -1,0 +1,77 @@
+.kpi-summaries {
+  display: flex;
+  flex-direction: row;
+}
+
+.kpi-summary {
+  flex: 1;
+  margin: 10px;
+  height: 100px;
+  background-color: rgb(51, 122, 183);
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.kpi-summary:nth-child(1) {
+  background-color: rgb(51, 122, 183);
+}
+
+.kpi-summary:nth-child(2) {
+  background-color: rgb(92, 184, 92);
+}
+
+.kpi-summary:nth-child(3) {
+  background-color: rgb(240, 173, 78);
+}
+
+.kpi-summary:nth-child(4) {
+  background-color: rgb(217, 83, 79);
+}
+
+.kpi-summary:nth-child(5) {
+  background-color: rgb(229, 165, 165);
+}
+
+.kpi-summary:nth-child(6) {
+  background-color: rgb(215, 236, 252);
+}
+
+.kpi-summary>.header {
+  display: flex;
+  flex-direction: row;
+  flex: 2;
+  align-items: center;
+}
+
+.kpi-summary>.header>.kpi {
+  font-size: x-large;
+  margin: 0px 10px;
+}
+
+.kpi-summary>.header>.value {
+  font-size: x-large;
+  margin: 5px 10px;
+}
+
+.kpi-summary>.footer {
+  background-color: rgb(245, 245, 245);
+  flex: 1;
+  color: rgb(51, 122, 183);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.kpi-summary>.footer:hover {
+  cursor: pointer;
+}
+
+.kpi-summary>.footer>.text-label {
+  margin: 5px 5px;
+}
+
+.kpi-summary>.footer>i {
+  margin-left: auto;
+  margin-right: 5px;
+}
