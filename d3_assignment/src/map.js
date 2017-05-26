@@ -25,7 +25,7 @@ function fillFn(d) {
 
 function drawMap(selector, jsonFile) {
   var svg = d3.select(selector);
-  var width = 1200;
+  var width = 960;
   var height = 600;
   d3.json(jsonFile, function(error, json) {
     if (error) throw error;
