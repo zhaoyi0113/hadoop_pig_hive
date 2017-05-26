@@ -87,10 +87,28 @@ queryKpiMeanValue <- function(){
       sitesKpi <- date[kpi][[1]] # all site for this kpi
       sitesKpi <- sitesKpi[c(-1,-2,-3)]
       sitesKpi[is.na(sitesKpi)] <- 0
-      kpiValue[[kpi]] <- mean(as.matrix(aqi));
+      kpiValue[[kpi]] <- mean(c(kpiValue[[kpi]], mean(as.matrix(sitesKpi))));
     }
   }
   return(kpiValue);
 }
 
 kpiMeanData <- queryKpiMeanValue()
+
+# get kpi data for the whole year
+queryKpisData <- function(){
+  kpis <- getAllKPIs();
+  kpiValue <- list();
+  for(kpi in kpis){
+    kpiValue[[kpi]] <- c()
+    for(date in cachedData){
+      sitesKpi <- date[kpi][[1]] # all site for this kpi
+      sitesKpi <- sitesKpi[c(-1,-2,-3)]
+      sitesKpi[is.na(sitesKpi)] <- 0
+      kpiValue[[kpi]][length(kpiValue[[kpi]])+1] <- mean(as.matrix(aqi));
+    }
+  }
+  return(kpiValue);
+}
+
+kpisData <- queryKpisData()

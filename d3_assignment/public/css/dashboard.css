@@ -33,10 +33,6 @@
   background-color: rgb(229, 165, 165);
 }
 
-.kpi-summary:nth-child(6) {
-  background-color: rgb(215, 236, 252);
-}
-
 .kpi-summary>.header {
   display: flex;
   flex-direction: row;

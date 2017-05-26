@@ -41,6 +41,11 @@ getKpiMeanData <- function(){
   toJSON(kpiMeanData)
 }
 
+#* @get /data/kpis
+getKpisData <- function(){
+  toJSON(kpisData)
+}
+
 #* @post /sum
 addTwo <- function(a, b){
   as.numeric(a) + as.numeric(b)
