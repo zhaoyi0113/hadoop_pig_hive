@@ -46,7 +46,6 @@ changeColumnName <- function(data) {
 
 loadData <- function(year){
   cachedData <- list()
-  
   startDate <- as.Date(str_c(year,'-01-01'))
   endDate <- as.Date(str_c(year,'-12-31'))
   while(startDate <= endDate){
@@ -78,3 +77,20 @@ getDistricts <- function(){
 getAllKPIs <- function(){
   names(cachedData[[1]])
 }
+
+# get each kpi mean value through whole year
+queryKpiMeanValue <- function(){
+  kpis <- getAllKPIs();
+  kpiValue <- list();
+  for(kpi in kpis){
+    for(date in cachedData){
+      sitesKpi <- date[kpi][[1]] # all site for this kpi
+      sitesKpi <- sitesKpi[c(-1,-2,-3)]
+      sitesKpi[is.na(sitesKpi)] <- 0
+      kpiValue[[kpi]] <- mean(as.matrix(aqi));
+    }
+  }
+  return(kpiValue);
+}
+
+kpiMeanData <- queryKpiMeanValue()

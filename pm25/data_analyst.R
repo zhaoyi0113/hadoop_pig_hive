@@ -150,15 +150,9 @@ queryDataForQuarter <-
     queryDataWithRange(startDate, endDate, kpi)
   }
 
-catchedSitesDay <- list()
-catchedSitesDay[['DongSi']] <- querySiteDate('DongSi', '2016', 'DAY')
 
 querySiteDate <- function(site, year='2016', category='MONTH'){
-  if(category == 'DAY'){
-    if(! is.null(catchedSitesDay[[site]])){
-      return (catchedSitesDay[[site]])
-    }
-  }
+  
   kpis <- getAllKPIs()
   results <- data.frame(stringsAsFactors = FALSE)
   for(kpi in kpis){
@@ -171,7 +165,6 @@ querySiteDate <- function(site, year='2016', category='MONTH'){
       colnames(results) <- c(colnames(results)[1: length(colnames(results))-1], kpi)
     }
   }
-  catchedSitesDay[[site]] <- results
   results
 }
 

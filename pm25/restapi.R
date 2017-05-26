@@ -36,6 +36,11 @@ getSiteData <- function(site, year='2016', category='MONTH'){
   #toJSON(data)
 }
 
+#* @get /data/kpi/mean
+getKpiMeanData <- function(){
+  toJSON(kpiMeanData)
+}
+
 #* @post /sum
 addTwo <- function(a, b){
   as.numeric(a) + as.numeric(b)
