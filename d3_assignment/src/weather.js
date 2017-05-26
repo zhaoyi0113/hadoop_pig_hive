@@ -37,12 +37,12 @@ $(".chart-map-toggle").change(function() {
   var chart = $(".chart-map-toggle").prop("checked");
   // removeDrawer();
   if (chart) {
-    $(".data-chart-container").show();
+    $(".chart-container").show();
     $(".map-container").hide();
     // drawDataByKPIs();
   } else {
     //map
-    $(".data-chart-container").hide();
+    $(".chart-container").hide();
     $(".map-container").show();
   }
 });
