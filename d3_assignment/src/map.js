@@ -117,4 +117,4 @@ function drawMap(selector, jsonFile) {
 
 // drawMap(".us-state", "public/topojson/us-states.json");
 // drawMap(".china", "public/china.json");
-drawMap("#map", "public/geojson/beijing.geojson");
+drawMap("#beijing-map", "public/geojson/beijing.geojson");

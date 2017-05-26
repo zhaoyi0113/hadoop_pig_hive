@@ -30,13 +30,13 @@
             <a href="#" onclick="changeNavSelection('Dashboard')"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
           </li>
           <li>
-            <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+            <a href="#" onclick="changeNavSelection('Charts')"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
           </li>
           <li>
-            <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+            <a href="#" onclick="changeNavSelection('Statistics')"><i class="fa fa-fw fa-table"></i> Tables</a>
           </li>
           <li>
-            <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+            <a href="#" onclick="changeNavSelection('map')"><i class="fa fa-fw fa-edit"></i> Map</a>
           </li>
           <li>
             <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
@@ -70,7 +70,22 @@
       <div class="page-header">
         <input class="chart-map-toggle" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="warning" />
       </div>
-      <div class=" weather-Dashboard">
+      <div class="weather-Dashboard">
+        <h1>
+          Dashboard
+        </h1>
+        <div class="map-container">
+          <svg id="map" width="960" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
+          </svg>
+        </div>
+      </div>
+
+      <div class="weather-map">
+        <svg id="beijing-map" width="960" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
+          </svg>
+      </div>
+      <div class="weather-Charts">
+        <h1>Charts</h1>
         <div class="chart-container">
           <div class="search-bar">
             <div class="district-select-container">
@@ -118,15 +133,12 @@
           </div>
         </div>
       </div>
-      <div class="map-container">
-        <svg id="map" width="960" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
-      </svg>
+      <div class="weather-Statistics">
+        Statistics
       </div>
-
-      <div class="weather-Charts">
-        charts
+      <div class="weather-Sites">
+        Sites
       </div>
-
     </div>
   </div>
 

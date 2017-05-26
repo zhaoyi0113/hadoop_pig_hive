@@ -1,6 +1,7 @@
 var selectedDistrict;
 var searchedData;
 var selectedRegion = 1; //0: city, 1: suburb
+var kpisData = {}; // save mean vaue data for each kpi
 var city = [
   "DongSi",
   "HuaiRou"
@@ -84,6 +85,10 @@ function getSelectedKPI() {
   $(".pm-kpi-checkbox .no2").is(":checked") && kpis.push("NO2");
   $(".pm-kpi-checkbox .so2").is(":checked") && kpis.push("SO2");
   return kpis;
+}
+
+function getAllKpis() {
+  return ["AQI", "PM2.5", "PM10", "CO", "NO2", "SO2"];
 }
 
 function selectKpi(e) {
@@ -270,6 +275,18 @@ function drawDataByKPIs(site) {
     });
     drawLineChart(site, charData, i === 0, kpis[i]);
   }
+  var allKpis = getAllKpis();
+  for (var i = 0; i < allKpis.length; i++) {
+    searchedData.map(function(d) {
+      var v = parseFloat(d[allKpis[i]]) || 0;
+      if (kpisData.hasOwnProperty(allKpis[i])) {
+        kpisData[allKpis[i]] += v;
+      } else {
+        kpisData[allKpis[i]] = v;
+      }
+    });
+  }
+  console.log('site data ', kpisData);
 }
 
 function queryAndDrawBySite(site) {
