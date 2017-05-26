@@ -55,6 +55,8 @@ body {
 
 .search-button {
   margin-left: auto;
+  height: 40px;
+  width: 100px;
 }
 
 div.tooltip {

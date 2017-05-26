@@ -1,29 +1,6 @@
 var selectedDistrict;
 var searchedData;
-var selectedRegion = 1; //0: city, 1: suburb
 var kpisData = {}; // save mean vaue data for each kpi
-var city = [
-  "DongSi",
-  "HuaiRou"
-  //   "NongZhanGuan",
-  //   "ZhiWuYuan",
-  //   "FengTaiHuaYuan",
-  //   "BeibuXinqu"
-];
-var suburb = [
-  "FangShan",
-  "DaXing",
-  "YiZhuang",
-  "TongZhou",
-  "ShunYi",
-  "ChangPing",
-  "MenTouGou",
-  "HuaiRou",
-  "PingGu",
-  "MiYun",
-  "YanQing"
-];
-var grading = "MONTH";
 $(".chart-map-toggle").bootstrapToggle({
   on: "Chart",
   off: "Map"
@@ -229,37 +206,6 @@ function drawLineChart(site, data, drawAxial, kpi) {
 
 var parseTime = d3.timeParse("%Y-%m-%d");
 
-function parseData(json) {
-  var date = json["Date"];
-  var charDatas = [];
-  var showDistricts = selectedRegion === 0 ? city : suburb;
-  showDistricts.map(function(dist) {
-    console.log("parse dist ", dist);
-    var charData = [];
-    for (var i = 0; i < date.length; i++) {
-      charData.push({
-        date: parseTime(date[i]),
-        value: json[dist][i]
-      });
-    }
-    charDatas.push({ site: dist, data: charData });
-  });
-  return charDatas;
-}
-
-function queryAndDrawByDate() {
-  $.ajax({
-    url: "http://localhost:8000/data/year?kpi=AQI&category=MONTH"
-  }).done(function(data) {
-    var json = JSON.parse(data);
-    console.log("parse data ", json);
-    var charDatas = parseData(json);
-    charDatas.map(function(data, i) {
-      drawLineChart(data.site, data.data, i === 0);
-    });
-  });
-}
-
 function drawDataByKPIs(site) {
   if (!searchedData) {
     return;
@@ -303,5 +249,3 @@ function queryAndDrawBySite(site) {
   });
 }
 $(".map-container").hide();
-// queryAndDrawByDate();
-// queryAndDrawBySite(selectedDistrict);
