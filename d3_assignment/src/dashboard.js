@@ -9,6 +9,21 @@ function drawKpiSummaries() {
   $('.kpi-summary:nth-child(5)>.header>.value').text(kpisMeanData['PM10_24h'])
 }
 
+function getKpiDashboardColor(i) {
+  switch (i) {
+    case 0:
+      return 'rgb(51, 122, 183)';
+    case 1:
+      return 'rgb(92, 184, 92)';
+    case 2:
+      return 'rgb(240, 173, 78)';
+    case 3:
+      return 'rgb(217, 83, 79)';
+    case 4:
+      return 'rgb(229, 165, 165)';
+  }
+}
+
 function drawKpiLineChart() {
   var svg = d3
     .select(".kpi-line-chart-svg");
@@ -27,10 +42,14 @@ function drawKpiLineChart() {
   }
   var values = drawData;
   console.log('values = ', values);
+  var xDomain = [];
+  values.forEach(function(v, i) {
+    xDomain.push(i * (width / values.length));
+  });
+  var x = d3.scaleOrdinal().domain(getAllKpis()).range(xDomain);
   var y = d3.scaleLinear()
     .domain([0, d3.max(values)])
     .range([height, 0]);
-
   svg.selectAll("rect")
     .data(values)
     .enter()
@@ -39,13 +58,24 @@ function drawKpiLineChart() {
       return i * (width / values.length);
     })
     .attr("y", function(d) {
-      console.log('y=', d, y(d))
       return y(d);
     })
     .attr("width", 40)
     .attr("height", function(d) {
       return height - y(d);
+    }).attr("fill", function(d, i) {
+      return getKpiDashboardColor(i);
     });
+
+  svg
+    .append("g")
+    .attr("margin-left", "20px")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x));
+  svg
+    .append("g")
+    .attr("transform", "translate(0,0)")
+    .call(d3.axisLeft(y));
 }
 
 $.ajax({
