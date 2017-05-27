@@ -105,7 +105,7 @@ queryKpisData <- function(){
       sitesKpi <- date[kpi][[1]] # all site for this kpi
       sitesKpi <- sitesKpi[c(-1,-2,-3)]
       sitesKpi[is.na(sitesKpi)] <- 0
-      kpiValue[[kpi]][length(kpiValue[[kpi]])+1] <- mean(as.matrix(aqi));
+      kpiValue[[kpi]][length(kpiValue[[kpi]])+1] <- mean(as.matrix(sitesKpi));
     }
   }
   return(kpiValue);

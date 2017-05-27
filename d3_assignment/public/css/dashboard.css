@@ -72,7 +72,12 @@
   margin-right: 5px;
 }
 
-.kpi-line-chart-svg {
+.kpi-line-chart {
+  display: flex;
+  flex-direction: row;
+}
+
+.kpi-histogram-chart-svg {
   padding-left: 20px;
   display: block;
   margin: 20px 30px;

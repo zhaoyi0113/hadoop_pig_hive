@@ -24,9 +24,9 @@ function getKpiDashboardColor(i) {
   }
 }
 
-function drawKpiLineChart() {
+function drawKpiHistogramChart() {
   var svg = d3
-    .select(".kpi-line-chart-svg");
+    .select(".kpi-histogram-chart-svg");
   var margin = { top: 20, right: 20, bottom: 30, left: 50 },
     width = svg.attr("width") - margin.left - margin.right,
     height = svg.attr("height") - margin.top - margin.bottom,
@@ -41,7 +41,6 @@ function drawKpiLineChart() {
     }
   }
   var values = drawData;
-  console.log('values = ', values);
   var xDomain = [];
   values.forEach(function(v, i) {
     xDomain.push(i * (width / values.length));
@@ -78,6 +77,49 @@ function drawKpiLineChart() {
     .call(d3.axisLeft(y));
 }
 
+function drawKpisLineChart() {
+  var margin = { top: 20, right: 20, bottom: 30, left: 50 };
+  var svg = d3
+    .select(".kpi-line-chart-svg"),
+    width = svg.attr("width") - margin.left - margin.right,
+    height = svg.attr("height") - margin.top - margin.bottom;
+  var kpis = getAllKpis();
+  var x = d3.scaleTime().rangeRound([0, width]);
+  var y = d3.scaleLinear().rangeRound([height, 0]);
+  kpis.forEach(function(k, i) {
+    var kpi = kpisData[k];
+    console.log('kpi=', kpi);
+    var data = [];
+    var beginDate = new Date('2016-01-01');
+    kpi.forEach(function(k, i) {
+      var d = new Date();
+      d.setDate(beginDate.getDate() + i);
+      data.push({ value: k, date: d });
+    });
+    var xAxis = d3.scaleOrdinal().range([new Date('2016-01-01'), new Date('2016-12-31')]).domain(kpi);
+    x.domain(d3.extent(data, function(d) { return d.date; }));
+    y.domain(d3.extent(data, function(d) { return d.value; }));
+    var line = d3
+      .line()
+      .x(function(d) {
+        return x(d.date);
+      })
+      .y(function(d) {
+        return y(d.value);
+      });
+    var g = svg.append('g').attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    g
+      .append("path")
+      .datum(data)
+      // .attr("fill", "red")
+      .attr("stroke", getKpiDashboardColor(i))
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 1.5)
+      .attr("d", line);
+  });
+}
+
 $.ajax({
   url: "http://localhost:8000/data/kpi/mean"
 }).done(function(data) {
@@ -89,14 +131,14 @@ $.ajax({
       kpisMeanData[key] = parseFloat(Math.round(kpisMeanData[key][0] * 100) / 100).toFixed(2);
     }
   }
-  console.log('kpisMeanData=', kpisMeanData);
   drawKpiSummaries();
+  drawKpiHistogramChart();
 });
 
 $.ajax({ url: "http://localhost:8000/data/kpis" })
   .done(function(data) {
     kpisData = JSON.parse(data);
-    drawKpiLineChart(kpisData);
+    drawKpisLineChart();
   });
 
 function getAllKpis() {
