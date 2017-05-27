@@ -88,14 +88,19 @@ function drawKpisLineChart() {
   var y = d3.scaleLinear().rangeRound([height, 0]);
   kpis.forEach(function(k, i) {
     var kpi = kpisData[k];
-    console.log('kpi=', kpi);
     var data = [];
     var beginDate = new Date('2016-01-01');
     kpi.forEach(function(k, i) {
-      var d = new Date();
-      d.setDate(beginDate.getDate() + i);
-      data.push({ value: k, date: d });
+      var date = new Date();
+      date.setTime(beginDate.getTime());
+      if (i == 12) {
+        date.setFullYear(beginDate.getFullYear() + 1);
+      } else {
+        date.setMonth(beginDate.getMonth() + i);
+      }
+      data.push({ value: k, date: date });
     });
+    console.log('data', data);
     var xAxis = d3.scaleOrdinal().range([new Date('2016-01-01'), new Date('2016-12-31')]).domain(kpi);
     x.domain(d3.extent(data, function(d) { return d.date; }));
     y.domain(d3.extent(data, function(d) { return d.value; }));
@@ -111,12 +116,23 @@ function drawKpisLineChart() {
     g
       .append("path")
       .datum(data)
-      // .attr("fill", "red")
       .attr("stroke", getKpiDashboardColor(i))
       .attr("stroke-linejoin", "round")
       .attr("stroke-linecap", "round")
       .attr("stroke-width", 1.5)
       .attr("d", line);
+    if (i === 0) {
+      svg
+        .append("g")
+        .attr("margin-left", "20px")
+        .attr("transform", "translate(0," + (height + 30) + ")")
+        .call(d3.axisBottom(x));
+      svg
+        .append("g")
+        .attr("transform", "translate(20,30)")
+        .call(d3.axisLeft(y));
+    }
+
   });
 }
 
@@ -135,9 +151,10 @@ $.ajax({
   drawKpiHistogramChart();
 });
 
-$.ajax({ url: "http://localhost:8000/data/kpis" })
+$.ajax({ url: "http://localhost:8000/data/kpi/monthly" })
   .done(function(data) {
     kpisData = JSON.parse(data);
+    console.log('kpi data', kpisData)
     drawKpisLineChart();
   });
 

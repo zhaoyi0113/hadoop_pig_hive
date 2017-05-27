@@ -82,3 +82,7 @@
   display: block;
   margin: 20px 30px;
 }
+
+.kpi-line-chart-svg {
+  margin-left: 50px;
+}

@@ -41,6 +41,11 @@ getKpiMeanData <- function(){
   toJSON(kpiMeanData)
 }
 
+#* @get /data/kpi/monthly
+getKpisMonthlyData <- function(){
+  toJSON(kpisMonthlyData)
+}
+
 #* @get /data/kpis
 getKpisData <- function(){
   toJSON(kpisData)
