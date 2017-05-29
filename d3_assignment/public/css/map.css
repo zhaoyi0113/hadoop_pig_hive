@@ -1,0 +1,19 @@
+.weather-map {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-map .map-view-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.weather-map .map-view-header .map-district-select-label {
+  margin: 10px;
+}
+
+.map-container {
+  align-self: center;
+}

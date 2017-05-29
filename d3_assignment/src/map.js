@@ -1,5 +1,3 @@
-// var map = d3.geomap().geofile("public/topojson/world/countries.json");
-// d3.select("#map").call(map.draw, map);
 var location;
 location["DongSi"] = { longitude: 116.421543, latitude: 39.929411 };
 var color = d3
@@ -8,6 +6,35 @@ var color = d3
   .clamp(true)
   .range(["#0000", "#409A99"]);
 
+function selectMapKpi(name, e) {
+  e.preventDefault();
+  $(".map-districts-label").text(name);
+  selectedMapDistrict = name;
+  $(".map-districts-label").append('<span class="caret"></span>');
+}
+
+function loadInitialData() {
+  $(".map-districts-dropdown").append(
+    '<li><a href="#" class="map-districts-dropdown-all">All</a></li>'
+  );
+  $(".map-districts-dropdown-all").click(function(e) {
+    selectMapKpi('All', e);
+  });
+
+  Object.keys(kpiNames).forEach(function(key) {
+    var value = kpiNames[key];
+    $(".map-districts-dropdown").append(
+      '<li><a href="#" class="map-districts-dropdown-' + key + '">' + value + "</a></li>"
+    );
+    if (selectedMapKpi) {
+      $(".map-districts-label").text(selectedMapKpi);
+      $(".map-districts-label").append('<span class="caret"></span>');
+    }
+    $(".map-districts-dropdown-" + key).click(function(e) {
+      selectMapKpi(value, e);
+    });
+  });
+}
 // Get province name
 function nameFn(d) {
   return d && d.properties ? d.properties.NAME : null;
@@ -118,3 +145,5 @@ function drawMap(selector, jsonFile) {
 // drawMap(".us-state", "public/topojson/us-states.json");
 // drawMap(".china", "public/china.json");
 drawMap("#beijing-map", "public/geojson/beijing.geojson");
+
+loadInitialData();

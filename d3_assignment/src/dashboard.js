@@ -2,11 +2,33 @@ var kpisMeanData;
 var kpisData;
 
 function drawKpiSummaries() {
-  $('.kpi-summary:nth-child(1)>.header>.value').text(kpisMeanData['AQI'])
-  $('.kpi-summary:nth-child(2)>.header>.value').text(kpisMeanData['PM2.5'])
-  $('.kpi-summary:nth-child(3)>.header>.value').text(kpisMeanData['PM2.5_24h'])
-  $('.kpi-summary:nth-child(4)>.header>.value').text(kpisMeanData['PM10'])
-  $('.kpi-summary:nth-child(5)>.header>.value').text(kpisMeanData['PM10_24h'])
+  $('.kpi-summary:nth-child(1)>.header>.value').text(kpisMeanData[kpiNames.aqi])
+  $('.kpi-summary:nth-child(2)>.header>.value').text(kpisMeanData[kpiNames.pm25])
+  $('.kpi-summary:nth-child(3)>.header>.value').text(kpisMeanData[kpiNames.pm2524])
+  $('.kpi-summary:nth-child(4)>.header>.value').text(kpisMeanData[kpiNames.pm10])
+  $('.kpi-summary:nth-child(5)>.header>.value').text(kpisMeanData[kpiNames.pm1024])
+  $('.kpi-summary:nth-child(1)>.footer').click(function(e) {
+    clickViewDetail(kpiNames.aqi, e);
+  });
+  $('.kpi-summary:nth-child(2)>.footer').click(function(e) {
+    clickViewDetail(kpiNames.pm25, e);
+  });
+  $('.kpi-summary:nth-child(3)>.footer').click(function(e) {
+    clickViewDetail(kpiNames.pm2524, e);
+  });
+  $('.kpi-summary:nth-child(4)>.footer').click(function(e) {
+    clickViewDetail(kpiNames.pm10, e);
+  });
+  $('.kpi-summary:nth-child(5)>.footer').click(function(e) {
+    clickViewDetail(kpiNames.pm1024, e);
+  });
+}
+
+function clickViewDetail(kpi, e) {
+  e.preventDefault();
+  selectedMapKpi = kpi;
+  selectMapKpi(selectedMapKpi, e);
+  changeNavSelection('map');
 }
 
 function getKpiDashboardColor(i) {
@@ -100,7 +122,6 @@ function drawKpisLineChart() {
       }
       data.push({ value: k, date: date });
     });
-    console.log('data', data);
     var xAxis = d3.scaleOrdinal().range([new Date('2016-01-01'), new Date('2016-12-31')]).domain(kpi);
     x.domain(d3.extent(data, function(d) { return d.date; }));
     y.domain(d3.extent(data, function(d) { return d.value; }));
@@ -154,7 +175,6 @@ $.ajax({
 $.ajax({ url: "http://localhost:8000/data/kpi/monthly" })
   .done(function(data) {
     kpisData = JSON.parse(data);
-    console.log('kpi data', kpisData)
     drawKpisLineChart();
   });
 

@@ -8,6 +8,7 @@
   <link href="public/css/weather.css" rel="stylesheet">
   <link href="public/css/bootstrap-toggle.min.css" rel="stylesheet">
   <link href="public/css/dashboard.css" rel="stylesheet">
+  <link href="public/css/map.css" rel="stylesheet">
 </head>
 
 <body>
@@ -136,21 +137,33 @@
       </div>
 
       <div class="weather-map">
-        <svg id="beijing-map" width="960" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
+        <div class="map-view-header">
+          <span class="map-district-select-label label label-primary">District</span>
+          <div class="map-district-select-dropdown dropdown">
+            <button class="btn btn-default dropdown-toggle map-districts-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Districts
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu map-districts-dropdown" aria-labelledby="dropdownMenu1">
+            </ul>
+          </div>
+        </div>
+        <div class="map-container">
+          <svg id="beijing-map" width="960" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
           </svg>
+        </div>
       </div>
-
       <div class="weather-Charts">
-        <h1>Charts</h1>
+        <h1></h1>
         <div class="chart-container">
           <div class="search-bar">
             <div class="district-select-container">
               <span class="district-select-label">District</span>
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle districts-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Districts
-            <span class="caret"></span>
-            </button>
+                Districts
+                <span class="caret"></span>
+                </button>
                 <ul class="dropdown-menu districts-dropdown" aria-labelledby="dropdownMenu1">
                 </ul>
               </div>
@@ -206,6 +219,7 @@
   <script type='text/javascript' src='libs/d3-axis.min.js'></script>
 
 
+  <script type='text/javascript' src='./src/common.js'></script>
   <script type='text/javascript' src='./src/district_loc.js'></script>
   <script type='text/javascript' src='./src/router.js'></script>
   <script type='text/javascript' src='./src/dashboard.js'></script>

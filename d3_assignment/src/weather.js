@@ -245,4 +245,3 @@ function queryAndDrawBySite(site) {
     drawDataByKPIs(site);
   });
 }
-$(".map-container").hide();
