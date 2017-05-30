@@ -43,7 +43,6 @@ $.ajax({
 });
 
 function searchAction() {
-  console.log("district ", $(".pm-kpi-checkbox .aqi").is(":checked"));
   if (!selectedDistrict) {
     $("#myModal").modal("show");
   } else {
@@ -87,7 +86,6 @@ function getColor(site) {
 }
 
 function drawLineChart(site, data, drawAxial, kpi) {
-  console.log("draw data", data, "for site ", site);
   var svg = d3
     .select(".data-chart")
     .attr("width", Math.max(10 * data.length, 960)),
@@ -150,7 +148,6 @@ function drawLineChart(site, data, drawAxial, kpi) {
     .attr("d", line);
 
   var tip = d3.tip().attr("class", "d3-tip").offset([-10, 0]).html(function(d) {
-    console.log("show tip ", d);
     return (
       "<strong>Site:</strong> <span style='color:red'>" + d.date + "</span>"
     );
@@ -176,9 +173,7 @@ function drawLineChart(site, data, drawAxial, kpi) {
 
   circle
     .on("mouseover", function(d) {
-      console.log("mouse over ", d);
       var format = d3.timeFormat("%d-%m-%Y");
-      console.log("parse time ", format(d.date));
       div.transition().duration(200).style("opacity", 0.9);
       div
         .html(
@@ -188,7 +183,6 @@ function drawLineChart(site, data, drawAxial, kpi) {
         .style("top", d3.event.pageY - 28 + "px");
     })
     .on("mouseout", function(d) {
-      console.log("mouse out");
       div.transition().duration(500).style("opacity", 0);
     });
   // draw kpi label on each line
@@ -208,7 +202,6 @@ function drawDataByKPIs(site) {
     return;
   }
   var kpis = getSelectedKPI();
-  console.log("get kpis ", kpis);
   removeDrawer();
   for (var i = 0; i < kpis.length; i++) {
     var charData = [];
@@ -229,7 +222,6 @@ function drawDataByKPIs(site) {
       }
     });
   }
-  console.log('site data ', kpisData);
 }
 
 function queryAndDrawBySite(site) {
@@ -238,7 +230,6 @@ function queryAndDrawBySite(site) {
       site +
       "&category=DAY"
   }).done(function(data) {
-    console.log("get data ", data);
     searchedData = data;
     var $this = $(".search-button");
     $this.button("reset");

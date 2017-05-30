@@ -11,17 +11,16 @@ function selectMapKpi(name, e) {
   $(".map-districts-label").text(name);
   selectedMapDistrict = name;
   $(".map-districts-label").append('<span class="caret"></span>');
-  console.log('select data:', kpiDataBySites[name]);
   drawKpiOnMap('#beijing-map', kpiDataBySites[name]);
 }
 
 function loadInitialData() {
-  $(".map-districts-dropdown").append(
-    '<li><a href="#" class="map-districts-dropdown-all">All</a></li>'
-  );
-  $(".map-districts-dropdown-all").click(function(e) {
-    selectMapKpi('All', e);
-  });
+  // $(".map-districts-dropdown").append(
+  //   '<li><a href="#" class="map-districts-dropdown-all">All</a></li>'
+  // );
+  // $(".map-districts-dropdown-all").click(function(e) {
+  //   selectMapKpi('All', e);
+  // });
 
   Object.keys(kpiNames).forEach(function(key) {
     var value = kpiNames[key];
@@ -41,7 +40,7 @@ function loadInitialData() {
     url: "http://localhost:8000/data/sites/kpis"
   }).done(function(data) {
     kpiDataBySites = JSON.parse(data);
-    console.log('kpi data by site', kpiDataBySites);
+    // console.log('kpi data by site', kpiDataBySites);
   });
 }
 // Get province name
@@ -65,7 +64,7 @@ function drawMap(selector, jsonFile) {
   var height = 600;
   d3.json(jsonFile, function(error, json) {
     if (error) throw error;
-    console.log("json:", json);
+    // console.log("json:", json);
     projection = d3.geoMercator().fitSize([width, height], json);
     var path = d3.geoPath().projection(projection);
 
