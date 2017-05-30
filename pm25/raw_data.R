@@ -1,5 +1,5 @@
 library(stringr)
-
+library(gdata)
 path <- '../beijing_20160101-20161231/'
 
 
@@ -28,7 +28,7 @@ changeColumnName <- function(data) {
   data = rename.vars(data, from = '密云', to = 'MiYun')
   data = rename.vars(data, from = '延庆', to = 'YanQing')
   data = rename.vars(data, from = '定陵', to = 'DingLing')
-  data = rename.vars(data, from = '八达岭', to = 'BaDaLin')
+  data = rename.vars(data, from = '八达岭', to = 'BaDaLing')
   data = rename.vars(data, from = '密云水库', to = 'MiYunShuiKu')
   data = rename.vars(data, from = '东高村', to = 'DongGaoCun')
   data = rename.vars(data, from = '永乐店', to = 'YongLeDian')
@@ -60,6 +60,9 @@ loadData <- function(year) {
     dataExtra <- changeColumnName(dataExtra)
     print(str_c('load file:', path, 'beijing_all_', strDate, '.csv'))
     allData <- rbind(data, dataExtra)
+    for(i in 1:ncol(allData)){
+      allData[is.na(allData[,i]), i] <- mean(allData[,i], na.rm = TRUE)
+    }
     s <- split(allData, allData$type)
     cachedData[[strDate]] <- s
     startDate <- startDate + 1
@@ -136,23 +139,50 @@ queryKpisMonthlyData <- function() {
 # get kpi data for the whole year
 queryKpisDailyData <- function() {
   kpis <- getAllKPIs()
-  
   kpiValue <- list()
-  
   for (kpi in kpis) {
     kpiValue[[kpi]] <- c()
     for (date in cachedData) {
       sitesKpi <- date[kpi][[1]] # all site for this kpi
       sitesKpi <- sitesKpi[c(-1, -2, -3)]
-      sitesKpi[is.na(sitesKpi)] <- 0
+      
+      for(i in 1:ncol(sitesKpi)){
+        sitesKpi[is.na(sitesKpi[,i]), i] <- mean(sitesKpi[,i], na.rm = TRUE)
+      }
+      #sitesKpi[is.na(sitesKpi)] <- 0
       kpiValue[[kpi]][length(kpiValue[[kpi]]) + 1] <-
         mean(as.matrix(sitesKpi))
       
     }
   }
   return(kpiValue)
+}
+
+queryKpiBySite <- function(){
+  kpis <- getAllKPIs()
+  kpiValue <- list()
+  for (kpi in kpis) {
+    kpiValue[[kpi]] <- list()
+    for (date in cachedData) {
+      sitesKpi <- date[kpi][[1]] # all site for this kpi
+      sitesKpi <- sitesKpi[c(-1, -2, -3)]
+      for(i in 1:ncol(sitesKpi)){
+        sitesKpi[is.na(sitesKpi[,i]), i] <- mean(sitesKpi[,i], na.rm = TRUE)
+      }
+      #sitesKpi[is.na(sitesKpi)] <- mean(as.matrix(sitesKpi))
+      for (siteName in names(sitesKpi)){
+        if(length(kpiValue[[kpi]][[siteName]] == 0)){
+          kpiValue[[kpi]][[siteName]] <- mean(as.matrix(sitesKpi[siteName]))
+        }else{
+          kpiValue[[kpi]][[siteName]] <- mean(c(kpiValue[[kpi]][[siteName]] , mean(as.matrix(sapply(sitesKpi[siteName], as.numeric)))))
+        }
+      }
+    }
+  }
   
+  return(kpiValue)
 }
 
 kpisData <- queryKpisDailyData()
 kpisMonthlyData <- queryKpisMonthlyData()
+kpisSiteData <- queryKpiBySite()

@@ -11,6 +11,8 @@ function selectMapKpi(name, e) {
   $(".map-districts-label").text(name);
   selectedMapDistrict = name;
   $(".map-districts-label").append('<span class="caret"></span>');
+  console.log('select data:', kpiDataBySites[name]);
+  drawKpiOnMap('#beijing-map', kpiDataBySites[name]);
 }
 
 function loadInitialData() {
@@ -33,6 +35,13 @@ function loadInitialData() {
     $(".map-districts-dropdown-" + key).click(function(e) {
       selectMapKpi(value, e);
     });
+  });
+
+  $.ajax({
+    url: "http://localhost:8000/data/sites/kpis"
+  }).done(function(data) {
+    kpiDataBySites = JSON.parse(data);
+    console.log('kpi data by site', kpiDataBySites);
   });
 }
 // Get province name
@@ -57,7 +66,7 @@ function drawMap(selector, jsonFile) {
   d3.json(jsonFile, function(error, json) {
     if (error) throw error;
     console.log("json:", json);
-    var projection = d3.geoMercator().fitSize([width, height], json);
+    projection = d3.geoMercator().fitSize([width, height], json);
     var path = d3.geoPath().projection(projection);
 
     function mouseover(d) {
@@ -93,57 +102,69 @@ function drawMap(selector, jsonFile) {
       .on("mouseover", mouseover)
       .on("mouseout", mouseout);
 
-    svg
-      .selectAll("rect")
-      .data(Object.keys(districtLocation))
-      .enter()
-      .append("rect")
-      .attr("x", function(d) {
-        const t = projection([
-          districtLocation[d].longitude,
-          districtLocation[d].latitude
-        ]);
-        return t[0];
-      })
-      .attr("y", function(d) {
-        const t = projection([
-          districtLocation[d].longitude,
-          districtLocation[d].latitude
-        ]);
-        return t[1];
-      })
-      .attr("height", "40px")
-      .attr("width", "40px")
-      .attr("fill", "red");
-
-    svg
-      .selectAll("text")
-      .data(Object.keys(districtLocation))
-      .enter()
-      .append("text")
-      .attr("dx", function(d) {
-        const t = projection([
-          districtLocation[d].longitude,
-          districtLocation[d].latitude
-        ]);
-        return t[0] + 3;
-      })
-      .attr("dy", function(d) {
-        const t = projection([
-          districtLocation[d].longitude,
-          districtLocation[d].latitude
-        ]);
-        return t[1] + 12;
-      })
-      .attr("font-size", "8px")
-      .text(function(d) {
-        return d;
-      });
+    drawKpiOnMap("#beijing-map");
   });
 }
 
-// drawMap(".us-state", "public/topojson/us-states.json");
-// drawMap(".china", "public/china.json");
+function drawKpiOnMap(selector, siteData) {
+  var svg = d3.select(selector);
+  d3.selectAll(selector + "  .site-container").remove();
+  d3.selectAll(selector + "  .site-container-text").remove();
+  svg
+    .selectAll("rect")
+    .data(Object.keys(districtLocation))
+    .enter()
+    .append("rect")
+    .attr("class", "site-container")
+    .attr("x", function(d) {
+      const t = projection([
+        districtLocation[d].longitude,
+        districtLocation[d].latitude
+      ]);
+      return t[0];
+    })
+    .attr("y", function(d) {
+      const t = projection([
+        districtLocation[d].longitude,
+        districtLocation[d].latitude
+      ]);
+      return t[1];
+    })
+    .attr("height", "20px")
+    .attr("width", "80px")
+    .attr("fill", "yellow");
+
+  svg
+    .selectAll("text")
+    .data(Object.keys(districtLocation))
+    .enter()
+    .append("text")
+    .attr("class", "site-container-text")
+    .attr("dx", function(d) {
+      const t = projection([
+        districtLocation[d].longitude,
+        districtLocation[d].latitude
+      ]);
+      return t[0] + 3;
+    })
+    .attr("dy", function(d) {
+      const t = projection([
+        districtLocation[d].longitude,
+        districtLocation[d].latitude
+      ]);
+      return t[1] + 12;
+    })
+    .attr("font-size", "8px")
+    .text(function(d) {
+      if (siteData && siteData[d]) {
+        var v = parseFloat(Math.round(siteData[d] * 100) / 100).toFixed(2);
+        return d + ': ' + v;
+      }
+      return d;
+    });
+};
+
+
 drawMap("#beijing-map", "public/geojson/beijing.geojson");
 
 loadInitialData();

@@ -13,7 +13,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
   }
 };
 
-var selectedMapKpi = "All";
+var selectedMapKpi = "Select";
 var kpiNameArray = ["AQI", "PM2.5", "PM10", "PM2.5_24h", "PM10_24h"];
 var kpiNames = {
   aqi: kpiNameArray[0],

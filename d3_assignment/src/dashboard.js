@@ -161,6 +161,7 @@ $.ajax({
   url: "http://localhost:8000/data/kpi/mean"
 }).done(function(data) {
   kpisMeanData = JSON.parse(data);
+  console.log('get kpi mean data', kpisMeanData);
   var keys = Object.keys(kpisMeanData);
   for (var i = 0; i < keys.length; i++) {
     var key = keys[i];
