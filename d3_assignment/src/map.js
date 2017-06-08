@@ -114,7 +114,7 @@ function drawKpiOnMap(selector, siteData) {
     .data(Object.keys(districtLocation))
     .enter()
     .append("rect")
-    .attr("class", "site-container")
+    .attr("class", "site-container map-site-rect")
     .attr("x", function(d) {
       const t = projection([
         districtLocation[d].longitude,

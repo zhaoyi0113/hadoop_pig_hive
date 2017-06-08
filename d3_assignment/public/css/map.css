@@ -17,3 +17,11 @@
 .map-container {
   align-self: center;
 }
+
+.map-site-rect:hover {
+  cursor: pointer;
+}
+
+.site-container-text:hover {
+  cursor: pointer;
+}
