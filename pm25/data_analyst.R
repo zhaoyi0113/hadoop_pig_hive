@@ -168,6 +168,31 @@ querySiteDate <- function(site, year='2016', category='MONTH'){
   results
 }
 
+queryDataForMonthAllSites <- function(month, kpi){
+  year <- '2016'
+  startDate <- as.Date(str_c(year, '-', month, '-01'))
+  endDate <- NA
+  if (month < 12) {
+    endDate <- as.Date(str_c(year, '-', month + 1, '-01')) - 1
+  } else{
+    endDate <- as.Date(str_c(year, '-12-31'))
+  }
+  date <- startDate
+  monthData <- list()
+  while(date<endDate){
+    strDate <- format(date, '%Y%m%d')
+    dayData <- cachedData[[strDate]]
+    dayData <- dayData[[kpi]][c(-1,-2,-3)]
+    meanData <- mean(sapply(dayData, mean))
+    
+    date <- date + 1
+  }
+}
+
+queryDataForAllMonthsAllSites <- function(kpi){
+  
+}
+
 #y <- queryDataForYear('2016', 'PM2.5', 'DAY')
 #a <- y[c('Date', 'DongSi')]
 #b <- y[c('Date', 'TongZhou')]

@@ -3,24 +3,24 @@ var kpisData;
 
 function drawKpiSummaries() {
   $('.kpi-summary:nth-child(1)>.header>.value').text(kpisMeanData[kpiNames.aqi])
-  $('.kpi-summary:nth-child(2)>.header>.value').text(kpisMeanData[kpiNames.pm25])
-  $('.kpi-summary:nth-child(3)>.header>.value').text(kpisMeanData[kpiNames.pm2524])
-  $('.kpi-summary:nth-child(4)>.header>.value').text(kpisMeanData[kpiNames.pm10])
-  $('.kpi-summary:nth-child(5)>.header>.value').text(kpisMeanData[kpiNames.pm1024])
+  $('.kpi-summary:nth-child(2)>.header>.value').text(kpisMeanData[kpiNames.so2])
+  $('.kpi-summary:nth-child(3)>.header>.value').text(kpisMeanData[kpiNames.co])
+  $('.kpi-summary:nth-child(4)>.header>.value').text(kpisMeanData[kpiNames.o3])
+  $('.kpi-summary:nth-child(5)>.header>.value').text(kpisMeanData[kpiNames.pm25])
   $('.kpi-summary:nth-child(1)>.footer').click(function(e) {
     clickViewDetail(kpiNames.aqi, e);
   });
   $('.kpi-summary:nth-child(2)>.footer').click(function(e) {
-    clickViewDetail(kpiNames.pm25, e);
+    clickViewDetail(kpiNames.so2, e);
   });
   $('.kpi-summary:nth-child(3)>.footer').click(function(e) {
-    clickViewDetail(kpiNames.pm2524, e);
+    clickViewDetail(kpiNames.co, e);
   });
   $('.kpi-summary:nth-child(4)>.footer').click(function(e) {
-    clickViewDetail(kpiNames.pm10, e);
+    clickViewDetail(kpiNames.o3, e);
   });
   $('.kpi-summary:nth-child(5)>.footer').click(function(e) {
-    clickViewDetail(kpiNames.pm1024, e);
+    clickViewDetail(kpiNames.pm25, e);
   });
 }
 

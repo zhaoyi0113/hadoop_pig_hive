@@ -9,6 +9,7 @@
   <link href="public/css/bootstrap-toggle.min.css" rel="stylesheet">
   <link href="public/css/dashboard.css" rel="stylesheet">
   <link href="public/css/map.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="" />
 </head>
 
 <body>
@@ -63,37 +64,37 @@
           </div>
           <div class="kpi-summary">
             <div class="header">
+              <div class="kpi">SO2</div>
+              <div class="value"></div>
+            </div>
+            <div class="footer">
+              <div class="text-label">View Details</div>
+              <i class="fa fa-arrow-circle-right"></i>
+            </div>
+          </div>
+          <div class="kpi-summary">
+            <div class="header">
+              <div class="kpi">CO</div>
+              <div class="value"></div>
+            </div>
+            <div class="footer">
+              <div class="text-label">View Details</div>
+              <i class="fa fa-arrow-circle-right"></i>
+            </div>
+          </div>
+          <div class="kpi-summary">
+            <div class="header">
+              <div class="kpi">O3</div>
+              <div class="value"></div>
+            </div>
+            <div class="footer">
+              <div class="text-label">View Details</div>
+              <i class="fa fa-arrow-circle-right"></i>
+            </div>
+          </div>
+          <div class="kpi-summary">
+            <div class="header">
               <div class="kpi">PM2.5</div>
-              <div class="value"></div>
-            </div>
-            <div class="footer">
-              <div class="text-label">View Details</div>
-              <i class="fa fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="kpi-summary">
-            <div class="header">
-              <div class="kpi">PM2.5_24h</div>
-              <div class="value"></div>
-            </div>
-            <div class="footer">
-              <div class="text-label">View Details</div>
-              <i class="fa fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="kpi-summary">
-            <div class="header">
-              <div class="kpi">PM10</div>
-              <div class="value"></div>
-            </div>
-            <div class="footer">
-              <div class="text-label">View Details</div>
-              <i class="fa fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="kpi-summary">
-            <div class="header">
-              <div class="kpi">PM10_24h</div>
               <div class="value"></div>
             </div>
             <div class="footer">
@@ -123,6 +124,7 @@
           </div>
         </div>
         <div class="map-container">
+          <div id="mapid"></div>
           <svg id="beijing-map" width="960" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
           </svg>
         </div>
@@ -191,8 +193,7 @@
   <script type='text/javascript' src="libs/bootstrap.min.js"></script>
   <script type='text/javascript' src='libs/bootstrap-toggle.min.js'></script>
   <script type='text/javascript' src='libs/d3-axis.min.js'></script>
-
-
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
   <script type='text/javascript' src='./src/common.js'></script>
   <script type='text/javascript' src='./src/district_loc.js'></script>
   <script type='text/javascript' src='./src/router.js'></script>
