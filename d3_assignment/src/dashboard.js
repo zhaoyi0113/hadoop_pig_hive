@@ -185,7 +185,6 @@ function drawKpiMonthlyData(monthlyData, month) {
   var margin = { top: 20, right: 20, bottom: 30, left: 50 };
   var childIndex = parseInt(month % 3) + 1;
   var rowIndex = parseInt(month / 3) + 1;
-  console.log(childIndex + ',' + rowIndex)
   var svg = d3
     .select(".kpi-monthly-chart-container>.kpi-line-chart-row:nth-child(" + rowIndex + ") .kpi-line-chart-cell:nth-child(" + childIndex + ")"),
     width = svg.attr("width") - margin.left - margin.right,
