@@ -3,7 +3,6 @@ library(jsonlite)
 #source('test.R')
 source('data_analyst.R')
 
-
 #* @get /data/year
 getMonthlyData <- function(year = '2016', kpi = 'AQI', category='MONTH'){
   data <- queryDataForYear(year, kpi, category)
@@ -34,6 +33,26 @@ getSiteData <- function(site, year='2016', category='MONTH'){
   data <- querySiteDate(site, year, category)  
   #data[is.na(data)] <- 0
   #toJSON(data)
+}
+
+#* @get /data/kpi/mean
+getKpiMeanData <- function(){
+  toJSON(kpiMeanData)
+}
+
+#* @get /data/kpi/monthly
+getKpisMonthlyData <- function(){
+  toJSON(kpisMonthlyData)
+}
+
+#* @get /data/kpis
+getKpisData <- function(){
+  toJSON(kpisData)
+}
+
+#* @get /data/sites/kpis
+getKpisBySite <- function(){
+  toJSON(kpisSiteData)
 }
 
 #* @post /sum

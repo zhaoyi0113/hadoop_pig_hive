@@ -1,88 +1,131 @@
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*background-color: rgb(43, 43, 43);*/
 }
 
 .container {
-    margin-top: 10px;
+  margin-top: 50px;
+  left: 230px;
+  position: absolute;
+  width: 80%;
+}
+
+@media(min-width:768px) {
+  .side-nav {
+    position: fixed;
+    top: 51px;
+    left: 225px;
+    width: 225px;
+    margin-left: -225px;
+    border: none;
+    border-radius: 0;
+    overflow-y: auto;
+    background-color: #222;
+    bottom: 0;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+  }
+  .side-nav>li>a {
+    width: 225px;
+  }
+  .side-nav li a:hover,
+  .side-nav li a:focus {
+    outline: none;
+    background-color: #000 !important;
+  }
 }
 
 .district-select-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .district-select-label {
-    height: 20px;
-    line-height: 20px;
-    margin: 10px;
+  height: 20px;
+  line-height: 20px;
+  margin: 10px;
 }
 
 .search-bar {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .search-button {
-    margin-left: auto;
+  margin-left: auto;
+  height: 40px;
+  width: 100px;
 }
 
 div.tooltip {
-    position: absolute;
-    text-align: center;
-    width: 100px;
-    height: 50px;
-    padding: 2px;
-    font: 12px sans-serif;
-    background: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
 }
 
 .pm-kpi-checkbox {
-    display: flex;
-    margin: 10px;
+  display: flex;
+  margin: 10px;
 }
 
 .kpi-selection {
-    margin: 0px 10px;
+  margin: 0px 10px;
 }
 
 .data-chart-container {
-    overflow: auto;
-    display: inline-block;
-    width: 960px;
-    border-color: black;
+  overflow: auto;
+  display: inline-block;
+  width: 960px;
+  border-color: black;
 }
 
 .data-chart {
-    background-color: rgb(247, 252, 197);
-    margin: 30px;
+  background-color: rgb(245, 245, 245);
+  margin: 30px;
 }
 
 .pm-kpi-checkbox .aqi-label {
-    color: rgb(0, 153, 102);
+  color: rgb(0, 153, 102);
 }
 
 .pm-kpi-checkbox .pm2_5-label {
-    color: rgb(128, 188, 77);
+  color: rgb(128, 188, 77);
 }
 
 .pm-kpi-checkbox .pm10-label {
-    color: rgb(255, 222, 51);
+  color: rgb(255, 222, 51);
 }
 
 .pm-kpi-checkbox .co-label {
-    color: rgb(255, 188, 51);
+  color: rgb(255, 188, 51);
 }
 
 .pm-kpi-checkbox .no2-label {
-    color: rgb(255, 152, 51);
+  color: rgb(255, 152, 51);
 }
 
 .pm-kpi-checkbox .so2-label {
-    color: rgb(102, 0, 153);
+  color: rgb(102, 0, 153);
+}
+
+.map-container {
+  /*margin-left: 250px;*/
+}
+
+.data-chart-container {
+  /*margin-left: 250px;*/
+}
+
+.page-header {
+  display: none;
 }
