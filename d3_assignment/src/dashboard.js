@@ -7,6 +7,7 @@ function drawKpiSummaries() {
   $('.kpi-summary:nth-child(3)>.header>.value').text(kpisMeanData[kpiNames.co])
   $('.kpi-summary:nth-child(4)>.header>.value').text(kpisMeanData[kpiNames.o3])
   $('.kpi-summary:nth-child(5)>.header>.value').text(kpisMeanData[kpiNames.pm25])
+  $('.kpi-summary:nth-child(6)>.header>.value').text(kpisMeanData[kpiNames.pm10])
   $('.kpi-summary:nth-child(1)>.footer').click(function(e) {
     clickViewDetail(kpiNames.aqi, e);
   });
@@ -21,6 +22,9 @@ function drawKpiSummaries() {
   });
   $('.kpi-summary:nth-child(5)>.footer').click(function(e) {
     clickViewDetail(kpiNames.pm25, e);
+  });
+  $('.kpi-summary:nth-child(6)>.footer').click(function(e) {
+    clickViewDetail(kpiNames.pm10, e);
   });
 }
 
@@ -153,7 +157,6 @@ function drawKpisLineChart() {
         .attr("transform", "translate(20,30)")
         .call(d3.axisLeft(y));
     }
-
   });
 }
 
@@ -161,7 +164,6 @@ $.ajax({
   url: "http://localhost:8000/data/kpi/mean"
 }).done(function(data) {
   kpisMeanData = JSON.parse(data);
-  console.log('get kpi mean data', kpisMeanData);
   var keys = Object.keys(kpisMeanData);
   for (var i = 0; i < keys.length; i++) {
     var key = keys[i];
@@ -170,15 +172,101 @@ $.ajax({
     }
   }
   drawKpiSummaries();
-  drawKpiHistogramChart();
+  // drawKpiHistogramChart();
 });
 
-$.ajax({ url: "http://localhost:8000/data/kpi/monthly" })
-  .done(function(data) {
-    kpisData = JSON.parse(data);
-    drawKpisLineChart();
+// $.ajax({ url: "http://localhost:8000/data/kpi/monthly" })
+//   .done(function(data) {
+//     kpisData = JSON.parse(data);
+//     drawKpisLineChart();
+//   });
+
+function drawKpiMonthlyData(monthlyData, month) {
+  var margin = { top: 20, right: 20, bottom: 30, left: 50 };
+  var childIndex = parseInt(month % 3) + 1;
+  var rowIndex = parseInt(month / 3) + 1;
+  console.log(childIndex + ',' + rowIndex)
+  var svg = d3
+    .select(".kpi-monthly-chart-container>.kpi-line-chart-row:nth-child(" + rowIndex + ") .kpi-line-chart-cell:nth-child(" + childIndex + ")"),
+    width = svg.attr("width") - margin.left - margin.right,
+    height = svg.attr("height") - margin.top - margin.bottom;
+  var kpis = getAllKpis();
+  var x = d3.scaleTime().rangeRound([0, width]);
+  var y = d3.scaleLinear().rangeRound([height, 0]);
+  var startDate = new Date(2016, (month), 1);
+  var endDate = new Date(2016, month, 0);
+  kpis.forEach(function(kpi, i) {
+    if (monthlyData.hasOwnProperty(kpi)) {
+      var data = [];
+      monthlyData[kpi].forEach(function(d) {
+        data.push({ date: new Date(d.Date), value: parseFloat(d.Value) });
+      });
+      x.domain(d3.extent(data, function(d) { return d.date; }));
+      y.domain([0, d3.max(data, function(d) { return d.value; })]);
+      var line = d3
+        .line()
+        .x(function(d) {
+          return x(d.date);
+        })
+        .y(function(d) {
+          return y(d.value);
+        });
+      var g = svg.append('g').attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      g
+        .append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", getKpiDashboardColor(i))
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 1.5)
+        .attr("d", line);
+      if (i === 0) {
+        svg.append('g')
+          .attr("transform", "translate(" + margin.left + "," + 0 + ")")
+          .call(d3.axisLeft(y));
+        var axisX = d3.scaleTime().rangeRound([0, width]);
+        var dates = [];
+        data.forEach(function(d, i) {
+          if (i % 10 === 0) {
+            dates.push(d.date);
+          }
+        });
+        axisX.domain(d3.extent(dates));
+        svg.append('g')
+          .attr("transform", "translate(" + margin.left + "," + (height + 10) + ")")
+          .call(d3.axisBottom(axisX).tickFormat(d3.timeFormat('%m-%d')))
+          .selectAll("text")
+          .attr('dy', '.15em')
+          .attr('dx', '-2.5em')
+          .attr("transform", "rotate(-65)");
+        svg.append("text")
+          .attr("transform",
+            "translate(" + (width / 2) + " ," +
+            (margin.top / 2) + ")")
+          .style("text-anchor", "middle")
+          .text((startDate.getMonth() + 1) + '-' + startDate.getFullYear());
+      }
+    }
   });
+}
+
+// load monthly kpi data
+var monthlyKpiData = [];
+for (var i = 1; i <= 12; i++) {
+  $.ajax({ url: "http://localhost:8000/data/sites/allkpis/monthly/data?month=" + i })
+    .done(function(data) {
+      // console.log('kpi monthly data ', JSON.parse(data));
+      var monthlyData = JSON.parse(data);
+      monthlyKpiData.push(monthlyData);
+      if (monthlyKpiData.length === 12) {
+        monthlyKpiData.map(function(data, j) {
+          drawKpiMonthlyData(data, j);
+        })
+      }
+    });
+};
 
 function getAllKpis() {
-  return ["AQI", "PM2.5", "PM2.5_24h", "PM10", "PM10_24h"];
+  return ["AQI", "SO2", "CO", "O3", "PM2.5", "PM10"];
 }

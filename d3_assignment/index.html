@@ -102,13 +102,45 @@
               <i class="fa fa-arrow-circle-right"></i>
             </div>
           </div>
+          <div class="kpi-summary">
+            <div class="header">
+              <div class="kpi">PM10</div>
+              <div class="value"></div>
+            </div>
+            <div class="footer">
+              <div class="text-label">View Details</div>
+              <i class="fa fa-arrow-circle-right"></i>
+            </div>
+          </div>
         </div>
 
-        <div class="kpi-line-chart">
+        <!--<div class="kpi-line-chart">
           <svg class="kpi-histogram-chart-svg" width="560" height="300" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round" />
           <svg class="kpi-line-chart-svg" width="560" height="300" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round" />
-        </div>
+        </div>-->
 
+        <div class="kpi-monthly-chart-container">
+          <div class="kpi-line-chart-row">
+            <svg class="kpi-line-chart-cell kpi-line-chart-january" width="300" height="300" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+            <svg class="kpi-line-chart-cell kpi-line-chart-febrary" width="300" height="300"></svg>
+            <svg class="kpi-line-chart-cell kpi-line-chart-march" width="300" height="300"></svg>
+          </div>
+          <div class="kpi-line-chart-row">
+            <svg class="kpi-line-chart-cell kpi-line-chart-january" width="300" height="300"></svg>
+            <svg class="kpi-line-chart-cell kpi-line-chart-febrary" width="300" height="300"></svg>
+            <svg class="kpi-line-chart-cell kpi-line-chart-march" width="300" height="300"></svg>
+          </div>
+          <div class="kpi-line-chart-row">
+            <svg class="kpi-line-chart-cell kpi-line-chart-january" width="300" height="300"></svg>
+            <svg class="kpi-line-chart-cell kpi-line-chart-febrary" width="300" height="300"></svg>
+            <svg class="kpi-line-chart-cell kpi-line-chart-march" width="300" height="300"></svg>
+          </div>
+          <div class="kpi-line-chart-row">
+            <svg class="kpi-line-chart-cell kpi-line-chart-january" width="300" height="300"></svg>
+            <svg class="kpi-line-chart-cell kpi-line-chart-febrary" width="300" height="300"></svg>
+            <svg class="kpi-line-chart-cell kpi-line-chart-march" width="300" height="300"></svg>
+          </div>
+        </div>
       </div>
 
       <div class="weather-map">
@@ -156,7 +188,7 @@
               <label class="kpi-selection">
                     <input class="pm10" type="checkbox" onclick='selectKpi(this)' />
                     <span class="pm10-label">PM10</span>
-                </label>
+              </label>
               <label class="kpi-selection">
                     <input class="co" type="checkbox" onclick='selectKpi(this)' />
                     <span class="co-label">CO</span>

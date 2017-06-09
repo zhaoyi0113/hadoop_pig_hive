@@ -33,6 +33,10 @@
   background-color: rgb(229, 165, 165);
 }
 
+.kpi-summary:nth-child(6) {
+  background-color: gray;
+}
+
 .kpi-summary>.header {
   display: flex;
   flex-direction: row;
@@ -85,4 +89,19 @@
 
 .kpi-line-chart-svg {
   margin-left: 50px;
+}
+
+.kpi-monthly-chart-container {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+}
+
+.kpi-monthly-chart-container>.kpi-line-chart-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.kpi-monthly-chart-container>.kpi-line-chart-row .kpi-line-chart-cell {
+  margin: 20px;
 }
