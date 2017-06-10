@@ -114,6 +114,7 @@
 .hourly-data-chart {
   display: flex;
   flex-direction: row;
+  align-self: center;
 }
 
 .site-selection-container {
