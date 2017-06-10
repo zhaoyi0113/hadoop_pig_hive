@@ -45,8 +45,7 @@ function drawHourData(siteIndex, data) {
     });
   svg
     .append("g")
-    .attr("margin-left", "20px")
-    .attr("transform", "translate(40," + (height + 10) + ")")
+    .attr("transform", "translate(30," + (height + 10) + ")")
     .call(d3.axisBottom(x));
   svg
     .append("g")
