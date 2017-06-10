@@ -215,7 +215,16 @@ queryDataBySiteAndDay <- function(site, date) {
   }
   return (returnValue)
 }
-
+# query all kpi mean value for the given site and date hour 
+queryDataBySiteAndDayHour <- function(site, date, hour) {
+  dateData <- cachedData[[date]]
+  returnValue <- data.frame(kpi=character(), value=double(), stringsAsFactors = FALSE)
+  for(kpi in names(dateData)){
+    sitesData <- dateData[[kpi]][c(-1,-2,-3)][[site]]
+    returnValue[nrow(returnValue)+1,] <- c(kpi, sitesData[as.numeric(hour)])
+  }
+  return (returnValue)
+}
 #y <- queryDataForYear('2016', 'PM2.5', 'DAY')
 #a <- y[c('Date', 'DongSi')]
 #b <- y[c('Date', 'TongZhou')]

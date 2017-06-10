@@ -66,8 +66,13 @@ getKpisMonthData <- function(month){
 }
 
 #* @get /data/site/date
-queryDataBySiteAndDay <- function(site, date){
+queryDataBySiteAndDayAPI <- function(site, date){
   toJSON(queryDataBySiteAndDay(site, date))
+}
+
+#* @get /data/site/date/hour
+queryDataBySiteAndDayHourAPI <- function(site, date, hour){
+  toJSON(queryDataBySiteAndDayHour(site, date, hour))
 }
 
 #* @post /sum

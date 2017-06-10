@@ -105,3 +105,29 @@
 .kpi-monthly-chart-container>.kpi-line-chart-row .kpi-line-chart-cell {
   margin: 20px;
 }
+
+.weather-site {
+  display: flex;
+  flex-direction: column;
+}
+
+.hourly-data-chart {
+  display: flex;
+  flex-direction: row;
+}
+
+.site-selection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-selection {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.site-selection-container {
+  margin: 20px;
+}
