@@ -1,5 +1,6 @@
 var site1Selection, site2Selection;
-var date, time;
+var date = new moment('2016-01-01').format('YYYYMMDD'),
+  time;
 
 function drawHourData(siteIndex, data) {
   // set the dimensions and margins of the graph
@@ -81,8 +82,18 @@ $(function() {
   });
   $("#datetimepicker12").on("dp.change", function(e) {
     date = e.date.format('YYYYMMDD');
+    if (time && date) {
+      searchDate(date, time);
+    }
+  });
+  $('#datetimepicker3').datetimepicker({
+    format: 'LT'
+  });
+  $("#datetimepicker3").on("dp.change", function(e) {
     time = parseInt(e.date.format('HH'));
-    searchDate(date, time);
+    if (time && date) {
+      searchDate(date, time);
+    }
   });
 });
 

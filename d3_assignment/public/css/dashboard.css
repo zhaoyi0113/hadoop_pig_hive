@@ -132,3 +132,16 @@
 .site-selection-container {
   margin: 20px;
 }
+
+.site-calendar {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-calendar .timepicker {
+  display: none;
+}
+
+.site-time-picker {
+  /*width: 200px;*/
+}
