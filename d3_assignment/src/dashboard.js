@@ -35,20 +35,7 @@ function clickViewDetail(kpi, e) {
   changeNavSelection('map');
 }
 
-function getKpiDashboardColor(i) {
-  switch (i) {
-    case 0:
-      return 'rgb(51, 122, 183)';
-    case 1:
-      return 'rgb(92, 184, 92)';
-    case 2:
-      return 'rgb(240, 173, 78)';
-    case 3:
-      return 'rgb(217, 83, 79)';
-    case 4:
-      return 'rgb(229, 165, 165)';
-  }
-}
+
 
 function drawKpiHistogramChart() {
   var svg = d3

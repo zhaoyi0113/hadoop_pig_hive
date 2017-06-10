@@ -105,3 +105,43 @@
 .kpi-monthly-chart-container>.kpi-line-chart-row .kpi-line-chart-cell {
   margin: 20px;
 }
+
+.weather-site {
+  display: flex;
+  flex-direction: column;
+}
+
+.hourly-data-chart {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.site-selection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-selection {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.site-selection-container {
+  margin: 20px;
+}
+
+.site-calendar {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-calendar .timepicker {
+  display: none;
+}
+
+.site-time-picker {
+  /*width: 200px;*/
+}

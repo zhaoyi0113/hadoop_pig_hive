@@ -12,14 +12,17 @@
     "@blueprintjs/core": "^1.17.1",
     "blueprintjs": "0.0.8",
     "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7",
     "d3": "^4.8.0",
     "d3-axis": "^1.0.7",
     "d3-geo": "^1.6.3",
     "d3-geomap": "^1.0.2",
     "d3-tip": "^0.7.1",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "express": "^4.15.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
-    "leaflet": "^1.0.3"
+    "leaflet": "^1.0.3",
+    "moment": "^2.18.1"
   }
 }
