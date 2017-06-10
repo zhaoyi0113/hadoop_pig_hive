@@ -168,6 +168,42 @@ querySiteDate <- function(site, year='2016', category='MONTH'){
   results
 }
 
+# return kpi value for each day on that month. 
+# it will return a data frame with two columns, Date and Value
+queryDataForMonthAllSites <- function(month, kpi){
+  year <- '2016'
+  startDate <- as.Date(str_c(year, '-', toString(month), '-01'))
+  endDate <- NA
+  if (month < 12) {
+    endDate <- as.Date(str_c(year, '-', toString(month + 1), '-01'))
+  } else{
+    endDate <- as.Date(str_c(year, '-12-31'))
+  }
+  date <- startDate
+  monthData <- data.frame(Date=character(), Value=double(), stringsAsFactors = FALSE)
+  while(date<endDate){
+    strDate <- format(date, '%Y%m%d')
+    dayData <- cachedData[[strDate]]
+    dayData <- dayData[[kpi]][c(-1,-2,-3)]
+    meanData <- mean(sapply(dayData, mean), na.rm = TRUE)
+    monthData[nrow(monthData)+1,] <- c(format(date, '%Y-%m-%d'), meanData);
+    date <- date + 1
+  }
+  return (monthData)
+}
+
+# return mean value for kpi for all sites.
+# return value is a list, key is the month string, value is a data.frame from queryDataForMonthAllSites method
+queryDataForAllMonthsAllSites <- function(month){
+  value <- list()
+  kpis <- c('AQI', 'SO2', 'CO', 'O3', 'PM2.5', 'PM10')
+  for(kpi in kpis){
+    ret <- queryDataForMonthAllSites(month, kpi);
+    value[[kpi]] <- ret
+  }
+  return (value)
+}
+
 #y <- queryDataForYear('2016', 'PM2.5', 'DAY')
 #a <- y[c('Date', 'DongSi')]
 #b <- y[c('Date', 'TongZhou')]
