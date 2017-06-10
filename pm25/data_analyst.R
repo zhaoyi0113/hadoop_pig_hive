@@ -204,6 +204,18 @@ queryDataForAllMonthsAllSites <- function(month){
   return (value)
 }
 
+# query all kpi mean value for the given site and date. The date is for day.
+queryDataBySiteAndDay <- function(site, date) {
+  dateData <- cachedData[[date]]
+  returnValue <- data.frame(kpi=character(), value=double(), stringsAsFactors = FALSE)
+  for(kpi in names(dateData)){
+    sitesData <- dateData[[kpi]][c(-1,-2,-3)][[site]]
+    meanValue <- mean(sitesData, na.rm = TRUE)
+    returnValue[nrow(returnValue)+1,] <- c(kpi, meanValue)
+  }
+  return (returnValue)
+}
+
 #y <- queryDataForYear('2016', 'PM2.5', 'DAY')
 #a <- y[c('Date', 'DongSi')]
 #b <- y[c('Date', 'TongZhou')]

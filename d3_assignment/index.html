@@ -5,6 +5,7 @@
   <link href="public/css/bootstrap.min.css" rel="stylesheet">
   <link href="public/css/bootstrap-theme.min.css" rel="stylesheet">
   <link href="public/css/font-awesome.min.css" rel="stylesheet">
+  <link href="public/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
   <link href="public/css/weather.css" rel="stylesheet">
   <link href="public/css/bootstrap-toggle.min.css" rel="stylesheet">
   <link href="public/css/dashboard.css" rel="stylesheet">
@@ -24,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-        <a class="navbar-brand" href="new-ui.html">Beijing Air Quality 2016</a>
+        <a class="navbar-brand" href="index.html">Beijing Air Quality 2016</a>
       </div>
       <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -38,6 +39,9 @@
           <li>
             <a href="#" onclick="changeNavSelection('map')"><i class="fa fa-fw fa-edit"></i> Map</a>
           </li>
+          <li>
+            <a href="#" onclick="changeNavSelection('site')"><i class="fa fa-fw fa-bar-chart"></i> Site</a>
+          </li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -47,6 +51,7 @@
       <div class="page-header">
         <input class="chart-map-toggle" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="warning" />
       </div>
+
       <div class="weather-Dashboard">
         <h1>
           Dashboard
@@ -161,6 +166,7 @@
           </svg>
         </div>
       </div>
+
       <div class="weather-Charts">
         <h1></h1>
         <div class="chart-container">
@@ -210,28 +216,39 @@
           </div>
         </div>
       </div>
-      <div class="weather-Statistics">
-        Statistics
+
+      <div class="weather-site">
+        <div style="overflow:hidden;">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <div id="datetimepicker12"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="weather-Sites">
-        Sites
-      </div>
+
     </div>
   </div>
 
   <script type='text/javascript' src="libs/d3.min.js"></script>
   <script type='text/javascript' src='libs/index.js'></script>
   <script type='text/javascript' src="libs/jquery.min.js"></script>
+  <script type='text/javascript' src="libs/moment.js"></script>
   <script type='text/javascript' src="libs/bootstrap.min.js"></script>
   <script type='text/javascript' src='libs/bootstrap-toggle.min.js'></script>
   <script type='text/javascript' src='libs/d3-axis.min.js'></script>
   <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
+  <script type='text/javascript' src="libs/bootstrap-datetimepicker.min.js"></script>
+
   <script type='text/javascript' src='./src/common.js'></script>
   <script type='text/javascript' src='./src/district_loc.js'></script>
   <script type='text/javascript' src='./src/router.js'></script>
   <script type='text/javascript' src='./src/dashboard.js'></script>
   <script type='text/javascript' src='./src/map.js'></script>
   <script type='text/javascript' src='./src/weather.js'></script>
+  <script type='text/javascript' src='./src/site.js'></script>
 </body>
 
 </html>
