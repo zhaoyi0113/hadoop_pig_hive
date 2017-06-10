@@ -14,7 +14,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 var selectedMapKpi = "Select";
-var kpiNameArray = ["AQI", "SO2", "CO", "O3", "PM2.5", "PM10"];
+var kpiNameArray = ["AQI", "SO2", "CO", "O3", "PM2.5", "PM10", "NO2"];
 var kpiNames = {
   aqi: kpiNameArray[0],
   so2: kpiNameArray[1],
@@ -22,6 +22,7 @@ var kpiNames = {
   o3: kpiNameArray[3],
   pm25: kpiNameArray[4],
   pm10: kpiNameArray[5],
+  no2: kpiNameArray[5],
 };
 
 function getKpiDashboardColor(i) {
@@ -38,5 +39,7 @@ function getKpiDashboardColor(i) {
       return 'rgb(229, 165, 165)';
     case 5:
       return 'gray';
+    case 6:
+      return 'lightgray';
   }
 }

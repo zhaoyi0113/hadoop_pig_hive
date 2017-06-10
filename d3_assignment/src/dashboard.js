@@ -8,6 +8,7 @@ function drawKpiSummaries() {
   $('.kpi-summary:nth-child(4)>.header>.value').text(kpisMeanData[kpiNames.o3])
   $('.kpi-summary:nth-child(5)>.header>.value').text(kpisMeanData[kpiNames.pm25])
   $('.kpi-summary:nth-child(6)>.header>.value').text(kpisMeanData[kpiNames.pm10])
+  $('.kpi-summary:nth-child(7)>.header>.value').text(kpisMeanData[kpiNames.no2])
   $('.kpi-summary:nth-child(1)>.footer').click(function(e) {
     clickViewDetail(kpiNames.aqi, e);
   });
@@ -26,6 +27,9 @@ function drawKpiSummaries() {
   $('.kpi-summary:nth-child(6)>.footer').click(function(e) {
     clickViewDetail(kpiNames.pm10, e);
   });
+  $('.kpi-summary:nth-child(7)>.footer').click(function(e) {
+    clickViewDetail(kpiNames.no2, e);
+  });
 }
 
 function clickViewDetail(kpi, e) {
@@ -34,8 +38,6 @@ function clickViewDetail(kpi, e) {
   selectMapKpi(selectedMapKpi, e);
   changeNavSelection('map');
 }
-
-
 
 function drawKpiHistogramChart() {
   var svg = d3
@@ -254,5 +256,5 @@ for (var i = 1; i <= 12; i++) {
 };
 
 function getAllKpis() {
-  return ["AQI", "SO2", "CO", "O3", "PM2.5", "PM10"];
+  return ["AQI", "SO2", "CO", "O3", "PM2.5", "PM10", "NO2"];
 }
