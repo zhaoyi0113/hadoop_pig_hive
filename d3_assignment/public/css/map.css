@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .weather-map .map-view-header .map-district-select-label {

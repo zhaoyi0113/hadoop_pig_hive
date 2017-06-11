@@ -25,6 +25,8 @@ var kpiNames = {
   no2: kpiNameArray[5],
 };
 
+var selectedMapDistrict = 'AQI';
+
 function getKpiDashboardColor(i) {
   switch (i) {
     case 0:

@@ -1,4 +1,10 @@
 var location;
+var mapDate = '20160101',
+  mapTime = '1';
+var mapSitesData = {};
+var mymap = L.map('mapid').setView([39.90236, 116.39053], 9);
+var mapMarks = [];
+
 location["DongSi"] = { longitude: 116.421543, latitude: 39.929411 };
 var color = d3
   .scaleLinear()
@@ -12,7 +18,7 @@ function selectMapKpi(name, e) {
   $(".map-districts-label").text(name);
   selectedMapDistrict = name;
   $(".map-districts-label").append('<span class="caret"></span>');
-  // drawKpiOnMap('#beijing-map', kpiDataBySites[name]);
+  updateMarks();
 }
 
 function loadInitialData() {
@@ -52,115 +58,8 @@ function fillFn(d) {
   return color(nameLength(d));
 }
 
-function drawMap(selector, jsonFile) {
-  var svg = d3.select(selector);
-  var width = 960;
-  var height = 600;
-  d3.json(jsonFile, function(error, json) {
-    if (error) throw error;
-    // console.log("json:", json);
-    projection = d3.geoMercator().fitSize([width, height], json);
-    var path = d3.geoPath().projection(projection);
-
-    function mouseover(d) {
-      // Highlight hovered province
-      d3.select(this).style("fill", "orange");
-
-      // Draw effects
-      // textArt(nameFn(d));
-    }
-
-    function mouseout(d) {
-      // Reset province color
-      svg.selectAll("path").style("fill", function(d) {
-        return fillFn(d);
-      });
-
-      // Remove effect text
-      // effectLayer.selectAll("text").transition().style("opacity", 0).remove();
-
-      // Clear province name
-      // bigText.text("");
-    }
-
-    svg
-      .selectAll("path")
-      .data(json.features)
-      .enter()
-      .append("path")
-      .attr("d", path)
-      .style("stroke", "red")
-      .style("stroke-width", "1")
-      .style("fill", fillFn)
-      .on("mouseover", mouseover)
-      .on("mouseout", mouseout);
-
-    drawKpiOnMap("#beijing-map");
-  });
-}
-
-function drawKpiOnMap(selector, siteData) {
-  var svg = d3.select(selector);
-  d3.selectAll(selector + "  .site-container").remove();
-  d3.selectAll(selector + "  .site-container-text").remove();
-  svg
-    .selectAll("rect")
-    .data(Object.keys(districtLocation))
-    .enter()
-    .append("rect")
-    .attr("class", "site-container map-site-rect")
-    .attr("x", function(d) {
-      const t = projection([
-        districtLocation[d].longitude,
-        districtLocation[d].latitude
-      ]);
-      return t[0];
-    })
-    .attr("y", function(d) {
-      const t = projection([
-        districtLocation[d].longitude,
-        districtLocation[d].latitude
-      ]);
-      return t[1];
-    })
-    .attr("height", "20px")
-    .attr("width", "80px")
-    .attr("fill", "yellow");
-
-  svg
-    .selectAll("text")
-    .data(Object.keys(districtLocation))
-    .enter()
-    .append("text")
-    .attr("class", "site-container-text")
-    .attr("dx", function(d) {
-      const t = projection([
-        districtLocation[d].longitude,
-        districtLocation[d].latitude
-      ]);
-      return t[0] + 3;
-    })
-    .attr("dy", function(d) {
-      const t = projection([
-        districtLocation[d].longitude,
-        districtLocation[d].latitude
-      ]);
-      return t[1] + 12;
-    })
-    .attr("font-size", "8px")
-    .text(function(d) {
-      if (siteData && siteData[d]) {
-        var v = parseFloat(Math.round(siteData[d] * 100) / 100).toFixed(2);
-        return d + ': ' + v;
-      }
-      return d;
-    });
-};
-
-
 // drawMap("#beijing-map", "public/geojson/beijing.geojson");
 function drawMap() {
-  var mymap = L.map('mapid').setView([39.90236, 116.39053], 10);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 18,
@@ -170,14 +69,72 @@ function drawMap() {
     id: 'mapbox.streets'
   }).addTo(mymap);
 
+}
+
+function updateMarks() {
+  mapMarks.forEach(function(mark) {
+    mymap.removeLayer(mark);
+  });
+  mapMarks = [];
   var keys = Object.keys(districtLocation);
   keys.forEach(function(key) {
     if (districtLocation.hasOwnProperty(key)) {
       var district = districtLocation[key];
       var marker = L.marker([district.latitude, district.longitude]).addTo(mymap);
-      marker.bindPopup(`<b>${key}</b>`);
+      var values = mapSitesData[key];
+      var v = 0;
+      values.forEach(function(value) {
+        if (value.kpi === selectedMapDistrict) {
+          v = value.value;
+        }
+      })
+      marker.bindPopup(`<b>${key}:${v}</b>`);
+      mapMarks.push(marker);
     }
   });
 }
+
+function loadMapData() {
+  var keys = Object.keys(districtLocation);
+  var times = 0;
+  keys.forEach(function(key) {
+    if (districtLocation.hasOwnProperty(key)) {
+      $.ajax({ url: "http://localhost:8000/data/site/date/hour?site=" + key + '&date=' + mapDate + '&hour=' + mapTime })
+        .done(function(data) {
+          var hourData = JSON.parse(data);
+          hourData.map(function(d) {
+            if (d.value !== 'NaN' && d.value !== NaN) {
+              d.value = parseFloat(d.value);
+            } else {
+              d.value = 0;
+            }
+          });
+          mapSitesData[key] = hourData;
+          times++;
+          if (times >= 34) {
+            updateMarks();
+          }
+        });
+    }
+  });
+}
+
+$('#map-datetimepicker').datetimepicker({
+  minDate: new Date('2016-01-01'),
+  maxDate: new Date('2016-12-31'),
+  defaultDate: new Date('2016-01-01')
+});
+
+$("#map-datetimepicker").on("dp.change", function(e) {
+  mapDate = e.date.format('YYYYMMDD');
+  mapTime = e.date.format('HH');
+  console.log('get date ', mapDate, mapTime)
+  if (mapTime && mapDate) {
+    // searchDate(date, time);
+    loadMapData();
+  }
+});
+
 loadInitialData();
 drawMap();
+loadMapData();
