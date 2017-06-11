@@ -2,312 +2,313 @@
 <html>
 
 <head>
-  <link href="public/css/bootstrap.min.css" rel="stylesheet">
-  <link href="public/css/bootstrap-theme.min.css" rel="stylesheet">
-  <link href="public/css/font-awesome.min.css" rel="stylesheet">
-  <link href="public/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-  <link href="public/css/weather.css" rel="stylesheet">
-  <link href="public/css/bootstrap-toggle.min.css" rel="stylesheet">
-  <link href="public/css/dashboard.css" rel="stylesheet">
-  <link href="public/css/map.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="" />
+    <link href="public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="public/css/font-awesome.min.css" rel="stylesheet">
+    <link href="public/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="public/css/weather.css" rel="stylesheet">
+    <link href="public/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link href="public/css/dashboard.css" rel="stylesheet">
+    <link href="public/css/map.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="" />
 </head>
 
 <body>
-  <div>
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+    <div>
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-        <a class="navbar-brand" href="index.html">Beijing Air Quality 2016</a>
-      </div>
-      <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav side-nav">
-          <li class="active">
-            <a href="#" onclick="changeNavSelection('Dashboard')"><i class="fa fa-fw fa-dashboard"></i> Overview</a>
-          </li>
-          <li>
-            <a href="#" onclick="changeNavSelection('Charts')"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
-          </li>
-          <li>
-            <a href="#" onclick="changeNavSelection('map')"><i class="fa fa-fw fa-edit"></i> Map</a>
-          </li>
-          <li>
-            <a href="#" onclick="changeNavSelection('site')"><i class="fa fa-fw fa-bar-chart"></i> Comparison</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </nav>
+                <a class="navbar-brand" href="index.html">Beijing Air Quality 2016</a>
+            </div>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="#" onclick="changeNavSelection('Dashboard')"><i class="fa fa-fw fa-dashboard"></i> Overview</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="changeNavSelection('Charts')"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="changeNavSelection('map')"><i class="fa fa-fw fa-edit"></i> Map</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="changeNavSelection('site')"><i class="fa fa-fw fa-bar-chart"></i> Comparison</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
 
-    <div class="container col-md-8 col-xs-8 col-sm-8">
-      <div class="page-header">
-        <input class="chart-map-toggle" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="warning" />
-      </div>
+        <div class="container col-md-8 col-xs-8 col-sm-8">
+            <div class="page-header">
+                <input class="chart-map-toggle" type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="warning" />
+            </div>
 
-      <div class="weather-Dashboard">
-        <h1>
-          Monthly value of air quality in Beijing 35 monitoring stations in 2016
-        </h1>
-        <div class="kpi-summaries">
-          <div class="kpi-summary">
-            <div class="header">
-              <div class="kpi">AQI</div>
-              <div class="value"></div>
-            </div>
-            <div class="footer">
-              <div class="text-label">View Details</div>
-              <i class="fa fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="kpi-summary">
-            <div class="header">
-              <div class="kpi">SO2</div>
-              <div class="value"></div>
-            </div>
-            <div class="footer">
-              <div class="text-label">View Details</div>
-              <i class="fa fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="kpi-summary">
-            <div class="header">
-              <div class="kpi">CO</div>
-              <div class="value"></div>
-            </div>
-            <div class="footer">
-              <div class="text-label">View Details</div>
-              <i class="fa fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="kpi-summary">
-            <div class="header">
-              <div class="kpi">O3</div>
-              <div class="value"></div>
-            </div>
-            <div class="footer">
-              <div class="text-label">View Details</div>
-              <i class="fa fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="kpi-summary">
-            <div class="header">
-              <div class="kpi">PM2.5</div>
-              <div class="value"></div>
-            </div>
-            <div class="footer">
-              <div class="text-label">View Details</div>
-              <i class="fa fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="kpi-summary">
-            <div class="header">
-              <div class="kpi">PM10</div>
-              <div class="value"></div>
-            </div>
-            <div class="footer">
-              <div class="text-label">View Details</div>
-              <i class="fa fa-arrow-circle-right"></i>
-            </div>
-          </div>
-          <div class="kpi-summary">
-            <div class="header">
-              <div class="kpi">NO2</div>
-              <div class="value"></div>
-            </div>
-            <div class="footer">
-              <div class="text-label">View Details</div>
-              <i class="fa fa-arrow-circle-right"></i>
-            </div>
-          </div>
-        </div>
+            <div class="weather-Dashboard">
+                <h1>
+                    Monthly value of air quality in Beijing 35 monitoring stations in 2016
+                </h1>
+                <div class="kpi-summaries">
+                    <div class="kpi-summary">
+                        <div class="header">
+                            <div class="kpi">AQI</div>
+                            <div class="value"></div>
+                        </div>
+                        <div class="footer">
+                            <div class="text-label">View Details</div>
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </div>
+                    </div>
+                    <div class="kpi-summary">
+                        <div class="header">
+                            <div class="kpi">SO2</div>
+                            <div class="value"></div>
+                        </div>
+                        <div class="footer">
+                            <div class="text-label">View Details</div>
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </div>
+                    </div>
+                    <div class="kpi-summary">
+                        <div class="header">
+                            <div class="kpi">CO</div>
+                            <div class="value"></div>
+                        </div>
+                        <div class="footer">
+                            <div class="text-label">View Details</div>
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </div>
+                    </div>
+                    <div class="kpi-summary">
+                        <div class="header">
+                            <div class="kpi">O3</div>
+                            <div class="value"></div>
+                        </div>
+                        <div class="footer">
+                            <div class="text-label">View Details</div>
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </div>
+                    </div>
+                    <div class="kpi-summary">
+                        <div class="header">
+                            <div class="kpi">PM2.5</div>
+                            <div class="value"></div>
+                        </div>
+                        <div class="footer">
+                            <div class="text-label">View Details</div>
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </div>
+                    </div>
+                    <div class="kpi-summary">
+                        <div class="header">
+                            <div class="kpi">PM10</div>
+                            <div class="value"></div>
+                        </div>
+                        <div class="footer">
+                            <div class="text-label">View Details</div>
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </div>
+                    </div>
+                    <div class="kpi-summary">
+                        <div class="header">
+                            <div class="kpi">NO2</div>
+                            <div class="value"></div>
+                        </div>
+                        <div class="footer">
+                            <div class="text-label">View Details</div>
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </div>
+                    </div>
+                </div>
 
-        <!--<div class="kpi-line-chart">
+                <!--<div class="kpi-line-chart">
           <svg class="kpi-histogram-chart-svg" width="560" height="300" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round" />
           <svg class="kpi-line-chart-svg" width="560" height="300" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round" />
         </div>-->
 
-        <div class="kpi-monthly-chart-container">
-          <div class="kpi-line-chart-row">
-            <svg class="kpi-line-chart-cell kpi-line-chart-january" width="300" height="300"></svg>
-            <svg class="kpi-line-chart-cell kpi-line-chart-febrary" width="300" height="300"></svg>
-            <svg class="kpi-line-chart-cell kpi-line-chart-march" width="300" height="300"></svg>
-          </div>
-          <div class="kpi-line-chart-row">
-            <svg class="kpi-line-chart-cell kpi-line-chart-january" width="300" height="300"></svg>
-            <svg class="kpi-line-chart-cell kpi-line-chart-febrary" width="300" height="300"></svg>
-            <svg class="kpi-line-chart-cell kpi-line-chart-march" width="300" height="300"></svg>
-          </div>
-          <div class="kpi-line-chart-row">
-            <svg class="kpi-line-chart-cell kpi-line-chart-january" width="300" height="300"></svg>
-            <svg class="kpi-line-chart-cell kpi-line-chart-febrary" width="300" height="300"></svg>
-            <svg class="kpi-line-chart-cell kpi-line-chart-march" width="300" height="300"></svg>
-          </div>
-          <div class="kpi-line-chart-row">
-            <svg class="kpi-line-chart-cell kpi-line-chart-january" width="300" height="300"></svg>
-            <svg class="kpi-line-chart-cell kpi-line-chart-febrary" width="300" height="300"></svg>
-            <svg class="kpi-line-chart-cell kpi-line-chart-march" width="300" height="300"></svg>
-          </div>
-        </div>
-      </div>
+                <div class="kpi-monthly-chart-container">
+                    <div class="kpi-line-chart-row">
+                        <svg class="kpi-line-chart-cell kpi-line-chart-january" width="300" height="300"></svg>
+                        <svg class="kpi-line-chart-cell kpi-line-chart-febrary" width="300" height="300"></svg>
+                        <svg class="kpi-line-chart-cell kpi-line-chart-march" width="300" height="300"></svg>
+                    </div>
+                    <div class="kpi-line-chart-row">
+                        <svg class="kpi-line-chart-cell kpi-line-chart-january" width="300" height="300"></svg>
+                        <svg class="kpi-line-chart-cell kpi-line-chart-febrary" width="300" height="300"></svg>
+                        <svg class="kpi-line-chart-cell kpi-line-chart-march" width="300" height="300"></svg>
+                    </div>
+                    <div class="kpi-line-chart-row">
+                        <svg class="kpi-line-chart-cell kpi-line-chart-january" width="300" height="300"></svg>
+                        <svg class="kpi-line-chart-cell kpi-line-chart-febrary" width="300" height="300"></svg>
+                        <svg class="kpi-line-chart-cell kpi-line-chart-march" width="300" height="300"></svg>
+                    </div>
+                    <div class="kpi-line-chart-row">
+                        <svg class="kpi-line-chart-cell kpi-line-chart-january" width="300" height="300"></svg>
+                        <svg class="kpi-line-chart-cell kpi-line-chart-febrary" width="300" height="300"></svg>
+                        <svg class="kpi-line-chart-cell kpi-line-chart-march" width="300" height="300"></svg>
+                    </div>
+                </div>
+            </div>
 
-      <div class="weather-map">
-        <div class="map-view-header">
-          <span class="map-district-select-label label label-primary">Select:</span>
-          <div class="map-district-select-dropdown dropdown">
-            <button class="btn btn-default dropdown-toggle map-districts-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <div class="weather-map">
+                <div class="map-view-header">
+                    <span class="map-district-select-label label label-primary">Select:</span>
+                    <div class="map-district-select-dropdown dropdown">
+                        <button class="btn btn-default dropdown-toggle map-districts-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             All
             <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu map-districts-dropdown" aria-labelledby="dropdownMenu1">
-            </ul>
-          </div>
+                        <ul class="dropdown-menu map-districts-dropdown" aria-labelledby="dropdownMenu1">
+                        </ul>
+                    </div>
 
-          <div class="form-group map-datetime-picker col-md-4 col-xs-4 col-sm-4">
-            <div class='input-group date' id='map-datetimepicker'>
-              <input type='text' class="form-control" />
-              <span class="input-group-addon">
+                    <div class="form-group map-datetime-picker col-md-4 col-xs-4 col-sm-4">
+                        <div class='input-group date' id='map-datetimepicker'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
-              </span>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="map-container">
+                    <div id="mapid"></div>
+                    <!--<svg id="beijing-map" width="960" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">-->
+                    <!--</svg>-->
+                </div>
             </div>
-          </div>
 
-        </div>
-        <div class="map-container">
-          <div id="mapid"></div>
-          <!--<svg id="beijing-map" width="960" height="600" class="beijing-map" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round">-->
-          <!--</svg>-->
-        </div>
-      </div>
-
-      <div class="weather-Charts">
-        <h1></h1>
-        <div class="chart-container">
-          <div class="search-bar">
-            <div class="district-select-container">
-              <span class="district-select-label">District</span>
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle districts-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <div class="weather-Charts">
+                <h1>Comparison among major pollutants at the certain monitoring stations</h1>
+                <div class="chart-container">
+                    <div class="search-bar">
+                        <div class="district-select-container">
+                            <span class="district-select-label">District</span>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle districts-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Districts
                 <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu districts-dropdown" aria-labelledby="dropdownMenu1">
-                </ul>
-              </div>
-            </div>
-            <div class="pm-kpi-checkbox">
-              <label class="kpi-selection">
+                                <ul class="dropdown-menu districts-dropdown" aria-labelledby="dropdownMenu1">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pm-kpi-checkbox">
+                            <label class="kpi-selection">
                     <input class="aqi" type="checkbox"  checked onclick='selectKpi(this)'/>
                     <span class="aqi-label">AQI</span>
                 </label>
-              <label class="kpi-selection">
+                            <label class="kpi-selection">
                     <input class="pm2_5" type="checkbox"  onclick='selectKpi(this)' />
                     <span class="pm2_5-label">PM2.5</span>
                 </label>
-              <label class="kpi-selection">
+                            <label class="kpi-selection">
                     <input class="pm10" type="checkbox" onclick='selectKpi(this)' />
                     <span class="pm10-label">PM10</span>
               </label>
-              <label class="kpi-selection">
+                            <label class="kpi-selection">
                     <input class="co" type="checkbox" onclick='selectKpi(this)' />
                     <span class="co-label">CO</span>
                 </label>
-              <label class="kpi-selection">
+                            <label class="kpi-selection">
                     <input class="no2" type="checkbox" onclick='selectKpi(this)' />
                     <span class="no2-label">NO2</span>
                 </label>
-              <label class="kpi-selection">
+                            <label class="kpi-selection">
                     <input class="so2" type="checkbox" onclick='selectKpi(this)' />
                     <span class="so2-label">SO2</span>
                 </label>
+                        </div>
+                        <button class="btn btn-default search-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Loading " onclick="searchAction()">Search</button>
+                    </div>
+
+                    <div class="data-chart-container">
+                        <svg class='data-chart' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+                    </div>
+                </div>
             </div>
-            <button class="btn btn-default search-button" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Loading " onclick="searchAction()">Search</button>
-          </div>
 
-          <div class="data-chart-container">
-            <svg class='data-chart' width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
-          </div>
-        </div>
-      </div>
+            <div class="weather-site">
+                <h1>Comparison between two monitoring stations with the value of AQI and major pollutants</h1>
+                <div style="overflow:hidden;" class="site-calendar">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="datetimepicker12"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="weather-site">
-        <div style="overflow:hidden;" class="site-calendar">
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-6">
-                <div id="datetimepicker12"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="site-time-picker col-sm-2 ">
-          <div class="form-group">
-            <div class='input-group date' id='datetimepicker3'>
-              <input type='text' class="form-control" />
-              <span class="input-group-addon">
+                <div class="site-time-picker col-sm-2 ">
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker3'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
                 <span class="glyphicon glyphicon-time"></span>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="hourly-data-chart">
-          <div class="site-selection-container">
-            <div class="site-selection">
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle site1-button-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hourly-data-chart">
+                    <div class="site-selection-container">
+                        <div class="site-selection">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle site1-button-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Site
                 <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu site1-dropdown" aria-labelledby="dropdownMenu1">
-                </ul>
-              </div>
-            </div>
-            <svg class="hourly-data-chart-svg-site1" width="300" height="300"></svg>
-          </div>
-          <div class="site-selection-container">
-            <div class="site-selection">
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle site2-button-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <ul class="dropdown-menu site1-dropdown" aria-labelledby="dropdownMenu1">
+                                </ul>
+                            </div>
+                        </div>
+                        <svg class="hourly-data-chart-svg-site1" width="300" height="300"></svg>
+                    </div>
+                    <div class="site-selection-container">
+                        <div class="site-selection">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle site2-button-label" type="button" id="districts-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Site
                 <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu site2-dropdown" aria-labelledby="dropdownMenu1">
-                </ul>
-              </div>
+                                <ul class="dropdown-menu site2-dropdown" aria-labelledby="dropdownMenu1">
+                                </ul>
+                            </div>
+                        </div>
+                        <svg class="hourly-data-chart-svg-site2" width="300" height="300"></svg>
+                    </div>
+                </div>
             </div>
-            <svg class="hourly-data-chart-svg-site2" width="300" height="300"></svg>
-          </div>
-        </div>
-      </div>
 
+        </div>
     </div>
-  </div>
 
-  <script type='text/javascript' src="libs/d3.min.js"></script>
-  <script type='text/javascript' src='libs/index.js'></script>
-  <script type='text/javascript' src="libs/jquery.min.js"></script>
-  <script type='text/javascript' src="libs/moment.js"></script>
-  <script type='text/javascript' src="libs/bootstrap.min.js"></script>
-  <script type='text/javascript' src='libs/bootstrap-toggle.min.js'></script>
-  <script type='text/javascript' src='libs/d3-axis.min.js'></script>
-  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
-  <script type='text/javascript' src="libs/bootstrap-datetimepicker.min.js"></script>
+    <script type='text/javascript' src="libs/d3.min.js"></script>
+    <script type='text/javascript' src='libs/index.js'></script>
+    <script type='text/javascript' src="libs/jquery.min.js"></script>
+    <script type='text/javascript' src="libs/moment.js"></script>
+    <script type='text/javascript' src="libs/bootstrap.min.js"></script>
+    <script type='text/javascript' src='libs/bootstrap-toggle.min.js'></script>
+    <script type='text/javascript' src='libs/d3-axis.min.js'></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
+    <script type='text/javascript' src="libs/bootstrap-datetimepicker.min.js"></script>
 
-  <script type='text/javascript' src='./src/common.js'></script>
-  <script type='text/javascript' src='./src/district_loc.js'></script>
-  <script type='text/javascript' src='./src/router.js'></script>
-  <script type='text/javascript' src='./src/dashboard.js'></script>
-  <script type='text/javascript' src='./src/map.js'></script>
-  <script type='text/javascript' src='./src/weather.js'></script>
-  <script type='text/javascript' src='./src/site.js'></script>
+    <script type='text/javascript' src='./src/common.js'></script>
+    <script type='text/javascript' src='./src/district_loc.js'></script>
+    <script type='text/javascript' src='./src/router.js'></script>
+    <script type='text/javascript' src='./src/dashboard.js'></script>
+    <script type='text/javascript' src='./src/map.js'></script>
+    <script type='text/javascript' src='./src/weather.js'></script>
+    <script type='text/javascript' src='./src/site.js'></script>
 </body>
 
 </html>
