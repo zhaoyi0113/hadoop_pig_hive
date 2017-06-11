@@ -4,6 +4,7 @@ var mapDate = '20160101',
 var mapSitesData = {};
 var mymap = L.map('mapid').setView([39.90236, 116.39053], 9);
 var mapMarks = [];
+var clickedSite = undefined;
 
 location["DongSi"] = { longitude: 116.421543, latitude: 39.929411 };
 var color = d3
@@ -81,6 +82,7 @@ function updateMarks() {
     if (districtLocation.hasOwnProperty(key)) {
       var district = districtLocation[key];
       var marker = L.marker([district.latitude, district.longitude]).addTo(mymap);
+      marker.site = key;
       var values = mapSitesData[key];
       var v = 0;
       values.forEach(function(value) {
@@ -90,8 +92,34 @@ function updateMarks() {
       })
       marker.bindPopup(`<b>${key}:${v}</b>`);
       mapMarks.push(marker);
+      marker.on('popupopen', function(e) {
+        clickedSite = e.target.site;
+        drawDetailTable(e.target.site);
+      })
     }
   });
+  drawDetailTable();
+}
+
+function drawDetailTable() {
+  var site = clickedSite;
+  if (site === undefined) {
+    return;
+  }
+  $('.map-detail-table .panel-heading').text(site + ' AQI:' + mapSitesData[site][0].value);
+  kpiNameArray.forEach(function(name, i) {
+    var value = 0;
+    mapSitesData[site].forEach(function(d) {
+      if (d.kpi === name) {
+        value = parseFloat(Math.round(d.value * 100) / 100).toFixed(2);
+      }
+    });
+    if (i > 0) {
+      var className = name.replace('.', '');
+      $(`.table-${className}-value`).text(value);
+    }
+  });
+  $('.map-detail-table').show();
 }
 
 function loadMapData() {
@@ -134,7 +162,7 @@ $("#map-datetimepicker").on("dp.change", function(e) {
     loadMapData();
   }
 });
-
+$('.map-detail-table').hide();
 loadInitialData();
 drawMap();
 loadMapData();
