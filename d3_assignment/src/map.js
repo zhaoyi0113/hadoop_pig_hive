@@ -5,24 +5,18 @@ var color = d3
   .domain([1, 20])
   .clamp(true)
   .range(["#0000", "#409A99"]);
+selectedMapKpi = kpiNameArray[0];
 
 function selectMapKpi(name, e) {
-  e.preventDefault();
+  e && e.preventDefault();
   $(".map-districts-label").text(name);
   selectedMapDistrict = name;
   $(".map-districts-label").append('<span class="caret"></span>');
-  drawKpiOnMap('#beijing-map', kpiDataBySites[name]);
+  // drawKpiOnMap('#beijing-map', kpiDataBySites[name]);
 }
 
 function loadInitialData() {
-  // $(".map-districts-dropdown").append(
-  //   '<li><a href="#" class="map-districts-dropdown-all">All</a></li>'
-  // );
-  // $(".map-districts-dropdown-all").click(function(e) {
-  //   selectMapKpi('All', e);
-  // });
-
-  Object.keys(kpiNames).forEach(function(key) {
+  Object.keys(kpiNames).forEach(function(key, i) {
     var value = kpiNames[key];
     $(".map-districts-dropdown").append(
       '<li><a href="#" class="map-districts-dropdown-' + key + '">' + value + "</a></li>"
@@ -165,11 +159,8 @@ function drawKpiOnMap(selector, siteData) {
 
 
 // drawMap("#beijing-map", "public/geojson/beijing.geojson");
-$(document).ready(function() {
-
-
-
-  var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+function drawMap() {
+  var mymap = L.map('mapid').setView([39.90236, 116.39053], 10);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 18,
@@ -179,7 +170,14 @@ $(document).ready(function() {
     id: 'mapbox.streets'
   }).addTo(mymap);
 
-});
-
-
+  var keys = Object.keys(districtLocation);
+  keys.forEach(function(key) {
+    if (districtLocation.hasOwnProperty(key)) {
+      var district = districtLocation[key];
+      var marker = L.marker([district.latitude, district.longitude]).addTo(mymap);
+      marker.bindPopup(`<b>${key}</b>`);
+    }
+  });
+}
 loadInitialData();
+drawMap();
